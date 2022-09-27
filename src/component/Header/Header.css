@@ -1,0 +1,52 @@
+
+header{
+    position: fixed;
+    width: 100%;
+    display: block;
+    justify-content: space-between;
+    /* height: 5rem; */
+    /* border: 1px solid black; */
+    align-items: center;
+    /* padding: 0 3rem; */
+    z-index: 1000;
+    background: var(--main-color);
+}
+
+header .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 150px;
+}
+
+header .logo img{
+    width: 9.5rem;
+}
+
+header .navbar, .userControl{
+    display: flex;
+    column-gap: 1.5rem;
+}
+
+header .navbar a:active{
+    color: var(--main-color);
+}
+
+header .userControl .notification .bx{
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-top: 4px;
+}
+
+header .navbar, .user{
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+header .dropDown{
+    border: 1px solid black;
+    position: absolute;
+    right: 9%;
+    top: 60%;
+    opacity: 0;
+}
