@@ -12,7 +12,7 @@ function Header() {
                             <div><NavLink to='/'>Over View</NavLink></div>
                             <div><NavLink to='/class'>Class</NavLink></div>
                             <div><NavLink to='/TimeTable'>Time Table</NavLink></div>
-                            <div><NavLink to='/News'>Newa</NavLink></div>
+                            <div><NavLink to='/News'>News</NavLink></div>
                         </div>
 
                         <div className='userControl'>

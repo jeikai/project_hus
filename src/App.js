@@ -3,6 +3,8 @@ import { Routes,Route } from 'react-router-dom';
 import Header from './component/Header/Header';
 import OverView from './component/Body/OverView/OverView';
 import Classes from './component/Body/Class/Class';
+import TimeTable from './component/Body/TimeTable/TimeTable';
+import News from './component/Body/News/News';
 function App() {
     return (
         <>
