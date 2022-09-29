@@ -4,10 +4,7 @@ header{
     width: 100%;
     display: block;
     justify-content: space-between;
-    /* height: 5rem; */
-    /* border: 1px solid black; */
     align-items: center;
-    /* padding: 0 3rem; */
     z-index: 1000;
     background: var(--main-color);
 }
@@ -23,7 +20,7 @@ header .logo img{
     width: 9.5rem;
 }
 
-header .navbar, .userControl{
+header .navbar{
     display: flex;
     column-gap: 1.5rem;
 }
@@ -32,15 +29,67 @@ header .navbar a:active{
     color: var(--main-color);
 }
 
+header .userControl{
+    display: flex;
+    column-gap: 1.8rem;
+    /* background-color: var(--btn); */
+}
+
+header .userControl .notification{
+    position: relative;
+}
+
 header .userControl .notification .bx{
     color: var(--text-color);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 4px;
+}
+
+header .userControl .notification span{
+    /* z-index: -1; */
+    /* display: inline-block; */
+    color: var(--text-color);
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    background-color: red;
+    min-width: 2rem;
+    text-align: center;
+    padding: 0 0.2rem 0.2rem 0;
+    border-radius: 1rem;
 }
 
 header .navbar, .user{
     color: var(--text-color);
     font-size: 1.2rem;
+}
+
+.user{
+    display: flex;
+    /* gap: 1rem; */
+}
+
+.user div{
+    height: 2.5rem;
+    padding-top: 0.5rem;
+    /* background-color: gray; */
+    position: absolute;
+    right: 3.5rem;
+    padding-left: 1rem;
+}
+
+
+.user button, .user img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 3rem;
+    object-fit: cover;
+    z-index: 1;
+}
+
+header .navbar .active{
+    color: var(--bx);
+    background-color: var(--main-color);
 }
 
 header .dropDown{
