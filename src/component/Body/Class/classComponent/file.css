@@ -1,0 +1,100 @@
+#homework .find-homework{
+    display: flex;
+}
+
+#homework .find-homework>div:first-child{
+    width: 100%;
+}
+
+#homework .find-homework>div:first-child form{
+    display: flex;
+    margin: 1rem 1rem;
+    padding: 0rem 1rem;
+    border: 1px solid #d8dcf0;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+#homework .find-homework>div:nth-child(2){
+    height: 3rem;
+    margin-top: 1rem;
+    width: 20%;
+    margin-left: 8%;
+    /* border-radius: 0.5rem ; */
+    border: 1px solid #d8dcf0;
+    /* text-align: center; */
+}
+
+#homework .find-homework>div:first-child input{
+    margin: 1rem 1rem;
+    width: 100%;
+}
+
+#homework .find-homework>div:first-child .bx{
+    margin-top: 0.7rem;
+    font-size: 1.2rem;
+}
+
+.list-homework{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    position: relative;
+}
+
+.list-homework .item-homework{
+    width: 80.5%;
+}
+
+.item-homework img{
+    width: 3rem;
+    height: 3rem;
+}
+
+.item-homework>div{
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    border: 1px solid #d8dcf0;
+    display: flex;
+    gap: 1rem;
+    /* justify-content: center; */
+    align-items: center;
+    border-radius: 0.5rem;
+}
+
+.item-homework>div p:last-child{
+    /* text-align: right; */
+    /* margin-left: 2rem; */
+    margin-left: 75%;
+}
+
+.list-homework .detail-homework{
+    position: absolute;
+    left: 82%;
+    top: 15%;
+    width: 15%;
+    height: 200px;
+    border: 1px solid black;
+    padding: 1rem 1rem;
+    
+}
+
+.list-homework .detail-homework div:first-child {
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+}
+
+.detail{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.detail-homework button{
+    cursor: pointer;
+    margin-top: 0.7rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: var(--btn);
+    border-radius: 0.5rem;
+}

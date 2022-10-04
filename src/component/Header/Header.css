@@ -7,6 +7,7 @@ header{
     align-items: center;
     z-index: 1000;
     background: var(--main-color);
+    /* box-shadow: 3px 10px 100px rgba(0, 0, 0, 0.06); */
 }
 
 header .nav{
@@ -27,6 +28,12 @@ header .navbar{
 
 header .navbar a:active{
     color: var(--main-color);
+}
+
+.headerActive{
+    color: var(--bx);
+    background-color: var(--main-color);
+    transition: all 0.3s;
 }
 
 header .userControl{

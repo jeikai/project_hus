@@ -6,6 +6,7 @@
     outline: 0;
     text-decoration: none;
     scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
 }
 
 :root{

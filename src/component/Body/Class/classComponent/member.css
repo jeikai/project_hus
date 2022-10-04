@@ -1,0 +1,91 @@
+#member .heading p{
+    font-weight: 500;
+}
+/* 
+#member{
+    margin-left: 1rem;
+} */
+#member .find-member{
+    margin-top: 1rem;
+    display: flex;
+}
+
+#member .find-member form{
+    width: 80%;
+    margin: 0 1rem;
+    padding: 0rem 1rem;
+    display: flex;
+    gap: 1rem;
+    border: 1px solid #d8dcf0;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+#member .find-member form .bx{
+    font-size: 1.5rem;
+    background-color: #fff;
+}
+
+#member .find-member form button{
+    background-color: #fff;
+}
+
+#member .find-member form input{
+    padding: 1rem 0rem;
+    width: 100%;
+    font-size: 1.1rem;
+}
+/* 
+#member .find-member form input:focus-within + form{
+    border: 1px solid var(--main-color);
+} */
+
+#member .find-member>button{
+    background-color: var(--btn);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    /* font-size: 1.1rem; */
+}
+
+#member .list-member{
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    width: 100%;
+}
+#member .list-member table{
+    text-align: left;
+    width: 100%;
+}
+
+#member .list-member table th:first-child{
+    width: 60%;
+}
+
+#member .list-member table tbody tr{
+    /* margin: 1rem 0; */
+    padding: 1rem 0;
+}
+
+#member .list-member table tbody tr td:first-child{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#member .list-member table tbody tr td:first-child div{
+    margin-top: 1rem;
+    line-height: 2;
+}
+
+#member .list-member table img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+}
+
+#member .list-member table p{
+    font-weight: bolder;
+}

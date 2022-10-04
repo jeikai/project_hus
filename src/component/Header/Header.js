@@ -35,7 +35,7 @@ function Header() {
                                         
                                          onClick={() => setSelected(index)}
                                     >
-                                        <Link className = {selected === index ? 'active' : ''} to={item.link}>{item.headerName}</Link>
+                                        <Link className = {selected === index ? 'headerActive' : ''} to={item.link}>{item.headerName}</Link>
                                     </div>
                                 )
                             })}

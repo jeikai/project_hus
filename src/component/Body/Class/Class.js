@@ -1,6 +1,11 @@
 import { useState } from 'react'
+import { Router, useNavigate, Route, Routes } from "react-router-dom";
+import DropDown from '../../DropDown'
 import './Class.css'
+import InClass from './InClass';
+
 export default function Classes() {
+    const navigate = useNavigate();
     const [selected, setSelected] = useState(0);
 
     const dataClass = [
@@ -47,11 +52,16 @@ export default function Classes() {
         },
     ]
 
-    const [items, setItem] = useState(AllClass);
+    const [items, setItem] = useState(()=>{
+        const updatedItem = AllClass.filter(curItem => curItem.type === 0)  
+        return updatedItem;  
+    });
+
     const filterClass = (index) => {
         const updatedItem = AllClass.filter(curItem => {
             return curItem.type === index
         })
+
         setItem(updatedItem)
         setSelected(index)
     }
@@ -76,28 +86,24 @@ export default function Classes() {
                 </div>
                 
                 <div className='selectFilter'>
-                    <select>
-                        <option>A - Z</option>
-                        <option>Z - A</option>
-                        <option>Cũ nhất</option>
-                        <option>Mới nhất</option>
-                    </select>
+                    <DropDown></DropDown>
                 </div>         
     
                 <button className='findClass'><span>+</span> Tìm lớp học</button>
             </div>
             
             <div className="MulBoxClass">
-                {items.map((item, index) =>{
+                    {items.map((item, index) =>{
                     return(
-                        <div className="BoxClass" key={index}>
+                        <div className="BoxClass" key={index}
+                            onClick={()=> navigate(`/class/${item.id}/newfeed`)}
+                        >
                             <img src={item.image} alt='' />
                             <div className="content">   
                                 <div>
                                     <p><h4>{item.name}</h4></p>
                                     <p>{item.id}</p>
                                 </div>
-
                                 <div>
                                     <button>...</button>
                                 </div>
