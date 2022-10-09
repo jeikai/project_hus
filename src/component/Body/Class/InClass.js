@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Route, Routes, useNavigate } from "react-router-dom"
+import { BrowserRouter, Route, Router, Routes, useNavigate, useParams } from "react-router-dom"
 import HomeWork from "./classComponent/homeWork";
 import Member from "./classComponent/member";
 import NewsFeed from "./classComponent/newfeed"
@@ -8,17 +8,18 @@ import File from "./classComponent/file";
 
 
 export default function InClass() {
+    const id = useParams().id;
     const navigate = useNavigate();
     const itemInClass = [
         {
             icon: <i class='bx bx-news'></i>,
             title: 'Bảng tin',
-            link:'class/newfeed'
+            link: `/class/${id}/newfeed`,
         },
         {
             icon: <i class='bx bx-customize'></i>,
             title: 'Lịch học',
-            link: '/class/3/schedule',
+            link: `/class/${id}/schedule`,
         },
         {
             icon: <i class='bx bx-user' ></i>,
@@ -43,8 +44,10 @@ export default function InClass() {
     ]
 
     const [selected, setSelected] = useState(0)
+    
     const handleClick = (index, link) => {
-        navigate(link)
+        // navigate(link)
+        //debugger
         setSelected(index)
     }
     return(
@@ -60,6 +63,8 @@ export default function InClass() {
                         <p>Ten Giao Vien</p>
                     </div>
                     <p>Danh muc</p>
+                    {/* <BrowserRouter> */}
+                    {/* <Routes> */}
                     <div className="list">
                         {itemInClass.map((item, index) =>{
                             return(
@@ -72,18 +77,13 @@ export default function InClass() {
                             )
                         })}
                     </div>
+                    {/* </Routes> */}
+                    {/* </BrowserRouter> */}
                 </div>
             </div>
             <div className="contentClass">
-                {/* <Routes>
-                    <Route path="/newfeed" element={<NewsFeed />}/>
-                    <Route path='/class/:id/schedule' element={<Schedule />}/>
-                </Routes>                 */}
-                {/* <NewsFeed></NewsFeed> */}
-                {/* <Schedule></Schedule> */}
-                {/* <Member></Member> */}
-                {/* <HomeWork></HomeWork> */}
-                <File></File>
+                {selected == 0 ? <NewsFeed /> : 
+                    selected == 1 ? <Schedule /> :selected == 2 ? <Member /> : selected == 3 ? <HomeWork /> : <File/>} 
             </div>
         </section>
     )

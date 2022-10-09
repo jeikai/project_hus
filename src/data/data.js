@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const data = [
     {
         icon: <i class='bx bxs-customize'></i>,
@@ -28,5 +30,4 @@ const data = [
         array: ["Tên lớp", "Giáo viên", "ĐTB"],
     }
 ]
-
 export default data;
