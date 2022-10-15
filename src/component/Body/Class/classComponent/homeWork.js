@@ -11,7 +11,7 @@ export default function HomeWork() {
                     <div>
                         <form>
                             <input type='text' placeholder="Tìm kiếm ..."/>
-                            <i class='bx bx-search'></i>
+                            <i className='bx bx-search'></i>
                         </form>
                     </div>
                     <div><DropDown></DropDown></div>

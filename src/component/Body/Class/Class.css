@@ -224,3 +224,7 @@
     /* height: 659.5px; */
     /* height: 450px; */
 }
+
+.noneSelected{
+    display: none;
+}

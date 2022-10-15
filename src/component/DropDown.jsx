@@ -14,15 +14,15 @@ const styles = {
         'color': '#333', 
         'display': 'flex',
         'align-items': 'center',
-        'justify-content': 'space-between',
-        'user-select': 'none'
+        'justifyContent': 'space-between',
+        'userSelect': 'none'
     },
     'dropDown-content':{
         'position': 'absolute',
         'top': '8%',
         'padding': '15px',
         'background': '#fff',
-        'box-shadow': '3px 3px 10px 6px rgba(0, 0, 0, 0.06)',
+        'boxShadow': '3px 3px 10px 6px rgba(0, 0, 0, 0.06)',
         'font-weight': '500',
         'color': '#333',
         'width': '82%',

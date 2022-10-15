@@ -2,7 +2,6 @@ import './App.css';
 import { Routes,Route } from 'react-router-dom';
 import Header from './component/Header/Header';
 import OverView from './component/Body/OverView/OverView';
-
 import TimeTable from './component/Body/TimeTable/TimeTable';
 import News from './component/Body/News/News';
 import Classes from './component/Body/Class/Class';

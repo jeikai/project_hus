@@ -43,7 +43,7 @@ function Header() {
 
                         <div className='userControl'>
                             <div className='notification'>
-                                <i class='bx bxs-bell-ring'></i>
+                                <i className='bx bxs-bell-ring'></i>
                                 <span>1</span>
                             </div>
                             <div className='user'>

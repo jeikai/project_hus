@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 import { Router, useNavigate, Route, Routes } from "react-router-dom";
 import DropDown from '../../DropDown'
 import './Class.css'
-import InClass from './InClass';
 import axios from 'axios';
+import { useParams } from 'react-router-dom'
 export default function Classes() {
     const navigate = useNavigate();
+    const id = useParams().id; 
+    console.log(id);
     const [selected, setSelected] = useState(0);
 
     const dataClass = [
@@ -19,50 +21,17 @@ export default function Classes() {
         }
     ]
 
-    // const AllClass = [
-    //     {
-    //         type: 1,
-    //         image: 'https://static.remove.bg/remove-bg-web/3ad3b721d276f1af1fb7121aff638a866139749a/assets/start-1abfb4fe2980eabfbbaaa4365a0692539f7cd2725f324f904565a9a744f8e214.jpg',
-    //         name: 'Class 1', 
-    //         id: '1'
-    //     },
-    //     {
-    //         type: 0,
-    //         image: 'https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg',
-    //         name: 'Class 2', 
-    //         id: '2'
-    //     },
-    //     {
-    //         type: 0,
-    //         image: 'https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg',
-    //         name: 'Class 3', 
-    //         id: '3'
-    //     },
-    //     {
-    //         type: 0,
-    //         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlz6xw4VEcJZvzfbArrBC66fX-OyxHCz_zSQ&usqp=CAU',
-    //         name: 'Class 4', 
-    //         id: '4'
-    //     },
-    //     {
-    //         type: 0,
-    //         image: 'https://img6.thuthuatphanmem.vn/uploads/2022/02/12/background-chat-va-dep-nhat_100426880.jpg',
-    //         name: 'Class 5', 
-    //         id: '5'
-    //     },
-    // ]
-
     const [AllClass, setAllClass] = useState([]);
     useEffect(() => {
-            axios.get('http://localhost:3000/src/database/AllClass.php',)
+            axios.get('http://localhost:8000/database/AllClass.php',)
                  .then(function(response){
                     console.log(response.data);
                     setAllClass(response.data);
                 });    
     }, [])
-    
+
     const [items, setItem] = useState(()=>{
-        const updatedItem = AllClass.filter(curItem => curItem.type === 0)  
+        const updatedItem = AllClass.filter(curItem => curItem.type === 1)  
         return updatedItem;  
     });
 
@@ -102,10 +71,14 @@ export default function Classes() {
             </div>
             
             <div className="MulBoxClass">
-                    {AllClass.map((item, index) =>{
+                    {items.map((item, index) =>{
                     return(
                         <div className="BoxClass" key={index}
-                            onClick={()=> navigate(`/class/${item.classId}`)}
+                            onClick={()=> {
+                                if(selected === 1){
+                                    navigate(`/class/${item.classId}`)
+                                }
+                            }}
                         >
                             <img src={item.classImage} alt='' />
                             <div className="content">   
