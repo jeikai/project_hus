@@ -1,0 +1,25 @@
+
+
+.active9{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+    transform: translateY(0px) ;
+    animation: fadeIn 0.7s ease-out ;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.2;}
+    to{ opacity: 1;}    
+}
+
+.modal-dialog{
+    animation: comeIn 0.5s ease-out;
+}
+
+@keyframes comeIn {
+    from { transform: translateY(-100px) ;}
+    to{transform: translateY(0px) ;}    
+}
+
+

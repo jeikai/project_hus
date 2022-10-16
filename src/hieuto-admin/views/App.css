@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    scroll-padding-top: 6rem;
+}
+
+:root{
+    --text-color: #F7F7F7;
+    --main-color: #25408f;
+    --btn: #3cb4e7;
+    --text2-color: #FFC258;
+}
+
+
+body{
+  position: relative;
+  background-color: var(--text-color);
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.my-container{
+  width: calc(100% - 78px);
+  position: absolute;
+  left: 78px;
+  height: 100%;
+  transition: all 0.5s ease;
+  z-index: 0;
+  overflow: auto;
+}
+
+
+.mainBodyActive{
+  left: 240px;
+  width: calc(100% - 240px);
+}
