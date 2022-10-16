@@ -32,6 +32,7 @@ import './styles.css';
             if(response.data !== 0){
                 localStorage.setItem('name', response.data[0].studentName)
                 localStorage.setItem('email', user.email)
+                localStorage.setItem('studentId', response.data[0].studentId)
                 localStorage.setItem('role', 0)
                 // swal("Good job!", "You clicked the button!", "success");
                 window.location.reload();

@@ -1,8 +1,29 @@
-import { useState } from 'react'
+import axios from 'axios';
+import { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom';
 import DropDown from './../../../DropDown'
 import './homeWork.css'
 export default function HomeWork() {
     const [isActive, setIsActive] = useState(false);
+    const navigate = useNavigate();
+
+    const id = useParams().id
+    // console.log(id)
+    const [homeWorks, setHomeWorks] = useState([]);
+    useEffect(() => {
+            axios.get(`http://localhost:8000/database/homework.php/${id}`)
+                .then(function(response){
+                    console.log(response.data);
+                    setHomeWorks(response.data);
+                });    
+    }, [])
+
+    const doHomeWork = (homeWorkId, file) => {
+        localStorage.setItem('file', file);
+        // console.log(homeWorkId);
+        navigate(`/doHomeWork/${homeWorkId}`);
+    }
+    const [selected, setSelected] = useState(0)
     return(
         <div id="homework">
             <div className="heading">Bài tập</div>
@@ -19,40 +40,47 @@ export default function HomeWork() {
                 <div className='list-homework'
                     onClick={() => setIsActive(!isActive)}
                 >
-                    <div className='item-homework'>
-                        <div>
-                            <div>
-                                <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg' />
+                    {homeWorks.map((item, index) => {
+                        return(    
+                            <div className='item-homework' key={index}
+                                onClick={() => setSelected(index)}
+                            >
+                                <div>
+                                    <div>
+                                        <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg' />
+                                    </div>
+                                    <p>{item.ExerciseName}</p>
+                                    <p>{item.statusExercise}</p>
+                                </div>
+                                        {isActive && selected === index && (
+                                <div className='detail-homework'>
+                                    <table className="">
+                                        <thead>
+                                            <tr>
+                                                <th>Status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Bắt đầu</td>
+                                                <td>{item.startingDay}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Hạn chót</td>
+                                                <td>{item.deadline}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colSpan="2"><button onClick={() => doHomeWork(item.ExerciseId, item.ExerciseFile)}>Vào làm bài</button></td>
+                                                {/* <td>{item.statusExercise}</td> */}
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
                             </div>
-                            <p>Teen bai</p>
-                            <p>Status</p>
-                        </div>
-                    </div>
-                    {isActive && (
-                        <div className='detail-homework'>
-                            <div>Status</div>
-                            <div>
-                                <p></p>
-                                <div className='detail'>
-                                    <span>Ngay tao</span>
-                                    <span> 12/3</span>
-                                </div>
-                                <div className='detail'>
-                                    <span>Bat dau</span>
-                                    <span> 12/3</span>
-                                </div>
-                                <div className='detail'>
-                                    <span>Han chot</span>
-                                    <span> 12/3</span>
-                                </div>
-                                <div className='detail'>
-                                    <span>Thoi gian</span>
-                                    <span> 12/3</span>
-                                </div>
-                            </div>
-                            <button>Vao lam bai</button>
-                        </div>
-                    )}
+                        )
+                    })}
                 </div>
             </div>
         </div>

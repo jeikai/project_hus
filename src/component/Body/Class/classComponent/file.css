@@ -43,7 +43,8 @@
 }
 
 .list-homework .item-homework{
-    width: 80.5%;
+    margin-left: 1rem;
+    width: calc(78% - 1rem);
 }
 
 .item-homework img{
@@ -72,9 +73,9 @@
     position: absolute;
     left: 82%;
     top: 15%;
-    width: 15%;
+    width: 20%;
     height: 200px;
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 1rem 1rem;
     
 }
@@ -124,10 +125,10 @@
   
   /* For all pages */
   .all-page-container {
+    /* margin-left: 0rem; */
     height: 100%;
-    max-height: 20px;
+    /* max-height: 20px; */
     overflow: auto;
-    width: 100%;
+    /* padding: 2rem 2rem; */
+    /* width: 1%; */
   }
-
-  /* .canvas */

@@ -1,0 +1,26 @@
+#doHomeWork{
+    display: flex;
+}
+
+#doHomeWork .upFilePdf{
+    /* border: 1px solid black; */
+    /* justify-content: center;
+    align-items: center; */
+    margin: 10rem 10rem;
+    /* display: inline-block; */
+}
+
+#doHomeWork .upFilePdf div{
+    width: 100%;
+    padding: 2rem 2rem;
+}
+
+#doHomeWork .upFilePdf button{
+    width: 60%;
+    margin-left: 2rem;
+    padding: 1rem 1rem;
+    background-color: var(--main-color);
+    color: var(--bx);
+    border-radius: 1rem;
+    cursor: pointer;
+}

@@ -2,7 +2,7 @@ import './App.css';
 import { Routes,Route } from 'react-router-dom';
 import Header from './component/Header/Header';
 import OverView from './component/Body/OverView/OverView';
-import TimeTable from './component/Body/TimeTable/TimeTable';
+import Timetable from './component/Body/TimeTable/Timetable';
 import News from './component/Body/News/News';
 import Classes from './component/Body/Class/Class';
 import InClass from './component/Body/Class/InClass';
@@ -11,6 +11,7 @@ import NewsFeed from './component/Body/Class/classComponent/newfeed';
 import Test from './component/Body/Class/temp';
 import Login from './login/Login';
 import { useState } from 'react';
+import DoHomeWork from './component/Body/Class/classComponent/doHomeWork';
 
 // import Schedule from './component/Body/Class/classComponent/schedule'
 function App() {
@@ -33,8 +34,9 @@ function App() {
                         <Route path='/class' element={<Classes />}/>
                         <Route path='/class/:id' element={<InClass />}/>
                         {/* <Route path='/class/:id/schedule' element={<Schedule />}/> */}
-                        <Route path='/timeTable' element={<TimeTable />}/>
+                        <Route path='/timeTable' element={<Timetable />}/>
                         <Route path='/news' element={<News />}/>
+                        <Route path='/doHomeWork/:id' element={<DoHomeWork />}/>
                     </Routes>
                 </>
                 : 'hhaaa'

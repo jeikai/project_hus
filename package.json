@@ -10,6 +10,7 @@
     "axios": "^1.1.2",
     "boxicons": "^2.1.4",
     "corn": "^0.0.1",
+    "draftjs-to-html": "^0.9.1",
     "pdfjs-dist": "^2.6.347",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

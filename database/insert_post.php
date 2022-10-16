@@ -25,7 +25,7 @@
                 $file_size = $_FILES['file']['size'];
                 $file_tmp_name = $_FILES['file']['tmp_name'];  
                 $generated_file_name = time().'-'.$file_name;
-                $destination_path = "../assets/newsfeed/${generated_file_name}";
+                $destination_path = "../public/assets/newsfeed/${generated_file_name}";
                 $file_extension = explode('.', $file_name);
                 $file_extension = strtolower(end($file_extension));
                 if(in_array($file_extension, $permitted_extensions)) {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Menu from '../Menu';
+// import Menu from '../Menu';
 import './Timetable.css';
-import '../Menu.css';
+// import '../Menu.css';
 import axios from 'axios';
 function Timetable() {
     const [selected, setSelected] = useState(0);
@@ -183,8 +183,8 @@ function Timetable() {
 
   return (
     <section>
-    <Menu/>
-    <div className='body'>
+    {/* <Menu/> */}
+    <div className=''>
     <table>
       <thead>
         <tr>

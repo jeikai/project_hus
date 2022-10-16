@@ -18,11 +18,6 @@ export default function InClass() {
             link: `/class/${id}/newfeed`,
         },
         {
-            icon: <i className='bx bx-customize'></i>,
-            title: 'Lịch học',
-            link: `/class/${id}/schedule`,
-        },
-        {
             icon: <i className='bx bx-user' ></i>,
             title: 'Thành viên',
             link: '/member',
@@ -130,7 +125,7 @@ export default function InClass() {
             </div>
             <div className="contentClass">
                 {selected === 0 ? <NewsFeed newsfeed={newsfeed} reloadPosts={reloadPosts} /> : 
-                    selected === 1 ? <Schedule /> :selected === 2 ? <Member students={students}/> : selected === 3 ? <HomeWork /> : <File documents={documents}/>} 
+                    selected === 1 ? <Member students={students}/> : selected === 2 ? <HomeWork /> : <File documents={documents}/>} 
             </div>
         </section>
     )

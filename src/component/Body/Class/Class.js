@@ -6,8 +6,6 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom'
 export default function Classes() {
     const navigate = useNavigate();
-    const id = useParams().id; 
-    console.log(id);
     const [selected, setSelected] = useState(0);
 
     const dataClass = [
@@ -22,27 +20,31 @@ export default function Classes() {
     ]
 
     const [AllClass, setAllClass] = useState([]);
+    const [items, setItem] = useState([]);
+
+    const filterClass = (index) => {
+        const updatedItem = AllClass.filter(curItem => {
+            return curItem.type === index
+        })
+        console.log(index);
+        setItem(updatedItem)
+        setSelected(index)
+    }
+    
+
     useEffect(() => {
             axios.get('http://localhost:8000/database/AllClass.php',)
                  .then(function(response){
                     console.log(response.data);
                     setAllClass(response.data);
                 });    
+            filterClass(0)
     }, [])
 
-    const [items, setItem] = useState(()=>{
-        const updatedItem = AllClass.filter(curItem => curItem.type === 1)  
-        return updatedItem;  
-    });
+    
 
-    const filterClass = (index) => {
-        const updatedItem = AllClass.filter(curItem => {
-            return curItem.type === index
-        })
+    
 
-        setItem(updatedItem)
-        setSelected(index)
-    }
     return(
         <section id='class'>
             <div>
@@ -75,7 +77,7 @@ export default function Classes() {
                     return(
                         <div className="BoxClass" key={index}
                             onClick={()=> {
-                                if(selected === 1){
+                                if(selected !== 1){
                                     navigate(`/class/${item.classId}`)
                                 }
                             }}
