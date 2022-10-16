@@ -21,6 +21,11 @@ function Header() {
             headerName: 'News',
         }
     ]
+
+    const Logout = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
     return(
         <header>
                     <div className='nav'>
@@ -50,18 +55,8 @@ function Header() {
                                 <button>
                                     <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg'/>
                                 </button>
-                                <div>UserName</div>
+                                <div><i onClick={Logout} className='bx bx-log-out'></i></div>
                             </div>
-                        </div>
-
-                        <div className='dropDown'>
-                            <ul>
-                                <li><a>1</a></li>
-                                <li><a>1</a></li>
-                                <li><a>1</a></li>
-                                <li><a>1</a></li>
-                                <li><a>1</a></li>
-                            </ul>
                         </div>
 
                     </div>
