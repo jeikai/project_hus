@@ -1,0 +1,32 @@
+tr {
+    height: 50px;
+}
+table {
+    font-size: 20px;
+}
+.type_input {
+    border: 1px black solid;
+    height: 30px;
+    width: 230px;
+    border-radius: 5px;
+}
+.type_input:hover{
+    border: 1px red solid;
+}
+.submit {
+    border: 1px black solid;
+    background-color: greenyellow;
+    border-radius: 5px;
+    height: 40px;
+    width: 80px;
+}
+.submit:hover {
+    border: 1px red solid;
+}
+.time {
+    border: 1px black solid;
+    height: 30px;
+    border-radius: 5px;
+    width: 70px;
+    margin-left: 5px;
+}

@@ -38,7 +38,7 @@ class TeacherLogin extends React.Component {
              });
              localStorage.setItem('name', response.data.teacherName)
              localStorage.setItem('email', response.data.email)
-             localStorage.setItem('studentId', response.data.teacherId)
+             localStorage.setItem('teacherId', response.data.teacherId)
              if(response.data.email === "rabiloo1@gmail.com" && response.data.teacherPassword === "rabiloo" ){
                 localStorage.setItem('role', 2)
              }else{
@@ -55,7 +55,6 @@ class TeacherLogin extends React.Component {
         else{
             toast.error("Something went wrong!!");
         }
-
      }
 
     render() {

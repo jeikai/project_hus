@@ -13,10 +13,6 @@ import Login from './login/Login';
 import TeacherLogin from './login/TeacherLogin';
 import { useState } from 'react';
 import DoHomeWork from './component/Body/Class/classComponent/doHomeWork';
-<<<<<<< HEAD
-=======
-
-
 // Import from admin
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,15 +26,24 @@ import Admin_EditNew from './hieuto-admin/views/Body/News/EditNew';
 import Admin_News from './hieuto-admin/views/Body/News/News';
 import Admin_AddUser from './hieuto-admin/views/Body/Users/AddUser';
 import Admin_Users from './hieuto-admin/views/Body/Users/Users';
->>>>>>> 40fbe6730670e01f7e2d4bc221299dee6745fbbf
 
+//import from teacher
+import TeacherHeader from './phuc_component/Header/Header';
+import TeacherMain from './phuc_component/Body/Main';
+import TeacherClass from './phuc_component/Body/Class/Class';
+import TeacherTimetable from './phuc_component/Body/Timetable/Timetable';
+import TeacherHomework from './phuc_component/Body/Homework/Homework';
+import TeacherAssignment from './phuc_component/Body/Assignment/Assignment';
+import TeacherDocument from './phuc_component/Body/Document/Document';
+import TeacherDocumentEdit from './phuc_component/Body/Document/DocumentEdit';
+import TeacherAssignmentEdit from './phuc_component/Body/Assignment/AssignmentEdit';
+import TeacherHomeworkEdit from './phuc_component/Body/Homework/HomeworkEdit';
 // import Schedule from './component/Body/Class/classComponent/schedule'
 function App() {
     const [login, setLogin] = useState({
         mail: localStorage.getItem('email'),
         name: localStorage.getItem('name'),
         role: localStorage.getItem('role')
-
     })
 
     //This is props and states of hieu-to-admin
@@ -70,7 +75,20 @@ function App() {
                     </Routes>
                 </>
                 : login.mail !== null && login.name !== null && login.role === '1' ?
-                     "Cai cua phuc de day"
+                <>
+                <TeacherHeader/>
+                <Routes>
+                    <Route exact path='/' element={<TeacherMain />}/>
+                    <Route path='/class' element={<TeacherClass />} />
+                    <Route path='/btvn' element={<TeacherHomework />} />
+                    <Route path='/btvn/btvn/:id' element={<TeacherHomeworkEdit />} />
+                    <Route path='/timetable' element={<TeacherTimetable />} />
+                    <Route path='/assignment' element={<TeacherAssignment />} />
+                    <Route path='/assignment/assignment/:id' element={<TeacherAssignmentEdit />} />
+                    <Route path='/document' element={<TeacherDocument />} />
+                    <Route path='/document/document/:id' element={<TeacherDocumentEdit />} />
+                </Routes>
+            </>
                 : 
                 <>
                     <Admin_SideNav myActive={active} updateActive={upDateMyContainerActive}/>

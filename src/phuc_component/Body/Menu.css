@@ -1,0 +1,58 @@
+.menu{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* top: 5.2rem; */
+    width: 20%;
+    height: 100%;
+    background: var(--text-color);
+    padding-top: 2rem;
+}
+
+.menu Link{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 3rem;
+    margin-left: 2rem;
+    border-radius: 1rem;
+    width: 14rem;
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    transition: all 500ms ease;
+}
+.menu Link:hover{
+    cursor: pointer;
+}
+
+.menu Link {
+    background: var(--btn);
+    margin-left: 1rem !important;
+}
+
+.menu Link .bx{
+    font-size: 1.5rem;
+}
+
+.body_teacher{
+    position: relative;
+    left: 20%;
+    width: 70%;
+    background-color: white;
+    padding: 1rem 3rem;
+}
+
+.menuItem_teacher {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 3rem;
+    margin-left: 2rem;
+    border-radius: 1rem;
+    width: 14rem;
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    transition: all 500ms ease;
+}
