@@ -37,6 +37,7 @@
 
 .list-homework{
     display: flex;
+    flex-direction: column;;
     gap: 1rem;
     width: 100%;
     position: relative;
@@ -44,6 +45,7 @@
 
 .list-homework .item-homework{
     width: 80.5%;
+    
 }
 
 .item-homework img{
@@ -62,13 +64,13 @@
     border-radius: 0.5rem;
 }
 
-.item-homework>div p:last-child{
+.item-homework>div:first-child p:last-child{
     /* text-align: right; */
     /* margin-left: 2rem; */
     margin-left: 75%;
 }
 
-.list-homework .detail-homework{
+ .detail-homework{
     position: absolute;
     left: 82%;
     top: 15%;
@@ -79,7 +81,7 @@
     
 }
 
-.list-homework .detail-homework div:first-child {
+.detail-homework div:first-child {
     font-weight: bolder;
     margin-bottom: 0.5rem;
 }

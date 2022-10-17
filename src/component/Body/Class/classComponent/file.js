@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import DropDown from './../../../DropDown'
 import './homeWork.css'
+import './file.css'
 import ViewFile from './viewFile';
 export default function File(props) {
     const documents = props.documents;
+
     const [isActive, setIsActive] = useState(true);
     const [viewPdf, setViewPdf] = useState('');    
     return(
@@ -47,7 +49,7 @@ export default function File(props) {
         </div>
         {!isActive && (
             <div className='all-page-container'>
-                <ViewFile viewPdf={viewPdf}/>
+                <ViewFile isActive = {isActive} setIsActive={setIsActive} viewPdf={viewPdf}/>
             </div>
         )}
         </>

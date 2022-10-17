@@ -5,15 +5,18 @@ import './newsfeed.css'
 import swal from 'sweetalert';
 export default function NewsFeed(props) {
     const id = useParams().id;
-    console.log(id);
+    // console.log(id);
     const newsfeed = props.newsfeed
     const reloadPosts = props.reloadPosts
     const [comment, setComments] = useState([])
-    useEffect(() => {
+    const AllComments = () => {
         axios.get(`http://localhost:8000/database/comment.php`)
             .then(function(response){
                 setComments(response.data);
             });
+    }
+    useEffect(() => {
+        AllComments()
     }, [])
 
     const fileInputRef=useRef();
@@ -30,7 +33,7 @@ export default function NewsFeed(props) {
         classId: id
     })
     // setPost({...post, classId: id})
-    const {content, file} = post;
+    // const {content, file} = post;
     const handleChange = (e) =>{
     //   console.log(e.target.files[0].name);
     //   setFiles(e.target.files[0]);
@@ -39,7 +42,7 @@ export default function NewsFeed(props) {
       let element = document.getElementsByClassName('post-image')
       element[0].style.display = "block"
     }
-    console.log(post)
+    // console.log(post)
     const submitForm = async (e) => {
         e.preventDefault()
 
@@ -57,6 +60,32 @@ export default function NewsFeed(props) {
                 let element = document.getElementsByClassName('post-image')
                 element[0].style.display = "none"
                 reloadPosts()
+            }
+        })
+    }
+    const [input, setInput] = useState('')
+    const handleSubmit = async (id) =>{ 
+        let element = {
+            id: id,
+            input: input,
+            name: localStorage.getItem('name')
+        }
+
+        // console.log(element)
+        await axios.post(`http://localhost:8000/database/insert_comment.php`, element ,{
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          })
+          .then(function(response){
+            // setPost(response.data)
+            console.log(response.data);
+            if(response.data === 0){
+                swal("Good job!", "You clicked the button!", "success");
+                // setPost({content: '', file: [], classId: id})
+                setInput('')
+                AllComments()
+                // setInput('')
             }
         })
     }
@@ -95,8 +124,8 @@ export default function NewsFeed(props) {
                                         <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg' />
                                     </div>
                                     <div>
-                                        <p>Họ và tên</p>
-                                        <span>Thời gian</span>
+                                        <p>{item.postName}</p>
+                                        <span>{item.postTime}</span>
                                     </div>
                                 </div>
                                 <div><i className='bx bx-dots-vertical-rounded'></i></div>
@@ -104,7 +133,8 @@ export default function NewsFeed(props) {
                             <div className='content-img'>
                                 <div>
                                     <p className='content-text'>{item.postContent}</p>
-                                    <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg' />
+                                    
+                                    {item.postImage ? <img src={'/assets/newsfeed/' + item.postImage}/> : <br/> }
                                 </div>
                                 <div>
                                     <i className='bx bx-message-rounded-minus'></i>
@@ -116,12 +146,15 @@ export default function NewsFeed(props) {
                             </div>
                             
                             <div className='content-input'>
-                                <form>
+                                <form onSubmit={e => {
+                                    e.preventDefault()
+                                    handleSubmit(item.postId)
+                                }}>
                                     <div>
                                         <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg' />
                                     </div>
                                     <div>
-                                        <input type='text' placeholder='Viết bình luận ...' />
+                                        <input required type='text' placeholder='Viết bình luận ...' value={input} onChange={(e) => setInput(e.target.value)} />
                                     </div>
                                 </form>
                                 {(comment.filter(comment => comment.postId === item.postId)).map((item,index) => {

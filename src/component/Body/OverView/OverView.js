@@ -10,7 +10,7 @@ function OverView () {
                 <div className='menu'>
                     {data.map((item, index)=>{
                         return(
-                            <a href={'#' + index} key={index}>
+                            <a href={'#' + index} key={index} style={{ textDecoration: 'none' }}>
                             <div className = {selected === index ? 'menuItem active' : 'menuItem'} 
     
                                 onClick = {() => setSelected(index)}

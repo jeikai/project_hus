@@ -1,37 +1,9 @@
-// import React, { useState } from "react";
-// // import { Document, Page } from "react-pdf";
-// import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
-
-// export default function ViewFile() {
-//   const [numPages, setNumPages] = useState(null);
-
-//   function onDocumentLoadSuccess({ numPages }) {
-//     setNumPages(numPages);
-//   }
-
-//   // const { pdf } = props;
-
-//   return (
-//     <Document
-//       file= {require('./../../../../data/application/pdf/doc_1.pdf')}
-//       options={{ workerSrc: "/pdf.worker.js" }}
-//       onLoadSuccess={onDocumentLoadSuccess}
-//     >
-//       {Array.from(new Array(numPages), (el, index) => (
-//         <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-//       ))}
-//     </Document>
-//   );
-// }
-
-
 import React, { useState } from "react";
-// import { Document, Page } from "react-pdf";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 export default function ViewFile(props) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1); //setting 1 to show fisrt page
-
+  
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
     setPageNumber(1);
@@ -54,6 +26,7 @@ export default function ViewFile(props) {
   // reader.readAsDataURL();
   // console.log(viewPdf); 
   const viewPdf = props.viewPdf;
+  const setIsActive = props.setIsActive;
   return (
     <>
       <Document
@@ -64,20 +37,24 @@ export default function ViewFile(props) {
       >
         <Page pageNumber={pageNumber} />
       </Document>
-      <div>
-        <p>
+      <div style={{ position: 'relative', marginLeft: '30rem' }}>
+        <p style={{ padding: '0 0 1rem 3rem' }}>
           Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
         </p>
-        <button type="button" disabled={pageNumber <= 1} onClick={previousPage}>
+        <button style={{textAlign: 'center', width: '5rem' ,marginRight: '2rem', height: '2rem', border: '1px solid black', backgroundColor: 'var(--main-color)', borderRadius: '0.5rem', color: 'white' }} type="button" disabled={pageNumber <= 1} onClick={previousPage}>
           Previous
         </button>
         <button
+          style={{textAlign: 'center', width: '5rem', marginRight: '2rem', height: '2rem', border: '1px solid black', backgroundColor: 'var(--main-color)', borderRadius: '0.5rem', color: 'white' }}
           type="button"
           disabled={pageNumber >= numPages}
           onClick={nextPage}
         >
           Next
         </button>
+        {props.isActive !== undefined && 
+          <div style={{ position: 'absolute', right: '250px', top: '-800px' }}><i style={{  fontSize: '2rem' }} onClick={() => setIsActive(true)} className='bx bx-x-circle' ></i></div>
+        }
       </div>
     </>
   );

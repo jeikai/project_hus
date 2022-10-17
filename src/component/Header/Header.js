@@ -40,7 +40,7 @@ function Header() {
                                         
                                          onClick={() => setSelected(index)}
                                     >
-                                        <Link className = {selected === index ? 'headerActive' : ''} to={item.link}>{item.headerName}</Link>
+                                        <Link style={{ textDecoration: 'none' }} className = {selected === index ? 'headerActive' : ''} to={item.link}>{item.headerName}</Link>
                                     </div>
                                 )
                             })}
