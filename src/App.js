@@ -28,6 +28,8 @@ import Admin_EditNew from './hieuto-admin/views/Body/News/EditNew';
 import Admin_News from './hieuto-admin/views/Body/News/News';
 import Admin_AddUser from './hieuto-admin/views/Body/Users/AddUser';
 import Admin_Users from './hieuto-admin/views/Body/Users/Users';
+import User from './component/userdetail/User';
+// import Users from './hieuto-admin/views/Body/Users/Users';
 
 // import Schedule from './component/Body/Class/classComponent/schedule'
 function App() {
@@ -64,6 +66,7 @@ function App() {
                         <Route path='/timeTable' element={<Timetable />}/>
                         <Route path='/news' element={<News />}/>
                         <Route path='/doHomeWork/:id' element={<DoHomeWork />}/>
+                        <Route path='/user' element={<User />} />
                     </Routes>
                 </>
                 : login.mail !== null && login.name !== null && login.role === '1' ?
