@@ -184,7 +184,11 @@ function Timetable() {
   return (
     <section>
     {/* <Menu/> */}
+<<<<<<< HEAD
     <div className=''>
+=======
+    <div className='TimeTableContainer'>
+>>>>>>> 40fbe6730670e01f7e2d4bc221299dee6745fbbf
     <table>
       <thead>
         <tr>

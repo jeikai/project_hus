@@ -24,7 +24,7 @@ function Header() {
 
     const Logout = () => {
         localStorage.clear();
-        window.location.reload();
+        window.location.replace("http://localhost:3000/");
     }
     return(
         <header>
