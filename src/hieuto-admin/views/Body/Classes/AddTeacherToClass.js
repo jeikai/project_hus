@@ -37,6 +37,7 @@ class AddTeacherToClass extends React.Component {
                     Emails: '',
                 });
                 toast.update(idToast, {render: response.data.message, type: "success", isLoading: false,autoClose: true, closeButton: true});
+                this.props.handleReloadEdit();
         }else{
             toast.update(idToast, {render: "Something went wrong!!!", type: "error", isLoading: false, autoClose: true, closeButton: true});
 
@@ -45,7 +46,6 @@ class AddTeacherToClass extends React.Component {
     }
 
     render(){
-        // console.log(user);
         return (
             <>
                 <div  className={this.props.active ? "myModal active9 modal show" : "myModal modal show"} id="addModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

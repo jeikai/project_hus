@@ -22,7 +22,6 @@ class EditClass extends React.Component {
         this.setState({
             name: event.target.value,
         });
-        console.log(this.state);
     }
 
      componentDidMount(){
@@ -71,7 +70,6 @@ class EditClass extends React.Component {
 
    
     render(){
-        // console.log(user);
         return (
             <>
                 <div  className={this.props.active ? "myModal active9 modal show" : "myModal modal show"} id="addModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

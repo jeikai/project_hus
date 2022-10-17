@@ -24,7 +24,6 @@ class EditUser extends React.Component {
      handleSubmit = async (event) => {
         event.preventDefault();
         let {input} = this.state;
-        console.log(input);
         Object.keys(input).forEach(k => input[k] = input[k].toString().trim());
         let {Name, Phone, Email, Password, cfPassword, trueId} = input;
         let input_undefined_null = (Name === undefined || Phone === undefined || Email === undefined || 
@@ -65,7 +64,6 @@ class EditUser extends React.Component {
    
     render(){
         let {input} = this.state;
-        // console.log(user);
 
         return (
             <>

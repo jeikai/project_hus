@@ -80,8 +80,6 @@ class AddNew extends React.Component {
             toast.update(idToast, {render: "Something went wrong!!!", type: "error", isLoading: false, autoClose: true, closeButton: true});
 
         }
-
-        console.log(input);
     }
 
     render(){

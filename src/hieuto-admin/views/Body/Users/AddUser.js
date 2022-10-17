@@ -15,10 +15,6 @@ class AddUser extends React.Component {
         });
     }
 
-    // componentDidUpdate = (event)=>{
-    //     console.log(this.state.input);
-    // };
-
     handleSubmit = async (event)=>{
         event.preventDefault();
         let {input} = this.state;

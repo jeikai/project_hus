@@ -16,18 +16,13 @@ class AddStudentToClass extends React.Component {
         this.setState({Emails: event.target.value});
     }
 
-    handleSubmit = (event) =>{
-        event.preventDefault();
-        let email = this.state.Emails.split(/\n| /);
-        console.log(email);
-    }
     handleSubmit = async (event) =>{
         event.preventDefault();
         let {Emails, classId} = this.state;
         let email = Emails.split(/\n| /);
-        console.log(email);
+        let emails = ({"emails":email})
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/database/data/handleDetailClasses.php/${classId}/student`, email, {
+        let response =  await axios.post(`http://localhost:8000/database/data/handleDetailClasses.php/${classId}/student`, emails, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -42,6 +37,7 @@ class AddStudentToClass extends React.Component {
                     Emails: '',
                 });
                 toast.update(idToast, {render: response.data.message, type: "success", isLoading: false,autoClose: true, closeButton: true});
+                this.props.handleReloadEdit();
         }else{
             toast.update(idToast, {render: "Something went wrong!!!", type: "error", isLoading: false, autoClose: true, closeButton: true});
 
