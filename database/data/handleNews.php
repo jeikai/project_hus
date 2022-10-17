@@ -7,7 +7,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
     case "GET":
         $path = explode('/', $_SERVER['REQUEST_URI']);
-        $id = htmlspecialchars(isset($path[3]) ? $path[3] : '');
+        $id = htmlspecialchars(isset($path[4]) ? $path[4] : '');
         $sql = 'SELECT `id` AS trueId, row_number()over(order by `create_at` DESC) AS Id, title AS title, image AS image, description AS description FROM `news` ORDER BY `create_at` DESC';
         try {
             if ($connection != null) {
@@ -36,7 +36,7 @@ switch ($method) {
 
     case "DELETE":
         $path = explode('/', $_SERVER['REQUEST_URI']);
-        $id = htmlspecialchars(isset($path[3]) ? $path[3] : '');
+        $id = htmlspecialchars(isset($path[4]) ? $path[4] : '');
 
         try {
             if ($connection != null) {
@@ -62,7 +62,7 @@ switch ($method) {
 
     case "POST":
         $path = explode('/', $_SERVER['REQUEST_URI']);
-        $method = htmlspecialchars(isset($path[3]) ? $path[3] : '');
+        $method = htmlspecialchars(isset($path[4]) ? $path[4] : '');
 
 
         /*update new in hear*/
@@ -94,7 +94,7 @@ switch ($method) {
             } else {
                 /*If update have a new img*/
 
-                $path = "../public/assets/newImgs";
+                $path = "../../public/assets/newImgs";
                 $permitted_extensions = ['png', 'jpg', 'jpeg', 'gif'];
                 $imageExt = pathinfo($image, PATHINFO_EXTENSION);
                 $imageSize = $_FILES['file']['size'];
@@ -111,8 +111,8 @@ switch ($method) {
                         exit();
                     }
                 }
-                if (file_exists("../public/assets/newImgs/" . $old_image)) {
-                    unlink("../public/assets/newImgs/" . $old_image);
+                if (file_exists("../../public/assets/newImgs/" . $old_image)) {
+                    unlink("../../public/assets/newImgs/" . $old_image);
                 }
 
                 try {
@@ -147,7 +147,7 @@ switch ($method) {
             $description = (isset($_POST['description']) ? $_POST['description'] : '');
             $image = isset($_FILES['file']['name']) ? $_FILES['file']['name'] : '';
 
-            $path = "../public/assets/newImgs";
+            $path = "../../public/assets/newImgs";
             $permitted_extensions = ['png', 'jpg', 'jpeg', 'gif'];
             $imageExt = pathinfo($image, PATHINFO_EXTENSION);
             $imageSize = $_FILES['file']['size'];

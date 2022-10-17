@@ -3,7 +3,10 @@ import { NavLink } from "react-router-dom";
 import "./sideNav.css"
 
 class SideNav extends React.Component {
-
+    logout = () =>{
+        localStorage.clear();
+        window.location.replace("http://localhost:3000/");
+    }
     render(){
 
         return(
@@ -69,7 +72,7 @@ class SideNav extends React.Component {
                         </li>
                     </ul>
                     <div className="logo-out">
-                            <NavLink to='/'>
+                            <NavLink onClick={()=>this.logout()}>
                                 <i className='bx bx-log-out  bx-sm' ></i>
                                 <span className="links_name">Logo out</span>
                             </NavLink>

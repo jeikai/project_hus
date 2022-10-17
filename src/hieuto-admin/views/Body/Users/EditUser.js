@@ -42,9 +42,10 @@ class EditUser extends React.Component {
             return;
         }
 
-        let response =  await axios.put(`http://localhost:8000/data/handleStudent.php/${trueId}`, input);
+        let idToast = toast.loading("Please wait!");
+        let response =  await axios.put(`http://localhost:8000/database/data/handleStudent.php/${trueId}`, input);
         if(response.data.status === 0) {
-            toast.error(response.data.message);
+            toast.update(idToast, {render: response.data.message, type: "error", isLoading: false, autoClose: true, closeButton: true});
             return;
             
         }else if(response.data.status === 1) {
@@ -53,9 +54,9 @@ class EditUser extends React.Component {
                 input:  {}
              });
              this.props.handleReloadEdit();
-             toast.success(response.data.message);
+             toast.update(idToast, {render: response.data.message, type: "success", isLoading: false,autoClose: true, closeButton: true});
         }else{
-            toast.error("Someting went wrong!");
+            toast.update(idToast, {render: "Something went wrong!!!", type: "error", isLoading: false, autoClose: true, closeButton: true});
         }
 
 

@@ -1,7 +1,7 @@
 .sidebar{
     height: 100%;
     width: 78px;
-    background-color: var(--main-color);
+    background-color: #25408f;
     position: fixed;
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@
 
 .sidebar .logo_content{
     height: 50px;
-    border-bottom: 3px solid var(--text2-color);
+    border-bottom: 3px solid #ffc258;
     padding-bottom: 1rem;
 }
 
@@ -58,7 +58,8 @@
 
 .sidebar ul {
     margin-top: 2rem;
-    margin-left: -2rem !important;
+    margin-left: -1rem !important;
+    padding-left: 1rem;
 }
 
 
@@ -122,14 +123,15 @@
 .sidebar ul li a:hover{
     transition: all 0.5s ease;
     background: #3cb4e7;
-    color: var(--text2-color);
+    color: #ffc258;
     opacity: 0.8;
 }
 
 .sidebar ul li a.active{
     transition: all 0.5s ease;
     background: #3cb4e7;
-    color: var(--text2-color);
+    color: #ffc258;
+    margin-left: 0.5rem !important;
 }
 
 .sidebar ul li a.active:hover{
@@ -172,7 +174,7 @@
 .sidebar .logo-out a:hover{
     transition: 0.5s ease;
     opacity: 0.5;
-    color: var(--text2-color);
+    color: #ffc258;
 }
 
 .sidebar .logo-out a{
@@ -187,8 +189,9 @@
     align-items: center;
     border-radius: 1rem;
     transition: all 0.5s ease;
+    margin: 0 0.25rem !important;
 }
 
 .active1 .logo-out a{
-    margin: 0 1rem;
+    margin: 0 1rem !important;
 }

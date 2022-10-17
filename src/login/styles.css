@@ -12,5 +12,38 @@
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
-  margin: -20px 0 50px;
+  background: linear-gradient(#48B 0 0) bottom/100% 0vh no-repeat fixed, linear-gradient(150deg,#3cb4e7,yellow);
+}
+
+.TeacherLoginBg{
+  width: 100%;
+  height: 100vh;
+  margin: center;
+  background: linear-gradient(#48B 0 0) bottom/100% 0vh no-repeat fixed, linear-gradient(150deg,#3cb4e7,yellow);
+}
+.TeacherLoginBg label{
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.login_teacher_btn{
+  width: 30rem!important;
+  align-items: center;
+  display: inline-block;
+}
+.TeacherLoginBorderImg{
+  text-align: center;
+}
+
+.TeacherLoginBorderImg .TeacherLoginImg{
+  width: 25%;
+
+
+}
+.TeacherWellcomeText{
+  text-align: center;
+  font-size: 2em;
+  font-weight: 1000;
+  font-family: Poppins;
+  color: #3cb4e7;
 }

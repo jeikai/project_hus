@@ -121,8 +121,8 @@ switch ($method) {
 
     case "DELETE":
         $path = explode('/', $_SERVER['REQUEST_URI']);
-        $status = htmlspecialchars(isset($path[3]) ? $path[3] : '');
-        $id = htmlspecialchars(isset($path[4]) ? $path[4] : '');
+        $status = htmlspecialchars(isset($path[4]) ? $path[4] : '');
+        $id = htmlspecialchars(isset($path[5]) ? $path[5] : '');
 
         if ($status == "Teacher") {
             try {
@@ -174,7 +174,7 @@ switch ($method) {
         $email = htmlspecialchars(isset($user->Email) ? $user->Email : '');
         $password = htmlspecialchars(isset($user->Password) ? $user->Password : '');
         $status = htmlspecialchars(isset($user->Role) ? $user->Role : '');
-        $id = htmlspecialchars(isset($path[3]) ? $path[3] : '');
+        $id = htmlspecialchars(isset($path[4]) ? $path[4] : '');
 
         if ($status == 'Student') {
             //Check if the email have already used
@@ -217,7 +217,7 @@ switch ($method) {
         }
 
 
-        if ($status == 'teachers') {
+        if ($status == 'Teacher') {
             //Check if the email have already used
             $check_email_query = "SELECT email FROM teachers WHERE email='$email' AND teacherId != :id";
 

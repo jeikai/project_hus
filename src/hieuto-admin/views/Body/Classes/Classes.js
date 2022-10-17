@@ -23,7 +23,7 @@ class Classes extends React.Component {
     }
 
     getAllClasses = async () =>{
-        let classes = await axios.get('http://localhost:8000/data/handleClasses.php');
+        let classes = await axios.get('http://localhost:8000/database/data/handleClasses.php');
         this.setState({
             classes: classes && classes.data ? classes.data : [],
         });
@@ -33,7 +33,7 @@ class Classes extends React.Component {
     }
     handleDelete = async (Class) =>{
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.delete(`http://localhost:8000/data/handleClasses.php/${Class.trueId}`);
+        let response =  await axios.delete(`http://localhost:8000/database/data/handleClasses.php/${Class.trueId}`);
         this.getAllClasses();
 
         if(response.data.status === 0) {
@@ -71,7 +71,7 @@ class Classes extends React.Component {
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Image</th>
-                                            <th>Add users<br/>to class</th>
+                                            <th>Add To Class</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>

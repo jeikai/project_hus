@@ -35,7 +35,7 @@ class AddClass extends React.Component {
         }
         let input = ({ "name": name.trim(), file});
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/data/handleClasses.php`,
+        let response =  await axios.post(`http://localhost:8000/database/data/handleClasses.php`,
              input, {
                 headers: {
                   'Content-Type': 'multipart/form-data'

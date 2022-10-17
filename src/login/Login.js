@@ -35,7 +35,7 @@ import './styles.css';
                 localStorage.setItem('studentId', response.data[0].studentId)
                 localStorage.setItem('role', 0)
                 // swal("Good job!", "You clicked the button!", "success");
-                window.location.reload();
+                window.location.replace("http://localhost:3000/");
                 // <Navigate to="/dashboard" replace={true} />
             }
         })
@@ -53,7 +53,7 @@ import './styles.css';
     }
       return(
         <div className="login-body">
-          <Components.Container>
+          <Components.Container >
               <Components.SignUpContainer signinIn={signIn}>
                   <Components.Form onSubmit={submitFormRegist}>
                       <Components.Title>Create Account</Components.Title>

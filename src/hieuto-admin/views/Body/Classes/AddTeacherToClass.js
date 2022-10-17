@@ -22,7 +22,7 @@ class AddTeacherToClass extends React.Component {
         let email = Emails.split(/\n| /);;
         let emails = ({"emails":email})
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/data/handleDetailClasses.php/${classId}/teacher`, emails, {
+        let response =  await axios.post(`http://localhost:8000/database/data/handleDetailClasses.php/${classId}/teacher`, emails, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }

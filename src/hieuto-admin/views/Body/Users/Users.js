@@ -16,7 +16,7 @@ class Users extends React.Component {
     }
 
     getAllUser = async ()  =>{
-        let users = await axios.get('http://localhost:8000/data/handleStudent.php');
+        let users = await axios.get('http://localhost:8000/database/data/handleStudent.php');
         this.setState({
             users: users && users.data ? users.data : [],
         });
@@ -27,16 +27,17 @@ class Users extends React.Component {
     }
 
     handleDelete = async (user)=>{
-        let response =  await axios.delete(`http://localhost:8000/data/handleStudent.php/${user.Role}/${user.trueId}`);
+        let idToast = toast.loading("Please wait!");
+        let response =  await axios.delete(`http://localhost:8000/database/data/handleStudent.php/${user.Role}/${user.trueId}`);
         this.getAllUser();
 
         if(response.data.status === 0) {
-            toast.error(response.data.message);
+            toast.update(idToast, {render: response.data.message, type: "error", isLoading: false, autoClose: true, closeButton: true});
             
         }else if(response.data.status === 1) {
-             toast.success(response.data.message);
+            toast.update(idToast, {render: response.data.message, type: "success", isLoading: false,autoClose: true, closeButton: true});
         }else{
-            toast.error("Someting went wrong!");
+            toast.update(idToast, {render: "Something went wrong!!!", type: "error", isLoading: false, autoClose: true, closeButton: true});
         }
     }
 

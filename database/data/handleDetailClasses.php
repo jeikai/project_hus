@@ -10,8 +10,8 @@ switch ($method) {
 
     case "POST":
         $path = explode('/', $_SERVER['REQUEST_URI']);
-        $id = htmlspecialchars(isset($path[3]) ? $path[3] : '');
-        $role = htmlspecialchars(isset($path[4]) ? $path[4] : '');
+        $id = htmlspecialchars(isset($path[4]) ? $path[4] : '');
+        $role = htmlspecialchars(isset($path[5]) ? $path[5] : '');
         $emails = $_POST['emails'];
 
         foreach ($emails as $email) {

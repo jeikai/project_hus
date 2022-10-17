@@ -54,7 +54,7 @@ class AddNew extends React.Component {
         let input = ({ "name": name.trim(), file, description});
 
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/data/handleNews.php`,
+        let response =  await axios.post(`http://localhost:8000/database/data/handleNews.php`,
              input, {
                 headers: {
                   'Content-Type': 'multipart/form-data'
