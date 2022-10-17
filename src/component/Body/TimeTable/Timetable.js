@@ -4,6 +4,11 @@ import './Timetable.css';
 // import '../Menu.css';
 import axios from 'axios';
 function Timetable() {
+    const [login, setLogin] = useState({
+        mail: localStorage.getItem('email'),
+        name: localStorage.getItem('name'),
+        id: localStorage.getItem('studentId')
+    })
     const [selected, setSelected] = useState(0);
     let day = [
         ['', '', '', '', '', '', '',],
@@ -66,7 +71,7 @@ function Timetable() {
     ];
     const [AllTime, setAllTime] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:8000/database/handleTimetable.php',)
+        axios.get(`http://localhost:8000/database/Timetable.php/${login.id}`,)
                 .then(function(response){
                 console.log(response.data);
                 setAllTime(response.data);
