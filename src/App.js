@@ -13,8 +13,6 @@ import Login from './login/Login';
 import TeacherLogin from './login/TeacherLogin';
 import { useState } from 'react';
 import DoHomeWork from './component/Body/Class/classComponent/doHomeWork';
-<<<<<<< HEAD
-=======
 
 
 // Import from admin
@@ -30,7 +28,6 @@ import Admin_EditNew from './hieuto-admin/views/Body/News/EditNew';
 import Admin_News from './hieuto-admin/views/Body/News/News';
 import Admin_AddUser from './hieuto-admin/views/Body/Users/AddUser';
 import Admin_Users from './hieuto-admin/views/Body/Users/Users';
->>>>>>> 40fbe6730670e01f7e2d4bc221299dee6745fbbf
 
 // import Schedule from './component/Body/Class/classComponent/schedule'
 function App() {
