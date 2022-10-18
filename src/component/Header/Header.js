@@ -54,7 +54,8 @@ function Header() {
                             </div>
                             <div className='user'>
                                 <button>
-                                    <img onClick={() => navigte('/user')} src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg'/>
+                                    <img onClick={() => navigte('/user')} src={localStorage.getItem('img') === undefined || localStorage.getItem('img').trim() === "" 
+												? "/assets/studentImgs/defaultStudentImg.jpg": "/assets/studentImgs/"  + localStorage.getItem('img')}/>
                                 </button>
                                 <div><i onClick={Logout} className='bx bx-log-out'></i></div>
                             </div>

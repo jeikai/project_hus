@@ -33,6 +33,7 @@ import './styles.css';
                 localStorage.setItem('name', response.data[0].studentName)
                 localStorage.setItem('email', user.email)
                 localStorage.setItem('studentId', response.data[0].studentId)
+                localStorage.setItem('img', response.data[0].studentImage)
                 localStorage.setItem('role', 0)
                 // swal("Good job!", "You clicked the button!", "success");
                 window.location.replace("http://localhost:3000/");
