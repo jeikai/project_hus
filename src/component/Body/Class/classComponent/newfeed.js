@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import './newsfeed.css'
 import swal from 'sweetalert';
+import {toast} from 'react-toastify';
+
 export default function NewsFeed(props) {
     const id = useParams().id;
     // console.log(id);
@@ -30,7 +32,8 @@ export default function NewsFeed(props) {
     const [post, setPost] = useState({
         content: '',
         file: [],
-        classId: id
+        classId: id,
+        studentName: localStorage.getItem('name'),
     })
     // setPost({...post, classId: id})
     // const {content, file} = post;
@@ -55,7 +58,8 @@ export default function NewsFeed(props) {
             // setPost(response.data)
             console.log(response.data);
             if(response.data === 0){
-                swal("Good job!", "You clicked the button!", "success");
+                // swal("Good job!", "You clicked the button!", "success");
+                toast.success('Post was successfully')
                 setPost({content: '', file: [], classId: id})
                 let element = document.getElementsByClassName('post-image')
                 element[0].style.display = "none"
@@ -134,7 +138,7 @@ export default function NewsFeed(props) {
                                 <div>
                                     <p className='content-text'>{item.postContent}</p>
                                     
-                                    {item.postImage ? <img src={'/assets/newsfeed/' + item.postImage}/> : <br/> }
+                                    {item.postImage ? <img style={{ width: '50%', height: '50%', borderRadius: '0rem'}}  src={'/assets/newsfeed/' + item.postImage}/> : <br/> }
                                 </div>
                                 <div>
                                     <i className='bx bx-message-rounded-minus'></i>

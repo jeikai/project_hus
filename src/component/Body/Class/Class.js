@@ -22,23 +22,23 @@ export default function Classes() {
     const [AllClass, setAllClass] = useState([]);
     const [items, setItem] = useState([]);
 
-    const filterClass = (index) => {
-        const updatedItem = AllClass.filter(curItem => {
-            return curItem.type === index
-        })
-        console.log(index);
-        setItem(updatedItem)
-        setSelected(index)
-    }
+    // const filterClass = (index) => {
+    //     const updatedItem = AllClass.filter(curItem => {
+    //         return curItem.type === index
+    //     })
+    //     console.log(index);
+    //     setItem(updatedItem)
+    //     setSelected(index)
+    // }
     
-
+    const studentId = localStorage.getItem('studentId');
     useEffect(() => {
-            axios.get('http://localhost:8000/database/AllClass.php',)
+            axios.get(`http://localhost:8000/database/AllClass.php/${studentId}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllClass(response.data);
                 });    
-            filterClass(0)
+            // filterClass(0)
     }, [])
 
     
@@ -52,7 +52,8 @@ export default function Classes() {
                     return(
                         <button className={selected === index ? 'button classActive' : 'button'} 
                             key={index}
-                            onClick={() => filterClass(index)}
+                            // onClick={() => filterClass(index)}
+                            onClick={() => setSelected(index)}
                         >
                             {item.nameClass}
                         </button>
@@ -73,14 +74,15 @@ export default function Classes() {
             </div>
             
             <div className="MulBoxClass">
-                    {items.map((item, index) =>{
+                    {AllClass.map((item, index) =>{
                     return(
                         <div className="BoxClass" key={index}
-                            onClick={()=> {
-                                if(selected !== 1){
-                                    navigate(`/class/${item.classId}`)
-                                }
-                            }}
+                            // onClick={()=> {
+                            //     if(selected !== 1){
+                            //         navigate(`/class/${item.classId}`)
+                            //     }
+                            // }}
+                            onClick={() =>navigate(`/class/${item.classId}`)}
                         >
                             <img src={item.classImage} alt='' />
                             <div className="content">   

@@ -64,9 +64,10 @@ function Timetable() {
         end_time: '18:00',
     },
     ];
+    const id = localStorage.getItem('studentId')
     const [AllTime, setAllTime] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:8000/database/handleTimetable.php',)
+        axios.get(`http://localhost:8000/database/Timetable.php/${id}`,)
                 .then(function(response){
                 console.log(response.data);
                 setAllTime(response.data);
@@ -201,7 +202,7 @@ function Timetable() {
       <tbody>
         {data.map((item, index)=>{
             return ( 
-        <tr>   
+        <tr key={index}>   
           <td>{item.start_time} - {item.end_time}</td>  
           <td>{day[i][j++]}</td>
           <td>{day[i][j++]}</td>

@@ -12,6 +12,7 @@
 
     switch ($method) {
         case 'POST':
+            $name = $_POST['studentName'];
             $content = isset($_POST['content']) ? $_POST['content'] : '';
             // echo json_encode($content);
             // $image = isset($_FILES['file']) ? $_FILES['file'] : '';
@@ -34,9 +35,9 @@
                         // $upload_img ="../assets/newsfeed/$generated_file_name";
                         try {
                             if($connection != null){
-                                $sql = "INSERT INTO posts (classId, postContent, postImage) 
-                                VALUES (?, ?, ?)";
-                                $connection->prepare($sql)->execute([$classId, $content, $generated_file_name]);
+                                $sql = "INSERT INTO posts (classId, postContent, postImage, postName) 
+                                VALUES (?, ?, ?, ?)";
+                                $connection->prepare($sql)->execute([$classId, $content, $generated_file_name, $name]);
                                 echo 0;
                             }
                         } catch (PDOException $e) {
@@ -48,9 +49,9 @@
                 $generated_file_name = '';
                 try {
                     if($connection != null){
-                        $sql = "INSERT INTO posts (classId, postContent, postImage) 
-                        VALUES (?, ?, ?)";
-                        $connection->prepare($sql)->execute([$classId, $content, $generated_file_name]);
+                        $sql = "INSERT INTO posts (classId, postContent, postImage, postName) 
+                        VALUES (?, ?, ?, ?)";
+                        $connection->prepare($sql)->execute([$classId, $content, $generated_file_name, $name]);
                         echo 0;
                     }
                 } catch (PDOException $e) {
