@@ -31,6 +31,7 @@ export default function User() {
 
 	return (
 		<section>
+			<form onSubmit={(event)=>this.handleSubmit(event)}>
 			<div className="container">
 				<div className="row gutters">
 					<div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -39,14 +40,10 @@ export default function User() {
 								<div className="account-settings">
 									<div className="user-profile">
 										<div className="user-avatar">
-											<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin" />
+											<img src={student.studentImage === "" || student.studentImage === undefined ? "https://bootdey.com/img/Content/avatar/avatar7.png" : 
+											"/assets/studentImgs/"+ student.studentImage
+											} alt="..." />
 										</div>
-										<h5 classNameName="user-name">{student.studentName}</h5>
-										<h6 className="user-email">{student.email}</h6>
-									</div>
-									<div className="about">
-										<h5>About</h5>
-										<p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
 									</div>
 								</div>
 							</div>
@@ -61,44 +58,57 @@ export default function User() {
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label for="fullName">Full Name</label>
-											<input value={student.studentName} type="text" className="form-control" name="fullName" placeholder="Enter full name" />
+											<label htmlFor="fullName">Full Name</label>
+											<input value={student.studentName} 
+											onChange={(event) => setStudent({...student, studentName: event.target.value})}
+											type="text" className="form-control" name="fullName" placeholder="Enter full name" />
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label for="eMail">Email</label>
-											<input value={student.email} type="email" className="form-control" name="eMail" placeholder="Enter email ID" />
+											<label htmlFor="eMail">Email</label>
+											<input value={student.email}
+											onChange={(event) => setStudent({...student, email: event.target.value})}
+											type="email" className="form-control" name="eMail" placeholder="Enter email ID" />
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label for="phone">Phone</label>
-											<input value={student.phoneNumber} type="text" className="form-control" name="phone" placeholder="Enter phone number" />
+											<label htmlFor="phone">Phone</label>
+											<input value={student.phoneNumber}
+											onChange={(event) => setStudent({...student, phoneNumber: event.target.value})}
+											type="text" className="form-control" name="phone" placeholder="Enter phone number" />
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label for="website">Image</label>
-											<input type="file" className="form-control" name="website" placeholder="Website url" />
+											<label htmlFor="website">Image</label>
+											<input type="file"
+											 className="form-control" name="website" placeholder="Website url" />
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label for="website">DOB</label>
-											<input value={student.birthDate} type="DATE" className="form-control" name="website" placeholder="dob" />
+											<label htmlFor="website">DOB</label>
+											<input value={student.birthDate} type="DATE"
+											onChange={(event) => setStudent({...student, img: event.target.files[0]})}
+											className="form-control" name="website" placeholder="dob" />
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label for="website">Old Password</label>
-											<input type="password" className="form-control" name="website" placeholder="Old password" />
+											<label htmlFor="website">Old Password</label>
+											<input type="password" className="form-control"
+											onChange={(event) => setStudent({...student, OldPassword: event.target.value})}
+											name="website" placeholder="Old password" />
 										</div>
 									</div>
 									<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 										<div className="form-group">
-											<label for="website">New Password</label>
-											<input type="password" className="form-control" name="website" placeholder="New Password" />
+											<label htmlFor="website">New Password</label>
+											<input type="password" className="form-control"
+											onChange={(event) => setStudent({...student, NewPassword: event.target.value})}
+											name="website" placeholder="New Password" />
 										</div>
 									</div>
 								</div>
@@ -106,7 +116,6 @@ export default function User() {
 								<div className="row gutters">
 									<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 										<div className="text-right mt-3 float-end">
-											<button type="button" id="submit" name="submit" className="btn btn-secondary mx-3">Cancel</button>
 											<button type="button" id="submit" name="submit" className="btn btn-primary">Update</button>
 										</div>
 									</div>
@@ -116,6 +125,7 @@ export default function User() {
 					</div>
 				</div>
 			</div>
+			</form>
 		</section>
 	)
 }

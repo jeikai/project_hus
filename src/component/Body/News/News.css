@@ -17,7 +17,7 @@
 .row-container{
     border: 1px solid #bb8a35;
     width: 80%;
-    height: 5rem;
+    /* height: 5rem; */
     margin: auto;
     margin-bottom: 1rem;
 }
@@ -28,4 +28,55 @@
 
 .row-container:last-child{
     margin-bottom: 2rem;
+}
+
+.img-resize{
+    height: 130px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.card-effect:hover img{
+    transform: scale(1.2);
+}
+
+.card-effect:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important;
+    cursor: pointer;
+}
+
+.card-effect{
+    transition: transform .5s;
+}
+
+.inner{
+    overflow: hidden;
+}
+
+.inner img{
+    transition: all 1.5s ease;
+}
+
+.article-title{
+    word-break: break-all;
+    color: black;
+    font-size: 20px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.article-title:hover{
+    color: #3cb4e7 ;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.new-user-title{
+    border-bottom: 3px solid #FFC258;
+    font-size: 2rem;
+}
+
+.new-user-content{
+    font-size: 1.25rem;
 }

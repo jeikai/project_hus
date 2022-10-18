@@ -4,6 +4,7 @@ import Header from './component/Header/Header';
 import OverView from './component/Body/OverView/OverView';
 import Timetable from './component/Body/TimeTable/Timetable';
 import News from './component/Body/News/News';
+import DetailNew from './component/Body/News/DetailNew';
 import Classes from './component/Body/Class/Class';
 import InClass from './component/Body/Class/InClass';
 import Schedule from './component/Body/Class/classComponent/schedule';
@@ -71,6 +72,7 @@ function App() {
                         {/* <Route path='/class/:id/schedule' element={<Schedule />}/> */}
                         <Route path='/timeTable' element={<Timetable />}/>
                         <Route path='/news' element={<News />}/>
+                        <Route path='/News/DetailNew/:id' element={<DetailNew />}/>
                         <Route path='/doHomeWork/:id' element={<DoHomeWork />}/>
                         <Route path='/user' element={<User />} />
                     </Routes>
