@@ -75,6 +75,7 @@
 .new-user-title{
     border-bottom: 3px solid #FFC258;
     font-size: 2rem;
+    word-break: break-all;
 }
 
 .new-user-content{
