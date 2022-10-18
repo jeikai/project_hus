@@ -75,7 +75,7 @@ function Timetable() {
         axios.get(`http://localhost:8000/database/Timetable.php/${id}`,)
                 .then(function(response){
                 console.log(response.data);
-                setAllTime(response.data);
+                setAllTime(response.data); 
             });    
     }, [])
     let date;

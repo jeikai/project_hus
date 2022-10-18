@@ -1,15 +1,15 @@
 <?php
-    include './database.php';
-    $path = explode('/', $_SERVER['REQUEST_URI']);
-    // $sql = "SELECT * FROM exercise WHERE classId = $path[3]";
-    $sql = "SELECT students.studentId, schedule.startLesson, schedule.endLesson, 
-                schedule.DAY, classes.className 
-            FROM schedule JOIN classes ON schedule.classId = classes.classId 
-            JOIN results ON results.classId = classes.classId 
-            JOIN students ON students.studentId = results.studentId 
-            WHERE students.studentId = $path[3]";
-    $statement = $connection->prepare($sql);
-    $statement->execute();
-    $result = $statement->fetchAll();
-    echo json_encode($result);
+    include './connetdb.php';
+    $method = $_SERVER['REQUEST_METHOD'];
+    switch($method) {
+        case "GET":
+            $path = explode('/', $_SERVER['REQUEST_URI']);
+            $sql = "SELECT * FROM Schedule JOIN Classes ON Schedule.classId = Classes.classId JOIN Results ON 
+            Classes.classId = Results.classId WHERE Results.studentId = ?";
+            $statement = $connection->prepare($sql);
+            $statement->execute([$path[3]]);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($result);
+            break;
+    }
 ?>
