@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/project_hus/static/css/main.38725437.css",
+    "main.js": "/project_hus/static/js/main.da999421.js",
+    "static/js/787.fecec951.chunk.js": "/project_hus/static/js/787.fecec951.chunk.js",
+    "static/media/doc_2.pdf": "/project_hus/static/media/doc_2.ec5d0156c888e6c87b1e.pdf",
+    "static/media/doc_1.pdf": "/project_hus/static/media/doc_1.eb64178b1402c68ff3c8.pdf",
+    "static/media/pdf.worker.js": "/project_hus/static/media/pdf.worker.5a4781656f64092ca08b.js",
+    "index.html": "/project_hus/index.html",
+    "main.38725437.css.map": "/project_hus/static/css/main.38725437.css.map",
+    "main.da999421.js.map": "/project_hus/static/js/main.da999421.js.map",
+    "787.fecec951.chunk.js.map": "/project_hus/static/js/787.fecec951.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38725437.css",
+    "static/js/main.da999421.js"
+  ]
+}
