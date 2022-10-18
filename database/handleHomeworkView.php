@@ -50,6 +50,18 @@
         $path = explode('/', $_SERVER['REQUEST_URI']);
         
         if ( isset($path[3]) && is_numeric($path[3])) {
+            $sql = "SELECT ExerciseFile FROM Exercise WHERE ExerciseId = ?";
+            $statement = $connection->prepare($sql);
+            $statement->execute([$path[3]]);
+            $statement->setFetchMode(PDO::FETCH_ASSOC); 
+			$result = $statement->fetchAll();
+            $file;
+            foreach( $result as $result ) {
+                $file = $result['ExerciseFile'];
+            }
+            if (file_exists("../public/assets/homework/".$file) ) {
+                unlink("../public/assets/homework/".$file);
+            }
             $sql = "DELETE FROM Exercise WHERE ExerciseId = ?";
             $statement = $connection->prepare($sql);
             $statement->execute([$path[3]]);

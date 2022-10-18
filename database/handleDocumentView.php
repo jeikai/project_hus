@@ -28,9 +28,21 @@
     case "DELETE":
         $path = explode('/', $_SERVER['REQUEST_URI']);
         if ( isset($path[3]) && is_numeric($path[3])) {
-            $sql = "DELETE FROM Documents WHERE documentId = ?";
+            $sql = "SELECT documentFile FROM Documents WHERE documentId = ?";
             $statement = $connection->prepare($sql);
             $statement->execute([$path[3]]);
+            $statement->setFetchMode(PDO::FETCH_ASSOC); 
+			$result = $statement->fetchAll();
+            $file;
+            foreach( $result as $result ) {
+                $file = $result['documentFile'];
+            }
+            if (file_exists("../public/assets/document/".$file) ) {
+                unlink("../public/assets/document/".$file);
+            }
+            $sql = "DELETE FROM Documents WHERE documentId = ?";
+            $statement = $connection->prepare($sql);
+            $statement->execute([$path[3]]); 
         }
         break;
 
