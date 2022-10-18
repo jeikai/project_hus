@@ -1,0 +1,31 @@
+.new-container{
+    width: 100%;
+    position: absolute;
+    top: 0rem;
+    padding: 0 3rem 0 3rem;
+}
+
+.border-row-new-container{
+    width: 80%;
+    height: auto;
+    margin-top: 10rem;
+    border: 1px solid #bb8a35;
+    margin: auto;
+    
+}
+
+.row-container{
+    border: 1px solid #bb8a35;
+    width: 80%;
+    height: 5rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+.row-container:first-child{
+    margin-top: 2rem;
+}
+
+.row-container:last-child{
+    margin-bottom: 2rem;
+}
