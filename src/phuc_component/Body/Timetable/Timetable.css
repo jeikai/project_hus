@@ -1,16 +1,16 @@
-table {
+.body_teacher table {
     border-collapse: collapse;
     width: 100%;
   }
   
-  th, td {
+.body_teacher th, .body_teacher td {
     text-align: left;
     padding: 8px;
   }
   
-  tr:nth-child(even){background-color: #f2f2f2}
+.body_teacher tr:nth-child(even){background-color: #f2f2f2}
   
-  th {
+.body_teacher th {
     background-color: #5b605e;
     color: white;
   }

@@ -32,7 +32,7 @@ export default function User() {
 	return (
 		<section>
 			<form onSubmit={(event)=>this.handleSubmit(event)}>
-			<div className="container">
+			<div className="container student-user-detail">
 				<div className="row gutters">
 					<div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 						<div className="card h-100">

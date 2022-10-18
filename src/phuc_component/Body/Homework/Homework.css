@@ -1,7 +1,7 @@
-tr {
+.body_teacher tr {
     height: 50px;
 }
-table {
+.body_teacher table {
     font-size: 20px;
 }
 .type_input {

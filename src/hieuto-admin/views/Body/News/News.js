@@ -68,11 +68,12 @@ class News extends React.Component {
                                     </thead>
                                     <tbody>
                                         {news && isString === false && news.map((New, index) =>{
+                                            console.log(New.title);
                                             return(
                                                 <tr key={New.Id}>
                                                     
                                                     <td>{New.Id}</td>
-                                                    <td>{New.title}</td>
+                                                    <td style={{wordBreak: "break-all"}}>{New.title}</td>
                                                     <td><img src = {'assets/newImgs/'+New.image} width="50px" height="50px" alt="..."/></td>
                                                     <td>
                                                         <button className="btn btn-primary edit_admin_btn"
