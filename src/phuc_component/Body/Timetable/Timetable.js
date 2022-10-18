@@ -81,25 +81,25 @@ function Timetable() {
     let start, end;
     AllTime.map((item, index)=>{
         switch(item.DAY) {
-            case "Thu 2":
+            case "Thứ 2":
                 date = 0;
                 break;
-            case "Thu 3":
+            case "Thứ 3":
                 date = 1;
                 break;
-            case "Thu 4":
+            case "Thứ 4":
                 date = 2;
                 break;
-            case "Thu 5":
+            case "Thứ 5":
                 date = 3;
                 break;
-            case "Thu 6":
+            case "Thứ 6":
                 date = 4;
                 break;
-            case "Thu 7":
+            case "Thứ 7":
                 date = 5;
                 break;
-            case "Chu nhat":
+            case "Chủ nhật":
                 date = 6;
                 break;
             default:

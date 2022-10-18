@@ -1,15 +1,41 @@
 import Menu from '../Menu';
 import '../Menu.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import AssignmentView from './AssignmentView';
 function Assignment() {
+    const [AllDocument, setAllDocument] = useState([]);
+        const id = localStorage.getItem('teacherId')
+    
+    const reloadAssignment = () => {
+        axios.get(`http://localhost:8000/database/handleAssignment.php/${id}`,)
+                 .then(function(response){
+                    console.log(response.data);
+                    setAllDocument(response.data);
+                }); 
+    }
+    useEffect(() => {
+            axios.get(`http://localhost:8000/database/handleAssignment.php/${id}`,)
+                 .then(function(response){
+                    console.log(response.data);
+                    setAllDocument(response.data);
+                });    
+    }, [])
+
+    
+
     const [inputs, setInputs] = useState();
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`http://localhost:8000/database/handleAssignment.php`, inputs);    
+        axios.post(`http://localhost:8000/database/handleAssignment.php`, inputs)
+        .then(function(response){
+            console.log(response.data);
+            // setInputs({...inputs})
+            // window.location.reload(false);
+        }); 
     }
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -21,6 +47,8 @@ function Assignment() {
             alert("Thêm thành công");
         }
     }
+
+    
     return (
         <section>
             <Menu />
@@ -46,7 +74,7 @@ function Assignment() {
                     </tr>
                 </table>
                 </form>
-                <AssignmentView/>
+                <AssignmentView AllDocument={AllDocument} reloadAssignment={reloadAssignment} />
             </div>
         </section>
     )

@@ -2,26 +2,22 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-export default function AssignmentView() {
+export default function AssignmentView(props) {
+    const AllDocument = props.AllDocument
+    const reloadAssignment = props.reloadAssignment
     const [login, setLogin] = useState({
         mail: localStorage.getItem('email'),
         name: localStorage.getItem('name'),
         id: localStorage.getItem('teacherId')
     })
-    const [AllDocument, setAllDocument] = useState([]);
-    useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleAssignment.php/${login.id}`,)
-                 .then(function(response){
-                    console.log(response.data);
-                    setAllDocument(response.data);
-                });    
-    }, [])
+    
     const deleteAssignment = (documentId) => {
         axios.delete(`http://localhost:8000/database/handleAssignmentView.php/${documentId}`).then(function(response){
             axios.get(`http://localhost:8000/database/handleAssignment.php/${login.id}`,)
                  .then(function(response){
                     console.log(response.data);
-                    setAllDocument(response.data);
+                    // setAllDocument(response.data);
+                    reloadAssignment();
             });    
         })
     }

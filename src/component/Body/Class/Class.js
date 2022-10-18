@@ -84,7 +84,7 @@ export default function Classes() {
                             // }}
                             onClick={() =>navigate(`/class/${item.classId}`)}
                         >
-                            <img src={item.classImage} alt='' />
+                            <img src={'/assets/classImgs/' + item.classImage} alt='' />
                             <div className="content">   
                                 <div>
                                     <p><h4>{item.className}</h4></p>

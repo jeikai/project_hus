@@ -9,6 +9,9 @@ function Timetable() {
         name: localStorage.getItem('name'),
         id: localStorage.getItem('studentId')
     })
+
+    // login gì đây :))))
+
     const [selected, setSelected] = useState(0);
     let day = [
         ['', '', '', '', '', '', '',],
@@ -69,10 +72,10 @@ function Timetable() {
         end_time: '18:00',
     },
     ];
-    const id = localStorage.getItem('studentId')
+    // const id = localStorage.getItem('studentId')
     const [AllTime, setAllTime] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8000/database/Timetable.php/${id}`,)
+        axios.get(`http://localhost:8000/database/Timetable.php/${login.id}`,)
                 .then(function(response){
                 console.log(response.data);
                 setAllTime(response.data); 
@@ -82,25 +85,25 @@ function Timetable() {
     let start, end;
     AllTime.map((item, index)=>{
         switch(item.DAY) {
-            case "Thu 2":
+            case "Thứ 2":
                 date = 0;
                 break;
-            case "Thu 3":
+            case "Thứ 3":
                 date = 1;
                 break;
-            case "Thu 4":
+            case "Thứ 4":
                 date = 2;
                 break;
-            case "Thu 5":
+            case "Thứ 5":
                 date = 3;
                 break;
-            case "Thu 6":
+            case "Thứ 6":
                 date = 4;
                 break;
-            case "Thu 7":
+            case "Thứ 7":
                 date = 5;
                 break;
-            case "Chu nhat":
+            case "Chủ nhật":
                 date = 6;
                 break;
             default:
@@ -180,16 +183,16 @@ function Timetable() {
             default:
                 break;
         }
+        console.log(item.className);
         for ( let pos = start; pos < end; pos++) {
             day[pos][date] = item.className + " - ID: " + item.classId;
         }
+
     })
     let i = 0;
     let j = 0;
-
   return (
     <section>
-    {/* <Menu/> */}
     <div className='TimeTableContainer'>
     <table>
       <thead>
