@@ -7,7 +7,6 @@
     header('Access-Control-Allow-Origin: *');
     header("Access-Control-Allow-Headers: *");
     header("Access-Control-Allow-Methods:  *");
-    
     $connection_string = "mysql:host=".SERVER;
     // $connection = null;   
 
@@ -20,6 +19,4 @@
     } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }    
-
-    
 ?>

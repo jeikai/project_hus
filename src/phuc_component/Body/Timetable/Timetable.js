@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-// import Menu from '../Menu';
+import Menu from '../Menu';
 import './Timetable.css';
-// import '../Menu.css';
-import axios from 'axios';
+import '../Menu.css';
+import axios from 'axios'; 
 function Timetable() {
     const [login, setLogin] = useState({
         mail: localStorage.getItem('email'),
         name: localStorage.getItem('name'),
-        id: localStorage.getItem('studentId')
+        id: localStorage.getItem('teacherId')
     })
     const [selected, setSelected] = useState(0);
     let day = [
@@ -69,10 +69,9 @@ function Timetable() {
         end_time: '18:00',
     },
     ];
-    const id = localStorage.getItem('studentId')
     const [AllTime, setAllTime] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8000/database/Timetable.php/${id}`,)
+        axios.get(`http://localhost:8000/database/handleTimetable.php/${login.id}`,)
                 .then(function(response){
                 console.log(response.data);
                 setAllTime(response.data);
@@ -189,8 +188,8 @@ function Timetable() {
 
   return (
     <section>
-    {/* <Menu/> */}
-    <div className='TimeTableContainer'>
+    <Menu/>
+    <div className='body_teacher'>
     <table>
       <thead>
         <tr>
@@ -207,7 +206,7 @@ function Timetable() {
       <tbody>
         {data.map((item, index)=>{
             return ( 
-        <tr key={index}>   
+        <tr>   
           <td>{item.start_time} - {item.end_time}</td>  
           <td>{day[i][j++]}</td>
           <td>{day[i][j++]}</td>

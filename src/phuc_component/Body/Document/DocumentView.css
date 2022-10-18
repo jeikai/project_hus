@@ -1,0 +1,7 @@
+.edit {
+    color: black;
+}
+.edit:hover {
+    text-decoration: underline;
+    color: pink;
+}
