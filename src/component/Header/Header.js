@@ -5,6 +5,7 @@ import './Header.css'
 function Header(props) {
 
     const [selected, setSelected] = useState(0);
+    const [id, setId] = useState(localStorage.getItem('studentId'));
     const navigte = useNavigate()
     const headerData = [
         {
@@ -24,19 +25,22 @@ function Header(props) {
             headerName: 'News',
         }
     ]
+    const getStudent = async ()  =>{
+        let result = await axios.get(`http://localhost:8000/database/data/handleUpdateStudent.php/${id}`);
+        setImg(result.data.studentImage)
+    }
     
     const[img, setImg] = useState(localStorage.getItem('img'))
-    // useEffect(() => {
-    //     // setImg(localStorage.getItem('img'))
-    //     console.log(img);
-    //     getStudent()
-    // }, [])
+    if(props.imgPassive === true){
+        getStudent();
+        props.setImg(false);
+    }
+    useEffect(() => {
+        // setImg(localStorage.getItem('img'))
+        getStudent();
+        console.log(img);
+    }, [])
 
-    // const getStudent = async ()  =>{
-    //     let result = await axios.get(`http://localhost:8000/database/data/handleUpdateStudent.php/${this.state.id}`);
-    //     setImg(result.data.studentImage)
-	// 	console.log(result.data);
-    // }
 
 
     const Logout = () => {

@@ -41,6 +41,14 @@ import TeacherAssignmentEdit from './phuc_component/Body/Assignment/AssignmentEd
 import TeacherHomeworkEdit from './phuc_component/Body/Homework/HomeworkEdit';
 // import Schedule from './component/Body/Class/classComponent/schedule'
 function App() {
+
+    const [img, setImg] = useState(false);
+
+    let setClassImg = (passive)=>{
+        setImg(passive);
+    }
+
+    //This is props for login
     const [login, setLogin] = useState({
         mail: localStorage.getItem('email'),
         name: localStorage.getItem('name'),
@@ -54,7 +62,6 @@ function App() {
     let upDateMyContainerActive = (my_active) =>{
         setActive(my_active);
     }
-    console.log(login);
     return (
         <>  
             {login.mail === null && login.name === null ?
@@ -65,7 +72,7 @@ function App() {
               
               : login.mail !== null && login.name !== null && login.role === '0' ? 
                 <>
-                <Header/>
+                <Header setImg={setImg} imgPassive={img}/>
                     <Routes>
                         <Route exact path='/' element={<OverView />}/>
                         <Route path='/class' element={<Classes />}/>
@@ -75,7 +82,7 @@ function App() {
                         <Route path='/news' element={<News />}/>
                         <Route path='/News/DetailNew/:id' element={<DetailNew />}/>
                         <Route path='/doHomeWork/:id' element={<DoHomeWork />}/>
-                        <Route path='/user' element={<User />} />
+                        <Route path='/user' element={<User setImg={setClassImg} />}  />
                     </Routes>
                 </>
                 : login.mail !== null && login.name !== null && login.role === '1' ?

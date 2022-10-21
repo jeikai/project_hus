@@ -84,8 +84,8 @@ class User extends React.Component {
         }else if(response.data.status === 1) {
 			
 				localStorage.setItem('img', file.name);
-				// const[img, setImg] = useState(localStorage.getItem('img'))
-				// this.props.setLogin({...this.props.login, 'image': file.name});
+				
+				this.props.setImg(true);
 				this.setState({
 					studentName: "",
 					email: "",

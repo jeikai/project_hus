@@ -108,7 +108,7 @@ export default function InClass() {
                     {/* <BrowserRouter> */}
                     {/* <Routes> */}
                     <div className="list">
-                        {itemInClass.map((item, index) =>{
+                        {itemInClass != null && itemInClass.map((item, index) =>{
                             return(
                                 <div className={selected === index ? 'item activeItem' : 'item'} key={index}
                                     onClick={()=> handleClick(index, item.link)}
