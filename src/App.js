@@ -44,7 +44,8 @@ function App() {
     const [login, setLogin] = useState({
         mail: localStorage.getItem('email'),
         name: localStorage.getItem('name'),
-        role: localStorage.getItem('role')
+        role: localStorage.getItem('role'),
+        image: localStorage.getItem('img'),
     })
 
     //This is props and states of hieu-to-admin

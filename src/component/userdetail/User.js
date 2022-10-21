@@ -1,7 +1,8 @@
 import axios from 'axios'
 import './user.css'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {toast} from 'react-toastify';
+import Login from '../../login/Login';
 
 class User extends React.Component {	
 
@@ -10,14 +11,14 @@ class User extends React.Component {
 
         this.state = {
             id: localStorage.getItem('studentId'),
-            studentName: undefined,
-            email: undefined,
-            old_image: undefined,
-            studentCurrentPassword: undefined,
-            birthDate: undefined,
-			phoneNumber: undefined,
-			file: undefined,
-			fileName: undefined,
+            studentName: "",
+            email: "",
+            old_image: "",
+            studentCurrentPassword: "",
+            birthDate: "",
+			phoneNumber: "",
+			file: "",
+			fileName: "",
 			studentPassword: "",
 			studentNewPassword: "",
         }
@@ -81,16 +82,19 @@ class User extends React.Component {
             return;
             
         }else if(response.data.status === 1) {
-
+			
+				localStorage.setItem('img', file.name);
+				// const[img, setImg] = useState(localStorage.getItem('img'))
+				// this.props.setLogin({...this.props.login, 'image': file.name});
 				this.setState({
-					studentName: undefined,
-					email: undefined,
-					old_image: undefined,
-					studentCurrentPassword: undefined,
-					birthDate: undefined,
-					phoneNumber: undefined,
-					file: undefined,
-					fileName: undefined,
+					studentName: "",
+					email: "",
+					old_image: "",
+					studentCurrentPassword: "",
+					birthDate: "",
+					phoneNumber: "",
+					file: "",
+					fileName: "",
 					studentPassword: "",
 					studentNewPassword: "",
 				})

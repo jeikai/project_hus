@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css'
-function Header() {
+function Header(props) {
+
     const [selected, setSelected] = useState(0);
     const navigte = useNavigate()
     const headerData = [
@@ -22,6 +24,20 @@ function Header() {
             headerName: 'News',
         }
     ]
+    
+    const[img, setImg] = useState(localStorage.getItem('img'))
+    // useEffect(() => {
+    //     // setImg(localStorage.getItem('img'))
+    //     console.log(img);
+    //     getStudent()
+    // }, [])
+
+    // const getStudent = async ()  =>{
+    //     let result = await axios.get(`http://localhost:8000/database/data/handleUpdateStudent.php/${this.state.id}`);
+    //     setImg(result.data.studentImage)
+	// 	console.log(result.data);
+    // }
+
 
     const Logout = () => {
         localStorage.clear();
@@ -54,8 +70,8 @@ function Header() {
                             </div>
                             <div className='user'>
                                 <button>
-                                    <img onClick={() => navigte('/user')} src={localStorage.getItem('img') === undefined || localStorage.getItem('img').trim() === "" 
-												? "/assets/studentImgs/defaultStudentImg.jpg": "/assets/studentImgs/"  + localStorage.getItem('img')}/>
+                                    <img onClick={() => navigte('/user')} src={img === undefined || img === "" 
+												? "/assets/studentImgs/defaultStudentImg.jpg": "/assets/studentImgs/"  + img}/>
                                 </button>
                                 <div><i onClick={Logout} className='bx bx-log-out'></i></div>
                             </div>

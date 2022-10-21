@@ -22,10 +22,7 @@ export default function NewsFeed(props) {
     }, [])
 
     const fileInputRef=useRef();
-    // const [content, setContent] = useState('');
-    // const [files, setFiles] = useState([]);
     
-    // console.log(content)
     const [path, setPath] = useState('');
 
 
@@ -35,17 +32,15 @@ export default function NewsFeed(props) {
         classId: id,
         studentName: localStorage.getItem('name'),
     })
-    // setPost({...post, classId: id})
-    // const {content, file} = post;
     const handleChange = (e) =>{
-    //   console.log(e.target.files[0].name);
-    //   setFiles(e.target.files[0]);
+        console.log(e.target.files[0]);
       setPost({...post, [e.target.name]: e.target.files[0]});
       setPath(URL.createObjectURL(e.target.files[0]))
       let element = document.getElementsByClassName('post-image')
       element[0].style.display = "block"
+      console.log('hehe');
     }
-    // console.log(post)
+
     const submitForm = async (e) => {
         e.preventDefault()
 
@@ -55,12 +50,11 @@ export default function NewsFeed(props) {
             }
           })
           .then(function(response){
-            // setPost(response.data)
             console.log(response.data);
             if(response.data === 0){
-                // swal("Good job!", "You clicked the button!", "success");
                 toast.success('Post was successfully')
-                setPost({content: '', file: [], classId: id})
+                setPost({...post,content: '', classId: id})
+                
                 let element = document.getElementsByClassName('post-image')
                 element[0].style.display = "none"
                 reloadPosts()
@@ -112,9 +106,8 @@ export default function NewsFeed(props) {
                     </div>
                     <div></div>
                     <div>
-                        <input onChange={handleChange} name='file' ref={fileInputRef} type='file' hidden/>
+                        <input onChange={handleChange} onClick={e => (e.target.value = null)} name='file' ref={fileInputRef} type='file' hidden/>
                         <input onClick={()=>fileInputRef.current.click()} type='button' value='Chọn tệp'/>
-                        {/* <button onClick={()=>fileInputRef.current.click()}> </button> */}
                         <input onClick={submitForm} type='submit' value='Đăng tin'/>
                     </div>
                     {newsfeed.map((item, index) =>{
@@ -186,7 +179,9 @@ export default function NewsFeed(props) {
             </div>
             <div className='infoNewsFeed'>
                 <div className='heading'>Thông báo từ giáo viên</div>
-                <div></div>
+                <div>
+
+                </div>
             </div>
         </div>
     )
