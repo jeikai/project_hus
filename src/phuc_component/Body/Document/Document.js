@@ -1,5 +1,4 @@
-import Menu from '../Menu';
-import '../Menu.css';
+
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
@@ -31,9 +30,8 @@ function Document() {
         }
     }
     return (
-        <section>
-            <Menu />
-            <div className='body_teacher'>
+        <>
+            <div className='body_teacher m-5'>
             <form onSubmit={handleSubmit}>
                 <table>
                     <h1>UPLOAD TÀI LIỆU HỌC TẬP</h1>
@@ -58,7 +56,7 @@ function Document() {
             <DocumentView/>
             </div>
             
-        </section>
+        </>
     )
 }
 export default Document;

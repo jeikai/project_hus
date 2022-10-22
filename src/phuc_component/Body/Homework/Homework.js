@@ -1,8 +1,7 @@
 import React from 'react';
 import './Homework.css';
 import { useState } from 'react';
-import Menu from '../Menu';
-import '../Menu.css';
+
 import axios from 'axios';
 import HomeworkView from './HomeworkView';
 function Homework() {
@@ -37,9 +36,8 @@ function Homework() {
         }
     }
     return (      
-        <section>
-            <Menu />
-            <div className='body_teacher'>
+        <>
+            <div className='body_teacher m-5'>
                 <form onSubmit={handleSubmit}>
                 <table>
                     <h1>UPLOAD BÀI TẬP</h1>
@@ -95,7 +93,7 @@ function Homework() {
                 </form>
                 <HomeworkView/>
             </div>
-        </section>
+        </>
     )
 }
 

@@ -1,5 +1,4 @@
-import Menu from '../Menu';
-import '../Menu.css';
+
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -39,9 +38,8 @@ function DocumentEdit() {
         }
     }
     return (
-        <section>
-            <Menu />
-            <div className='body_teacher'>
+        <>
+            <div className='body_teacher m-5'>
             <form onSubmit={handleSubmit}>
                 <table>
                     <h1>SỬA TÀI LIỆU HỌC TẬP</h1>
@@ -64,7 +62,7 @@ function DocumentEdit() {
                 </table>
             </form>
             </div>
-        </section>
+        </>
     )
 }
 export default DocumentEdit;

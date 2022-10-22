@@ -29,7 +29,7 @@ import Admin_AddUser from './hieuto-admin/views/Body/Users/AddUser';
 import Admin_Users from './hieuto-admin/views/Body/Users/Users';
 import User from './component/userdetail/User';
 //import from teacher
-import TeacherHeader from './phuc_component/Header/Header';
+import TeacherSideNav from './phuc_component/SideNav/SideNav';
 import TeacherMain from './phuc_component/Body/Main';
 import TeacherClass from './phuc_component/Body/Class/Class';
 import TeacherTimetable from './phuc_component/Body/Timetable/Timetable';
@@ -87,18 +87,20 @@ function App() {
                 </>
                 : login.mail !== null && login.name !== null && login.role === '1' ?
                 <>
-                <TeacherHeader/>
+                <TeacherSideNav myActive={active} updateActive={upDateMyContainerActive} />
+                <div  className={active ? 'my-container mainBodyActive' : 'my-container'}>
                 <Routes>
-                    <Route exact path='/' element={<TeacherMain />}/>
-                    <Route path='/class' element={<TeacherClass />} />
-                    <Route path='/btvn' element={<TeacherHomework />} />
-                    <Route path='/btvn/btvn/:id' element={<TeacherHomeworkEdit />} />
-                    <Route path='/timetable' element={<TeacherTimetable />} />
-                    <Route path='/assignment' element={<TeacherAssignment />} />
-                    <Route path='/assignment/assignment/:id' element={<TeacherAssignmentEdit />} />
-                    <Route path='/document' element={<TeacherDocument />} />
-                    <Route path='/document/document/:id' element={<TeacherDocumentEdit />} />
+                    <Route exact path='/' element={<TeacherMain myActive={active}/>}/>
+                    <Route path='/class' element={<TeacherClass myActive={active}/>} />
+                    <Route path='/btvn' element={<TeacherHomework myActive={active}/>} />
+                    <Route path='/btvn/btvn/:id' element={<TeacherHomeworkEdit myActive={active}/>} />
+                    <Route path='/timetable' element={<TeacherTimetable myActive={active}/>} />
+                    <Route path='/assignment' element={<TeacherAssignment myActive={active}/>} />
+                    <Route path='/assignment/assignment/:id' element={<TeacherAssignmentEdit myActive={active}/>} />
+                    <Route path='/document' element={<TeacherDocument myActive={active}/>} />
+                    <Route path='/document/document/:id' element={<TeacherDocumentEdit myActive={active}/>} />
                 </Routes>
+                </div>
             </>
                 : 
                 <>

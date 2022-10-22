@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './Class.css'
-import Menu from '../Menu';
-import '../Menu.css';
+
 import { useEffect } from 'react';
 import axios from 'axios';
 import NumberStudent from './NumberStudent';
@@ -20,9 +19,8 @@ export default function Class() {
                 });    
     }, [])
     return(     
-        <section>
-            <Menu />
-            <div className='body_teacher'>
+        <>
+            <div className='body_teacher m-5'>
             <div className="MulBoxClass">
                 {AllClass.map((item, index) =>{
                     return(
@@ -42,6 +40,6 @@ export default function Class() {
                 })}
             </div>
             </div>
-        </section>   
+        </>   
     )
 }

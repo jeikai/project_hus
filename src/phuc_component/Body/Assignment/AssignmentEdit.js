@@ -1,5 +1,4 @@
-import Menu from '../Menu';
-import '../Menu.css';
+
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -42,7 +41,6 @@ export default function AssignmentEdit() {
     }
     return (
         <section>
-            <Menu />
             <div className='body_teacher'>
             <form onSubmit={handleSubmit}>
                 <table>

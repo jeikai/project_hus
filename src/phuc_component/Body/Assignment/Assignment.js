@@ -1,5 +1,3 @@
-import Menu from '../Menu';
-import '../Menu.css';
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
@@ -51,7 +49,6 @@ function Assignment() {
     
     return (
         <section>
-            <Menu />
             <div className='body_teacher'>
             <form onSubmit={handleSubmit}>
                 <table>

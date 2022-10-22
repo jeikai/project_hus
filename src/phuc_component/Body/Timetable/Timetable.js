@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import Menu from '../Menu';
 import './Timetable.css';
-import '../Menu.css';
 import axios from 'axios'; 
 function Timetable() {
     const [login, setLogin] = useState({
@@ -187,9 +185,8 @@ function Timetable() {
     let j = 0;
 
   return (
-    <section>
-    <Menu/>
-    <div className='body_teacher'>
+    <>
+    <div className='body_teacher m-5'>
     <table>
       <thead>
         <tr>
@@ -226,7 +223,7 @@ function Timetable() {
     </div>
     
 
-    </section>
+    </>
   );
 }
 

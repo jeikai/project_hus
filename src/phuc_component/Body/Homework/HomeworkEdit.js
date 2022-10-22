@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Menu from '../Menu';
-import '../Menu.css';
 import axios from 'axios';
 import React from 'react';
 export default function HomeworkEdit() {
@@ -39,9 +37,8 @@ export default function HomeworkEdit() {
         }
     }
     return (      
-        <section>
-            <Menu />
-            <div className='body_teacher'>
+        <>
+            <div className='body_teacher m-5'>
                 <form onSubmit={handleSubmit}>
                 <table>
                     <h1>SỬA BÀI TẬP</h1>
@@ -96,6 +93,6 @@ export default function HomeworkEdit() {
                 </table>
                 </form>
                 </div>
-            </section>
+            </>
         )
 }
