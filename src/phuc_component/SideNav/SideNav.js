@@ -23,31 +23,31 @@ class TeacherSideNav extends React.Component {
                     <ul className="nav_list">
                         <li>
                             <NavLink to={'/class'} end>
-                                <i class='bx bxs-customize'></i>
+                                <i className='bx bxs-customize'></i>
                                 <span className="links_name">Lớp học của bạn</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={'/btvn'} end>
-                                <i class='bx bx-receipt'></i>
+                                <i className='bx bx-receipt'></i>
                                 <span className="links_name">Upload bài tập</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={'/timetable'} end>
-                                <i class='bx bx-table'></i>
+                                <i className='bx bx-table'></i>
                                 <span className="links_name">Thời khoá biểu của bạn</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={'/document'} end>
-                                <i class='bx bxs-customize'></i>
+                                <i className='bx bxs-customize'></i>
                                 <span className="links_name">Up tài liệu học</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={'/assignment'} end>
-                                <i class='bx bxs-pencil' ></i>
+                                <i className='bx bxs-pencil' ></i>
                                 <span className="links_name">Kế hoạch học tập</span>
                             </NavLink>
                         </li>

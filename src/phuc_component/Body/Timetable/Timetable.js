@@ -186,7 +186,7 @@ function Timetable() {
 
   return (
     <>
-    <div className='body_teacher m-5'>
+    <div className='body_teacher ms-5 me-5'>
     <table>
       <thead>
         <tr>

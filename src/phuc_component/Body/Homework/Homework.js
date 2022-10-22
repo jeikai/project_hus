@@ -37,7 +37,7 @@ function Homework() {
     }
     return (      
         <>
-            <div className='body_teacher m-5'>
+            <div className='body_teacher ms-5 me-5'>
                 <form onSubmit={handleSubmit}>
                 <table>
                     <h1>UPLOAD BÀI TẬP</h1>

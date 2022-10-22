@@ -48,8 +48,8 @@ function Assignment() {
 
     
     return (
-        <section>
-            <div className='body_teacher'>
+        <>
+            <div className='body_teacher ms-5 me-5'>
             <form onSubmit={handleSubmit}>
                 <table>
                     <h1>UPLOAD KẾ HOẠCH HỌC TẬP</h1>
@@ -73,7 +73,7 @@ function Assignment() {
                 </form>
                 <AssignmentView AllDocument={AllDocument} reloadAssignment={reloadAssignment} />
             </div>
-        </section>
+        </>
     )
 }
 export default Assignment;

@@ -20,15 +20,15 @@ export default function Class() {
     }, [])
     return(     
         <>
-            <div className='body_teacher m-5'>
+            <div className='body_teacher ms-5 me-5'>
             <div className="MulBoxClass">
                 {AllClass.map((item, index) =>{
                     return(
                         <div className="BoxClass" key={index} >
-                            <img src={item.classImage} alt='' />
+                            <img src={item.classImage === "" ? "/assets/classImgs/defaultClassImg.jpg" :  '/assets/classImgs/' + item.classImage} alt='' />
                             <div className="content">   
                                 <div>
-                                    <p><h4>{item.className}</h4></p>
+                                    <div><h4>{item.className}</h4></div>
                                     <p>{item.classId}</p>
                                 </div>
                                 <div>
