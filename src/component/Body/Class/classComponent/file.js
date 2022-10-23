@@ -34,10 +34,10 @@ export default function File(props) {
                                 onClick={() => setViewPdf(doc.documentFile)}
                                 >
                                     <div>
-                                        <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg' />
+                                        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png' />
                                     </div>
-                                    <p>{doc.documentName}</p>
-                                    <p>{doc.statusDocuments}</p>
+                                    <div>{doc.documentName}</div>
+                                    {/* <p>{doc.statusDocuments}</p> */}
                                 </div>
                             )
                         })}

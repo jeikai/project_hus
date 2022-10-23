@@ -1,10 +1,15 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import ViewFile from "./viewFile";
 import './doHomeWork.css'
+import { toast } from "react-toastify";
 export default function DoHomeWork(){
     const id = useParams().id
+    const navigate = useNavigate()
+    const classId = localStorage.getItem('classId');
+    console.log(classId);
+
     const [isActive, setIsActive] = useState(undefined)
     // const [data, setData] = useState(null)
     const [viewPdf, setViewPdf] = useState(
@@ -39,7 +44,16 @@ export default function DoHomeWork(){
               .then(function(response){
                     console.log(response.data)
                     // setViewPdf(response.data)
+                    toast.success('Upload successfully')
+                    setTimeout(()=> {
+                        // navigate(`/class/${classId}`)
+                        // window.history.back()
+                        // window.location.href = `class/${classId}`
+                        window.history.back()
+                    }, 10000)
+                    
                     }) 
+                    // navigate(`/News`)
     }
     return (
         <section id="doHomeWork">

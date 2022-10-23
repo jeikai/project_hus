@@ -7,7 +7,7 @@ export default function Member(props) {
     return(
         <div id="member">
             <div className="heading">
-                <p>Thành viên lớp học (1)</p>
+                <p>Thành viên lớp học ({students.length})</p>
             </div>
             <div className="find-member">
                     <form>
@@ -17,7 +17,7 @@ export default function Member(props) {
                 <button>Thêm học sinh</button>
             </div>
             <div className='list-member'>
-                <table>
+                <table className='table table-bordered table-striped'>
                     <thead>
                         <tr>
                             <th>Họ và tên</th>
@@ -29,11 +29,8 @@ export default function Member(props) {
                         {students.map(item => {
                             return(
                                 <tr key={item.studentId}>
-                                    <td>
-                                        <div>
-                                            <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg' />
-                                        </div>
-                                        <p>{item.studentName}</p>
+                                    <td colSpan={2}>
+                                        {item.studentName}
                                     </td>
                                     <td>{item.phoneNumber}</td>
                                     <td>{item.birthDate}</td>
