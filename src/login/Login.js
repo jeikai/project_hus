@@ -1,9 +1,10 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
  import * as Components from './Components';
  import { useNavigate } from "react-router-dom";
 import './styles.css';
 import { toast } from "react-toastify";
+import { logDOM } from "@testing-library/react";
  function Login() {
      const navigate = useNavigate()
      const [signIn, toggle] = React.useState(true);
@@ -40,11 +41,39 @@ import { toast } from "react-toastify";
             }
         })
     }
+    const [register, setRegister] = useState({
+        name: '',
+        email: '',
+        password: '',
+        cpassword: '',
+    })
 
+    const changeInfor = (e) => {
+        setRegister({...register, [e.target.name]: e.target.value})
+    }
+    const validate = () => {
+        if(register.email.trim() === '' || register.password.trim() === '' || register.name.trim() === ''){
+            toast.error('Please enter full name, email or password')
+            return false
+        }
+        if(register.name.trim() > 20 && register.name.trim() < 3){
+            toast.error('Name must be between 3 and 20 characters')
+            return false
+        }
+
+        if(register.password.trim() !== register.cpassword.trim()){
+            toast.error('Password invalid')
+            return false
+        }
+        return true
+    }
     const submitFormRegist = (e) => {
-        e.preventDefault()
         // console.log(user);
-        axios.post(`http://localhost:8000/database/register.php`, user,{
+        e.preventDefault()
+        let flag = validate()
+        if(flag){
+        
+        axios.post(`http://localhost:8000/database/register.php`, register,{
             headers: {
               'Content-Type':'multipart/form-data'
             }
@@ -64,9 +93,10 @@ import { toast } from "react-toastify";
                 },1000)
                 // <Navigate to="/dashboard" replace={true} />
             }else{
-                toast.error("Email is invalid")
+                toast.error("Can not register")
             }
         })
+    }
     }
       return(
         <div className="login-body">
@@ -74,10 +104,10 @@ import { toast } from "react-toastify";
               <Components.SignUpContainer signinIn={signIn}>
                   <Components.Form onSubmit={submitFormRegist}>
                       <Components.Title>Create Account</Components.Title>
-                      <Components.Input type='text' placeholder='Name' required />
-                      <Components.Input type='email' placeholder='Email' required />
-                      <Components.Input type='password' placeholder='Password' required />
-                      <Components.Input type='password' placeholder='Password' required />
+                      <Components.Input type='text' name="name" placeholder='Name' required onChange={changeInfor} />
+                      <Components.Input type='email' name="email" placeholder='Email' required onChange={changeInfor} />
+                      <Components.Input type='password' name="password" placeholder='Password' required onChange={changeInfor} />
+                      <Components.Input type='password' name="cpassword" placeholder='Password' required onChange={changeInfor} />
                       <Components.Button>Sign Up</Components.Button>
                   </Components.Form>
               </Components.SignUpContainer>
