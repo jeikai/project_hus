@@ -40,8 +40,8 @@ export default function AssignmentEdit() {
         }
     }
     return (
-        <section>
-            <div className='body_teacher'>
+        <>
+            <div className='body_teacher ms-5 me-5'>
             <form onSubmit={handleSubmit}>
                 <table>
                     <h1>SỬA KẾ HOẠCH HỌC TẬP</h1>
@@ -64,6 +64,6 @@ export default function AssignmentEdit() {
                 </table>
             </form>
             </div>
-        </section>
+        </>
     )
 }

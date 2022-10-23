@@ -82,15 +82,6 @@
     
 }
 
-#inClass .navbarClass{
-    width: 14%;
-    padding: 1rem 1rem;
-    /* border: 1px solid black; */
-    border: 1px #e7e9f6 solid;
-    position: fixed;
-
-}
-
 #inClass .dot{
     /* border: 1px solid black; */
     margin: 1rem;

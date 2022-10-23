@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useLocation , useNavigate, NavLink } from 'react-router-dom';
 import './Header.css'
 function Header(props) {
 
@@ -47,24 +47,20 @@ function Header(props) {
         localStorage.clear();
         window.location.replace("http://localhost:3000/");
     }
+    const pathname = useLocation().pathname.split('/');
     return(
-        <header>
+        <header style={{ boxShadow: "0 0.3rem 1rem rgba(60,180,231,1)"}}>
                     <div className='nav'>
                         <div className='logo'>
                             <img src='https://rabiloo.com/images/logo-menu-white.svg' alt=''/>
                         </div>
 
                         <div className='navbar'>
-                            {headerData.map((item, index) => {
-                                return(
-                                    <div key={index} 
-                                        
-                                         onClick={() => setSelected(index)}
-                                    >
-                                        <Link style={{ textDecoration: 'none' }} className = {selected === index ? 'headerActive' : ''} to={item.link}>{item.headerName}</Link>
-                                    </div>
-                                )
-                            })}
+                            <NavLink style={{ textDecoration: 'none' }} to={'/'} end>Over View</NavLink>
+                            <NavLink style={{ textDecoration: 'none' }} className={`${pathname[1] === 'class' ? 'headerActive' : ''}`} to={'/class'} end>Class</NavLink>
+                            <NavLink style={{ textDecoration: 'none' }} to={'/TimeTable'} end>Time Table</NavLink>
+                            <NavLink style={{ textDecoration: 'none' }} to={'/News'} end>News</NavLink>
+
                         </div>
 
                         <div className='userControl'>

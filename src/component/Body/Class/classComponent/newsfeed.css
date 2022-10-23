@@ -6,8 +6,8 @@
 }
 
 #newsfeed .contentNewsFeed{
-    /* border: 1px solid black; */
     width: 75%;
+    min-height: 100vh;
 }
 
 .heading{
@@ -79,7 +79,7 @@
 #newsfeed .wrap>div:nth-child(3){
     display: flex;
     margin: 1rem 1rem;
-    margin-left: 55%;
+    margin-left: 45%;
 }
 #newsfeed .wrap>div:nth-child(3) input{
     height: 2rem;
