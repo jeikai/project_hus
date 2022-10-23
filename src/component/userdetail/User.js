@@ -47,7 +47,7 @@ class User extends React.Component {
 			 studentCurrentPassword, birthDate, phoneNumber,studentPassword,  studentNewPassword} =this.state;
 		studentName = studentName.trim();
 		email = email.trim();
-		phoneNumber = phoneNumber.trim();
+		// phoneNumber = phoneNumber.trim();
 		studentCurrentPassword = studentCurrentPassword.trim();
 		studentPassword = studentPassword.trim();
 		studentNewPassword = studentNewPassword.trim();

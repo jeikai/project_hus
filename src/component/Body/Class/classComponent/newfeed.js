@@ -28,7 +28,7 @@ export default function NewsFeed(props) {
 
     const [post, setPost] = useState({
         content: '',
-        file: [],
+        file: '',
         classId: id,
         studentName: localStorage.getItem('name'),
     })
@@ -43,7 +43,12 @@ export default function NewsFeed(props) {
 
     const submitForm = async (e) => {
         e.preventDefault()
-
+        console.log(post.file);
+        console.log(post.content);
+        if(post.content.trim() === '' && post.file === '') {
+            toast.error('Please select a file or content')
+            return
+        }
         await axios.post(`http://localhost:8000/database/insert_post.php`, post,{
             headers: {
               'Content-Type': 'multipart/form-data'
@@ -53,14 +58,16 @@ export default function NewsFeed(props) {
             console.log(response.data);
             if(response.data === 0){
                 toast.success('Post was successfully')
-                setPost({...post,content: '', classId: id})
-                
+                setPost({...post,content: '',file: [], classId: id})
                 let element = document.getElementsByClassName('post-image')
                 element[0].style.display = "none"
                 reloadPosts()
             }
         })
     }
+    // const color = 'blue'
+    var randomColor = require('randomcolor'); // import the script
+    // var color; // a hex code for an attractive color
     const [input, setInput] = useState('')
     const handleSubmit = async (id) =>{ 
         let element = {
@@ -79,14 +86,28 @@ export default function NewsFeed(props) {
             // setPost(response.data)
             console.log(response.data);
             if(response.data === 0){
-                swal("Good job!", "You clicked the button!", "success");
-                // setPost({content: '', file: [], classId: id})
+                // toast.success('Co'
+                // swal("Good job!", "You clicked the button!", "success");
+                setPost({content: '', file: '', classId: id})
                 setInput('')
                 AllComments()
                 // setInput('')
             }
         })
     }
+
+    const [assignment, setAssignment] = useState()
+    const getNewsForTeacher = async () => {
+        await axios.get(`http://localhost:8000/database/assignmentStudent.php/${id}`)
+            .then(function(response){
+                console.log(response.data)
+                setAssignment(response.data)
+            });
+    }
+    useEffect( ()=>{
+         getNewsForTeacher()
+        // return 0
+    }, [])
 
     return(
         <div id="newsfeed">
@@ -163,7 +184,7 @@ export default function NewsFeed(props) {
                                                     <img src='https://i.pinimg.com/originals/62/ae/fb/62aefb044922a5a847546e30b9036913.jpg' />
                                                 </div>
                                                 <div>
-                                                    <p><b>Dang van cuong:</b></p>
+                                                    <span><b>{item.commentName} : </b></span>
                                                     <span>{item.commentContent}</span>
                                                 </div>
                                                 <div><i className='bx bx-dots-horizontal-rounded'></i></div>
@@ -177,11 +198,19 @@ export default function NewsFeed(props) {
 
                 </div>
             </div>
-            <div className='infoNewsFeed'>
+            <div className='infoNewsFeed' style={{ overflowY: 'auto' }}>
                 <div className='heading'>Thông báo từ giáo viên</div>
-                <div>
-
-                </div>
+                {assignment !== undefined && assignment.map((item, index) =>{
+                    return(
+                        <div className='content-teacher' 
+                        style={{ borderLeft: `10px solid ${randomColor()}`}}
+                        key={index}
+                        >
+                            <p><b>{item.title}</b></p>
+                            <p>{item.content}</p>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

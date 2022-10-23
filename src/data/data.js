@@ -4,7 +4,7 @@ const data = [
     {
         icon: <i className='bx bxs-customize'></i>,
         heading: "Lớp học hôm nay",
-        array: [],
+        array: ['Tên lớp', 'Mở lớp', 'Đóng lớp'],
     },
 
     {
@@ -15,14 +15,8 @@ const data = [
 
     {
         icon: <i className='bx bx-receipt'></i>,
-        heading: "Tài liệu chưa đọc",
+        heading: "Tài liệu của bạn",
         array: ["Tên tài liệu", "Lớp", "Ngày đăng"],
-    },
-
-    {
-        icon: <i className='bx bx-video' ></i>,
-        heading: "Bài giảng chưa xem",
-        array: ["Tên bài giảng", "Lớp", "Ngày đăng"],
     },
     {
         icon: <i className='bx bx-objects-vertical-bottom'></i>,

@@ -49,7 +49,7 @@ export default function DoHomeWork(){
             <div className="upFilePdf">
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <input type="file" name="file" onChange={(e)=> setInputFile(e.target.files[0])} />
+                        <input type="file" name="file" className="form-control" onChange={(e)=> setInputFile(e.target.files[0])} />
                     </div>
                     <div>
                         <button type="submit">Upload</button>
