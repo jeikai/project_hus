@@ -3,6 +3,7 @@ import React from "react";
  import * as Components from './Components';
  import { useNavigate } from "react-router-dom";
 import './styles.css';
+import { toast } from "react-toastify";
  function Login() {
      const navigate = useNavigate()
      const [signIn, toggle] = React.useState(true);
@@ -35,12 +36,9 @@ import './styles.css';
                 localStorage.setItem('studentId', response.data[0].studentId)
                 localStorage.setItem('img', response.data[0].studentImage)
                 localStorage.setItem('role', 0)
-                // swal("Good job!", "You clicked the button!", "success");
                 window.location.replace("http://localhost:3000/");
-                // <Navigate to="/dashboard" replace={true} />
             }
         })
-        // console.log(response.data);
     }
 
     const submitFormRegist = (e) => {
@@ -51,6 +49,24 @@ import './styles.css';
               'Content-Type':'multipart/form-data'
             }
           })
+          .then(function(response){
+            console.log(response.data[0]);
+            if(response.data !== 0){
+                localStorage.setItem('name', response.data[0].studentName)
+                localStorage.setItem('email', user.email)
+                localStorage.setItem('studentId', response.data[0].studentId)
+                localStorage.setItem('img', response.data[0].studentImage)
+                localStorage.setItem('role', 0)
+                // swal("Good job!", "You clicked the button!", "success");
+                toast.success("resgister success");
+                setTimeout(() => {
+                    window.location.replace("http://localhost:3000/");
+                },1000)
+                // <Navigate to="/dashboard" replace={true} />
+            }else{
+                toast.error("Email is invalid")
+            }
+        })
     }
       return(
         <div className="login-body">
