@@ -7,7 +7,6 @@ import NewsFeed from "./classComponent/newfeed"
 import Schedule from "./classComponent/schedule"
 import File from "./classComponent/file";
 
-
 export default function InClass() {
     const id = useParams().id;
     const navigate = useNavigate();

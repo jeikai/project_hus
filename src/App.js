@@ -29,6 +29,7 @@ import Admin_AddUser from './hieuto-admin/views/Body/Users/AddUser';
 import Admin_Users from './hieuto-admin/views/Body/Users/Users';
 import User from './component/userdetail/User';
 //import from teacher
+import Diemdanh from './phuc_component/Body/Class/Diemdanh';
 import TeacherSideNav from './phuc_component/SideNav/SideNav';
 import TeacherMain from './phuc_component/Body/Main';
 import TeacherClass from './phuc_component/Body/Class/Class';
@@ -94,6 +95,7 @@ function App() {
                     <Route path='/class' element={<TeacherClass myActive={active}/>} />
                     <Route path='/btvn' element={<TeacherHomework myActive={active}/>} />
                     <Route path='/btvn/btvn/:id' element={<TeacherHomeworkEdit myActive={active}/>} />
+                    <Route path='/class/:id' element={<Diemdanh myActive={active}/>} />
                     <Route path='/timetable' element={<TeacherTimetable myActive={active}/>} />
                     <Route path='/assignment' element={<TeacherAssignment myActive={active}/>} />
                     <Route path='/assignment/assignment/:id' element={<TeacherAssignmentEdit myActive={active}/>} />

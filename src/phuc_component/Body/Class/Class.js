@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './Class.css'
-
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import NumberStudent from './NumberStudent';
 export default function Class() {
+    const navigate = useNavigate();
     const [login, setLogin] = useState({
         mail: localStorage.getItem('email'),
         name: localStorage.getItem('name'),
@@ -24,7 +25,8 @@ export default function Class() {
             <div className="MulBoxClass">
                 {AllClass.map((item, index) =>{
                     return(
-                        <div className="BoxClass" key={index} >
+                        <div className="BoxClass" key={index} 
+                        onClick={() =>navigate(`/class/${item.classId}`)}>
                             <img src={item.classImage} alt='' />
                             <div className="content">   
                                 <div>
