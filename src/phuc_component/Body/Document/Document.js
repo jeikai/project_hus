@@ -48,7 +48,7 @@ function Document() {
                         <td><input type="file" name = "file"  onChange={handleFile} required></input></td>
                     </tr>
                     <tr>
-                        <td><input className='submit' type="submit" onClick={click}/></td>
+                        <td><button type="submit" class="btn btn-success" onClick={click}>Submit</button></td>
                         <td></td>
                     </tr>
                 </table>

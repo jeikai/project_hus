@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import React from 'react';
 export default function HomeworkEdit() {
-    const [inputs, setInputs] = useState([]);
+    const [inputs, setInputs] = useState({['type']: 'practice'});
+    const navigate = useNavigate();
     const {id} = useParams();
     useEffect(() => {
             axios.get(`http://localhost:8000/database/handleHomeworkView.php/${id}`,)
@@ -32,9 +33,8 @@ export default function HomeworkEdit() {
         setInputs( values => ({...values, file: event.target.files[0] }));
     }
     const click = (event) => {
-        if ( inputs.name  && inputs.file ) {
             alert("Sửa thành công");
-        }
+            navigate(`/btvn`);
     }
     return (      
         <>
@@ -44,33 +44,45 @@ export default function HomeworkEdit() {
                     <h1>SỬA BÀI TẬP</h1>
                     <tr>
                         <td>Tên bài tập</td>
-                        <td><input onChange={handleChange} className='type_input' type="text" required name="name"></input></td>
+                        <td><input value={inputs.ExerciseName} onChange={handleChange} className='type_input' type="text" required name="ExerciseName"></input></td>
                     </tr>
                     <tr>
                         <td>ID lớp</td>
-                        <td><input onChange={handleChange} className='type_input' type="text" required name="id"></input></td>
+                        <td><input value={inputs.classId} onChange={handleChange} className='type_input' type="text" required name="classId"></input></td>
                     </tr>
                     <tr>
                         <td>Thời gian bắt đầu</td>
                         <td>
-                            <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year' required name="startyear"/>-
-                            <input onChange={handleChange} min='1' className='time' type="number" placeholder='month' required name="startmonth"/>-
-                            <input onChange={handleChange} min='1' max='31' className='time' type="number" placeholder='day' required name="startday"/> |
-                            <input onChange={handleChange} min='0' max='24'className='time' type="number" placeholder='hour' required name="starthour"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='minute' required name="startmin"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='second' required name="startsecond"/>
+                            <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year'  name="startyear"/>-
+                            <input onChange={handleChange} min='1' className='time' type="number" placeholder='month'  name="startmonth"/>-
+                            <input onChange={handleChange} min='1' max='31' className='time' type="number" placeholder='day'  name="startday"/> |
+                            <input onChange={handleChange} min='0' max='24'className='time' type="number" placeholder='hour'  name="starthour"/>-
+                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='minute'  name="startmin"/>-
+                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='second'  name="startsecond"/>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Thời gian bắt đầu đã cài đặt</td>
+                        <td>{inputs.startingDay}</td>
                     </tr>
                     <tr>
                         <td>Thời gian kết thúc</td>
                         <td>
-                            <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year' required name="endyear"/>-
-                            <input onChange={handleChange} min='1' className='time' type="number" placeholder='month' required name="endmonth"/>-
-                            <input onChange={handleChange} min='1' max='31' className='time' type="number" placeholder='day' required name="endday"/> |
-                            <input onChange={handleChange} min='0' max='24'className='time' type="number" placeholder='hour' required name="endhour"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='minute' required name="endmin"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='second' required name="endsecond"/>
+                            <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year'  name="endyear"/>-
+                            <input onChange={handleChange} min='1' className='time' type="number" placeholder='month'  name="endmonth"/>-
+                            <input onChange={handleChange} min='1' max='31' className='time' type="number" placeholder='day'  name="endday"/> |
+                            <input onChange={handleChange} min='0' max='24'className='time' type="number" placeholder='hour'  name="endhour"/>-
+                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='minute'  name="endmin"/>-
+                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='second'  name="endsecond"/>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Thời gian kết thúc đã cài đặt</td>
+                        <td>{inputs.deadline}</td>
+                    </tr>
+                    <tr>
+                        <td>Loại bài tập đã chọn</td>
+                        <td>{inputs.typeExercise}</td>
                     </tr>
                     <tr>
                         <td>Loại bài tập</td>
@@ -83,11 +95,15 @@ export default function HomeworkEdit() {
                         </td>
                     </tr>
                     <tr>
-                        <td>Upload file của bạn</td>
-                        <td><input onChange={handleFile} type="file" multiple required name="file"></input></td>
+                        <td>File đã upload</td>
+                        <td>{inputs.ExerciseFile}</td>
                     </tr>
                     <tr>
-                        <td><input onClick={click} className='submit' type="submit" /></td>
+                        <td>Upload file của bạn</td>
+                        <td><input onChange={handleFile} type="file" name="file"></input></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-success" onClick={click}>Submit</button></td>
                         <td></td>
                     </tr>
                 </table>

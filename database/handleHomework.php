@@ -1,5 +1,6 @@
 <?php
     include './connetdb.php';
+    $time = time();
     $method = $_SERVER['REQUEST_METHOD'];
     switch($method) {
         case "POST":
@@ -25,9 +26,9 @@
             $deadline = $endyear."-".$endmonth."-".$endday." ".$endhour.":".$endmin.":".$endsecond;
 
             $type = htmlspecialchars($_POST['type'] ?? '');
-            $file_name = $_FILES['file']['name'];
+            $file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../public/assets/homework/".$file_name;
+            $destination = "../src/data/homework/".$file_name;
             if ( $ExerciseName != NULL && $classId != NULL && $file_name != NULL) {
                 try {
                     $sql = "INSERT INTO Exercise(ExerciseName, classId, startingDay, deadline, ExerciseFile, typeExercise) VALUES ( ?, ?, ?, ?, ?, ?)";
@@ -39,6 +40,7 @@
                     echo "Connection failed: " . $e->getMessage();
                 }     
             }
+            break;
         case "GET":
             $path = explode('/', $_SERVER['REQUEST_URI']);
             $sql = "SELECT * FROM Exercise a JOIN Schedule b ON a.classId = b.classId WHERE b.teacherId = ? ORDER BY a.classId";

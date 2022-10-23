@@ -5,7 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import HomeworkView from './HomeworkView';
 function Homework() {
-    const [inputs, setInputs] = useState();
+    const [inputs, setInputs] = useState({['type']: 'practice'});
     const handleSubmit = async(event) => {
         event.preventDefault();
         await axios.post('http://localhost:8000/database/handleHomework.php', 
@@ -50,6 +50,10 @@ function Homework() {
                         <td><input onChange={handleChange} className='type_input' type="text" required name="id"></input></td>
                     </tr>
                     <tr>
+                        <td>demo</td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>Thời gian bắt đầu</td>
                         <td>
                             <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year' required name="startyear"/>-
@@ -75,7 +79,7 @@ function Homework() {
                         <td>Loại bài tập</td>
                         <td>
                         <select onChange={handleChange} className='type_input' name="type">
-                            <option selected value="practice">Luyện tập</option>
+                            <option value="practice">Luyện tập</option>
                             <option value="mid">Giữa kì</option>
                             <option value="final">Cuối kì</option>
                         </select>
@@ -86,7 +90,7 @@ function Homework() {
                         <td><input onChange={handleFile} type="file" multiple required name="file"></input></td>
                     </tr>
                     <tr>
-                        <td><input onClick={click} className='submit' type="submit" /></td>
+                        <td><button type="submit" class="btn btn-success" onClick={click}>Submit</button></td>
                         <td></td>
                     </tr>
                 </table>

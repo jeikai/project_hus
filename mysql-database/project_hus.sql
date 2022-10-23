@@ -140,20 +140,19 @@ CREATE TABLE `documents` (
   `documentId` int(11) NOT NULL,
   `documentName` varchar(50) CHARACTER SET utf8 NOT NULL,
   `documentFile` varchar(255) NOT NULL,
-  `classId` int(11) NOT NULL,
-  `statusDocuments` bit(1) DEFAULT b'0'
+  `classId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `documents`
 --
 
-INSERT INTO `documents` (`documentId`, `documentName`, `documentFile`, `classId`, `statusDocuments`) VALUES
-(1, 'bai1', 'doc_1.pdf', 4, b'1'),
-(2, 'bai2', 'doc_2.pdf', 4, b'1'),
-(3, 'bai3', 'doc_3', 4, b'1'),
-(4, 'bai4', 'doc_4', 4, b'1'),
-(6, 'Fish', 'doc_2.pdf', 1, b'0');
+INSERT INTO `documents` (`documentId`, `documentName`, `documentFile`, `classId`) VALUES
+(1, 'bai1', 'doc_1.pdf', 4),
+(2, 'bai2', 'doc_2.pdf', 4),
+(3, 'bai3', 'doc_3', 4),
+(4, 'bai4', 'doc_4', 4),
+(6, 'Fish', 'doc_2.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -169,7 +168,7 @@ CREATE TABLE `exercise` (
   `startingDay` datetime DEFAULT NULL,
   `deadline` datetime DEFAULT NULL,
   `statusExercise` bit(1) DEFAULT b'0',
-  `typeExercise` text DEFAULT NULL
+  `typeExercise` text DEFAULT 'practice'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -177,10 +176,10 @@ CREATE TABLE `exercise` (
 --
 
 INSERT INTO `exercise` (`ExerciseId`, `ExerciseName`, `ExerciseFile`, `classId`, `startingDay`, `deadline`, `statusExercise`, `typeExercise`) VALUES
-(1, 'Home_work_1', 'doc_1.pdf', 4, '2022-10-16 00:00:00', '2022-10-17 00:00:00', b'1', 'bai_tap_ve_nha'),
-(2, 'Home_work_2', 'doc_2.pdf', 4, '2022-10-15 00:00:00', '2022-10-18 00:00:00', b'1', 'bai_tap_ve_nha'),
-(3, 'Home_work_1', 'doc_3.pdf', 4, '2022-10-16 00:00:00', '2022-10-19 00:00:00', b'1', 'bai_tap_ve_nha'),
-(11, 'Fish', 'doc_1.pdf', 1, '2022-01-01 01:01:01', '2022-01-01 01:02:01', b'0', '');
+(1, 'Home_work_1', 'doc_1.pdf', 4, '2022-10-16 00:00:00', '2022-10-17 00:00:00', b'1', 'practice'),
+(2, 'Home_work_2', 'doc_2.pdf', 4, '2022-10-15 00:00:00', '2022-10-18 00:00:00', b'1', 'practice'),
+(3, 'Home_work_1', 'doc_3.pdf', 4, '2022-10-16 00:00:00', '2022-10-19 00:00:00', b'1', 'practice'),
+(11, 'Fish', 'doc_1.pdf', 1, '2022-01-01 01:01:01', '2022-01-01 01:02:01', b'0', 'practice');
 
 -- --------------------------------------------------------
 
@@ -419,9 +418,9 @@ CREATE TABLE `teachers` (
 
 INSERT INTO `teachers` (`teacherId`, `teacherPassword`, `email`, `teacherName`, `teacherPhone`, `birthDate`, `teacherImage`) VALUES
 (1, 'rabiloo', '111@gmail.com', 'Phuc 1', '0365818018', '0000-00-00', ''),
-(2, 'rabiloo', '222@gmail.com', 'T├║', '1234567890', '0000-00-00', ''),
-(3, 'rabiloo', '333@gmail.com', 'Quß╗│nh', '09876654321', '0000-00-00', ''),
-(4, 'rabiloo', '444@gmail.com', 'Tuß║Ñn', '0949598975', '0000-00-00', ''),
+(2, 'rabiloo', '222@gmail.com', 'Tu', '1234567890', '0000-00-00', ''),
+(3, 'rabiloo', '333@gmail.com', 'Quan', '09876654321', '0000-00-00', ''),
+(4, 'rabiloo', '444@gmail.com', 'Tuan', '0949598975', '0000-00-00', ''),
 (6, 'rabiloo', '666@gmail.com', 'Lan Nhi', '0987612345', '0000-00-00', '');
 
 --

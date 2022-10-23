@@ -1,6 +1,7 @@
 <?php
     include './connetdb.php';
     $method = $_SERVER['REQUEST_METHOD'];
+    $time = time();
     switch($method) {
     case 'GET':
         $path = explode('/', $_SERVER['REQUEST_URI']);
@@ -13,10 +14,11 @@
         }
         break; 
     case 'POST':
+        $old_file = $_POST['ExerciseFile'];
         $path = explode('/', $_SERVER['REQUEST_URI']);
         $sql = "UPDATE Exercise SET ExerciseName = ?,
         startingDay = ?, deadline = ?, ExerciseFile = ?, typeExercise = ? WHERE ExerciseId = ?";
-        $ExerciseName = htmlspecialchars($_POST['name'] ?? '');
+        $ExerciseName = htmlspecialchars($_POST['ExerciseName'] ?? '');
             
         $startyear = htmlspecialchars($_POST['startyear'] ?? '');
         $startmonth = htmlspecialchars($_POST['startmonth'] ?? '');
@@ -25,8 +27,10 @@
         $startmin = htmlspecialchars($_POST['startmin'] ?? '');
         $startsecond = htmlspecialchars($_POST['startsecond'] ?? '');
 
+        $old_statingDay = htmlspecialchars($_POST['startingDay'] ?? '');
         $startingDay = $startyear."-".$startmonth."-".$startday." ".$starthour.":".$startmin.":".$startsecond;
-        
+       
+        echo $_POST['startingDay'];
         $endyear = htmlspecialchars($_POST['endyear'] ?? '');
         $endmonth = htmlspecialchars($_POST['endmonth'] ?? '');
         $endday = htmlspecialchars($_POST['endday'] ?? '');
@@ -35,15 +39,26 @@
         $endsecond = htmlspecialchars($_POST['endsecond'] ?? '');
         
         $deadline = $endyear."-".$endmonth."-".$endday." ".$endhour.":".$endmin.":".$endsecond;
+        $old_deadline = htmlspecialchars($_POST['deadline'] ?? '');
 
         $type = htmlspecialchars($_POST['type'] ?? '');
-        $file_name = $_FILES['file']['name'];
-        $file_tmp_name = $_FILES['file']['tmp_name'];
-        $destination = "../public/assets/homework/".$file_name;
-
-        $statement = $connection->prepare($sql);
-        $statement->execute( [$ExerciseName, $startingDay, $deadline, $file_name, $type, $path[3]]);
-        move_uploaded_file($file_tmp_name, $destination);
+        $old_type = htmlspecialchars($_POST['typeExercise'] ?? '');
+        $file_name = htmlspecialchars( $_FILES['file']['name'] ?? '');
+        
+        if ( !empty($file_name) || $file_name != '') {
+            $file_name = $time."-".$_FILES['file']['name'];
+            $file_tmp_name = $_FILES['file']['tmp_name'];
+            $destination = "../src/data/homework/".$file_name;
+            $statement = $connection->prepare($sql);
+            $statement->execute( [$ExerciseName, $startingDay, $deadline, $file_name, $type, $path[3]]);
+            move_uploaded_file($file_tmp_name, $destination);
+            if (file_exists("../src/data/homework/".$old_file) ) {
+                unlink("../src/data/homework/".$old_file);
+            }
+        } else {
+            $statement = $connection->prepare($sql);
+            $statement->execute( [$ExerciseName, $_POST['startingDay'], $old_deadline, $old_file, $old_type, $path[3]]);
+        }
         break;
     case "DELETE":
         echo "haha";
@@ -59,8 +74,8 @@
             foreach( $result as $result ) {
                 $file = $result['ExerciseFile'];
             }
-            if (file_exists("../public/assets/homework/".$file) ) {
-                unlink("../public/assets/homework/".$file);
+            if (file_exists("../src/data/homework/".$file) ) {
+                unlink("../src/data/homework/".$file);
             }
             $sql = "DELETE FROM Exercise WHERE ExerciseId = ?";
             $statement = $connection->prepare($sql);

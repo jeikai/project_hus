@@ -58,7 +58,7 @@ export default function AssignmentEdit() {
                         <td><textarea value={inputs.content} className='type_input' onChange={handleChange} name="content" required></textarea></td>
                     </tr>
                     <tr>
-                        <td><input className='submit' type="submit" onClick={click}/></td>
+                        <td><button type="submit" class="btn btn-success" onClick={click}>Submit</button></td>
                         <td></td>
                     </tr>
                 </table>

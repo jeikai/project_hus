@@ -1,13 +1,14 @@
 <?php
     include './connetdb.php';
     $method = $_SERVER['REQUEST_METHOD'];
+    $time = time();
     switch($method) {
         case "POST":
             $documentName = htmlspecialchars($_POST['name'] ?? '');
             $classId = htmlspecialchars($_POST['ID'] ?? '');
-            $file_name = $_FILES['file']['name'];
+            $file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../public/assets/document/".$file_name;
+            $destination = "../src/data/document/".$file_name;
             if ( $documentName != NULL && $classId != NULL && $file_name != NULL) {
                 try {
                     $sql = "INSERT INTO Documents(documentName, documentFile, classId) VALUES ( ?, ?, ?)";

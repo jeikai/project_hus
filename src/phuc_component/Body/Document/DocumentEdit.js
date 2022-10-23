@@ -30,10 +30,11 @@ function DocumentEdit() {
         console.log(inputs);
     }
     const handleFile = (event) => {
+        console.log(inputs);
         setInputs( values => ({...values, file: event.target.files[0] }));
     }
     const click = (event) => {
-        if ( inputs.name  && inputs.file ) {
+        if ( inputs.documentName  ) {
             alert("Sửa thành công");
         }
     }
@@ -52,11 +53,15 @@ function DocumentEdit() {
                         <td><input value={inputs.classId} className='type_input' type="text" name = "classId" onChange={handleChange} required></input></td>
                     </tr>
                     <tr>
-                        <td>Upload file của bạn</td>
-                        <td><input type="file" name = "file"  onChange={handleFile} required></input></td>
+                        <td>File đang có</td>
+                        <td>{inputs.documentFile}</td>
                     </tr>
                     <tr>
-                        <td><input className='submit' type="submit" onClick={click}/></td>
+                        <td>Upload file mới của bạn</td>
+                        <td><input type="file" name = "file"  onChange={handleFile}></input></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-success" onClick={click}>Submit</button></td>
                         <td></td>
                     </tr>
                 </table>

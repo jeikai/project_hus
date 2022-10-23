@@ -25,7 +25,9 @@ export default function Class() {
             <div className="MulBoxClass">
                 {AllClass.map((item, index) =>{
                     return(
-                        <div className="BoxClass" key={index} >
+                        <div className="BoxClass" key={index} 
+                        onClick={() =>navigate(`/class/${item.classId}`)}
+                        >
                             <img src={item.classImage === "" ? "/assets/classImgs/defaultClassImg.jpg" :  '/assets/classImgs/' + item.classImage} alt='' />
                             <div className="content">   
                                 <div>

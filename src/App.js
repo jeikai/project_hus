@@ -93,6 +93,7 @@ function App() {
                 <Routes>
                     <Route exact path='/' element={<TeacherMain />}/>
                     <Route path='/class' element={<TeacherClass />} />
+                    <Route path='/class/:id' element={<Diemdanh />} />
                     <Route path='/btvn' element={<TeacherHomework />} />
                     <Route path='/btvn/btvn/:id' element={<TeacherHomeworkEdit />} />
                     <Route path='/timetable' element={<TeacherTimetable />} />
