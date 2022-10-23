@@ -97,8 +97,8 @@ export default function NewsFeed(props) {
     }
 
     const [assignment, setAssignment] = useState()
-    useEffect(()=>{
-        axios.get(`http://localhost:8000/database/assignmentStudent.php/${id}`)
+    useEffect(async ()=>{
+        await axios.get(`http://localhost:8000/database/assignmentStudent.php/${id}`)
             .then(function(response){
                 console.log(response.data)
                 setAssignment(response.data)
@@ -194,9 +194,9 @@ export default function NewsFeed(props) {
 
                 </div>
             </div>
-            <div className='infoNewsFeed'>
+            <div className='infoNewsFeed' style={{ overflowY: 'auto' }}>
                 <div className='heading'>Thông báo từ giáo viên</div>
-                {assignment.map((item, index) =>{
+                {assignment !== undefined && assignment.map((item, index) =>{
                     return(
                         <div className='content-teacher' 
                         style={{ borderLeft: `10px solid ${randomColor()}`}}
