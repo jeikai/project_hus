@@ -76,7 +76,7 @@
 }
 
 #member .list-member table tbody tr td:first-child div{
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     line-height: 2;
 }
 
