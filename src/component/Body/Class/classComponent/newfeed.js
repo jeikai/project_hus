@@ -97,12 +97,16 @@ export default function NewsFeed(props) {
     }
 
     const [assignment, setAssignment] = useState()
-    useEffect(async ()=>{
+    const getNewsForTeacher = async () => {
         await axios.get(`http://localhost:8000/database/assignmentStudent.php/${id}`)
             .then(function(response){
                 console.log(response.data)
                 setAssignment(response.data)
             });
+    }
+    useEffect( ()=>{
+         getNewsForTeacher()
+        // return 0
     }, [])
 
     return(
