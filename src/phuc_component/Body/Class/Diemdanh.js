@@ -7,20 +7,37 @@ export default function Diemdanh() {
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
-    const [AllStudent, setAllStudent] = useState([]);
+    const [AllStudent, setAllStudent] = useState([]);    
+    const [diemdanh, setDiemdanh] = useState([{}]);
     useEffect(() => {
             axios.get(`http://localhost:8000/database/handleDiemdanh.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     console.log(id);
                     setAllStudent(response.data);
-                });    
+                });
     }, [])
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setDiemdanh(values => ([...values, {[`diemdanh`]: value } ]))
+        console.log(diemdanh);
+    }
+    // const handleSubmit = async(event) => {
+    //     event.preventDefault();
+    //     await axios.post('http://localhost:8000/database/handleDocument.php', 
+    //         inputs, {
+    //             headers: {
+    //             'Content-Type': 'multipart/form-data'
+    //             }
+    //         }
+    //     );
+    // }
     return (
         <>
         <div className="body_teacher m-5 ms-5">
         <h1 className="float-start">Bảng điểm danh ngày {day + " - " + month + " - " + year}</h1>
-        <button type="button" className=" float-end btn btn-primary">Save</button>
+        <button type="button" className=" float-end btn btn-primary" >Save</button>
         <table>
             
             <thead>
@@ -36,7 +53,7 @@ export default function Diemdanh() {
                             <td>{sv.studentName}</td>
                             <td>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                <input value='co' class="form-check-input" type="radio" name={sv.studentId} id="flexRadioDefault1" onClick={handleChange} />
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Có
                                 </label>
@@ -44,7 +61,7 @@ export default function Diemdanh() {
                             </td>
                             <td>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                <input value='khong' class="form-check-input" type="radio" name={sv.studentId} id="flexRadioDefault1" onClick={handleChange} />
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Không
                                 </label>

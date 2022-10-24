@@ -27,11 +27,7 @@ function Homework() {
         setInputs( values => ({...values, file: event.target.files[0] }));
     }
     const click = (event) => {
-        if ( inputs.id  && inputs.name  && inputs.file && inputs.type
-            && inputs.startyear && inputs.startmonth && inputs.startday 
-            && inputs.starthour && inputs.startmin && inputs.startsecond
-            && inputs.endyear && inputs.endmonth && inputs.endday 
-            && inputs.endhour && inputs.endmin && inputs.endsecond) {
+        if ( inputs.id  && inputs.name  && inputs.file && inputs.type) {
             alert("Thêm thành công");
         }
     }
@@ -50,29 +46,15 @@ function Homework() {
                         <td><input onChange={handleChange} className='type_input' type="text" required name="id"></input></td>
                     </tr>
                     <tr>
-                        <td>demo</td>
-                        <td></td>
-                    </tr>
-                    <tr>
                         <td>Thời gian bắt đầu</td>
                         <td>
-                            <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year' required name="startyear"/>-
-                            <input onChange={handleChange} min='1' className='time' type="number" placeholder='month' required name="startmonth"/>-
-                            <input onChange={handleChange} min='1' max='31' className='time' type="number" placeholder='day' required name="startday"/> |
-                            <input onChange={handleChange} min='0' max='24'className='time' type="number" placeholder='hour' required name="starthour"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='minute' required name="startmin"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='second' required name="startsecond"/>
+                            <input onChange={handleChange} className='type_input' type="datetime-local" required name="startingDay"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Thời gian kết thúc</td>
                         <td>
-                            <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year' required name="endyear"/>-
-                            <input onChange={handleChange} min='1' className='time' type="number" placeholder='month' required name="endmonth"/>-
-                            <input onChange={handleChange} min='1' max='31' className='time' type="number" placeholder='day' required name="endday"/> |
-                            <input onChange={handleChange} min='0' max='24'className='time' type="number" placeholder='hour' required name="endhour"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='minute' required name="endmin"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='second' required name="endsecond"/>
+                            <input onChange={handleChange} className='type_input' type="datetime-local" required name="deadline"/>
                         </td>
                     </tr>
                     <tr>

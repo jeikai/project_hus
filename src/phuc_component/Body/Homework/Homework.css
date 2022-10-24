@@ -13,16 +13,6 @@
 .type_input:hover{
     border: 1px red solid;
 }
-.submit {
-    border: 1px black solid;
-    background-color: greenyellow;
-    border-radius: 5px;
-    height: 40px;
-    width: 80px;
-}
-.submit:hover {
-    border: 1px red solid;
-}
 .time {
     border: 1px black solid;
     height: 30px;
