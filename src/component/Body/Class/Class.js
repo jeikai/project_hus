@@ -34,24 +34,27 @@ export default function Classes() {
     // }
     
     const studentId = localStorage.getItem('studentId');
-    useEffect(() => {
-            axios.get(`http://localhost:8000/database/AllClass.php/${studentId}`,)
+    const reRenderClass = async () => {
+        await axios.get(`http://localhost:8000/database/AllClass.php/${studentId}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllClass(response.data);
                 });    
+    }
+    useEffect(() => {
+            reRenderClass()
             // filterClass(0)
     }, [])
 
     
     const [active, setActive] = useState(false)
     const [activeJoin, setActiveJoin] = useState(false)
-
+    const [findClass, setFindClass] = useState()
     return(
         <section id='class'>
-            {active ? <ModalFindClas setActiveJoin={setActiveJoin} activeJoin={activeJoin} 
+            {active ? <ModalFindClas setFindClass={setFindClass} setActiveJoin={setActiveJoin} activeJoin={activeJoin} 
                         setActive={setActive} active={active} /> : ""}
-            {activeJoin ? <JoinClass setActiveJoin={setActiveJoin} activeJoin={activeJoin} /> : ""}
+            {activeJoin ? <JoinClass reRenderClass={reRenderClass} findClass={findClass} setActiveJoin={setActiveJoin} activeJoin={activeJoin} /> : ""}
             <div>
                 {dataClass.map((item, index) =>{
                     return(

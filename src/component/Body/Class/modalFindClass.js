@@ -1,12 +1,24 @@
+import axios from "axios"
 import { useState } from "react"
+import { toast } from "react-toastify";
 
 export default function ModalFindClas(props) {
 
-    const [inputClass, setInputClass] = useState('')
-    const handleSubmit = (e) => {
+    const [inputClass, setInputClass] = useState()
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        props.setActive(!props.active)
-        props.setActiveJoin(!props.activeJoin)
+        await axios.get(`http://localhost:8000/database/data_1/handleFindClass.php/${inputClass}`,)
+            .then(function (response) {
+                // console.log(response.data);
+                if(response.data === "error") {
+                    toast.error('Can not find class')
+                }else{
+                    props.setFindClass(response.data[0])
+                    props.setActiveJoin(!props.activeJoin)
+                    props.setActive(!props.active)
+                }
+        });
     }
     return (
         <>
@@ -21,13 +33,13 @@ export default function ModalFindClas(props) {
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
                                     <label className="form-label">Find Class By Id</label>
-                                    <input type="text" name="Name" className="form-control" required/>
+                                    <input type="text" name="id" className="form-control" onChange={(e) => setInputClass(e.target.value)} required />
                                 </div>
                                 <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary"
-                                onClick={() => props.setActive(!props.active)} data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="add-admin-btn" className="btn btn-primary">Submit</button>
-                            </div>
+                                    <button type="button" className="btn btn-secondary"
+                                        onClick={() => props.setActive(!props.active)} data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" name="add-admin-btn" className="btn btn-primary">Submit</button>
+                                </div>
                             </form>
                         </div>
                     </div>
