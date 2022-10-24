@@ -4,6 +4,8 @@ import DropDown from '../../DropDown'
 import './Class.css'
 import axios from 'axios';
 import { useParams } from 'react-router-dom'
+import ModalFindClas from './modalFindClass';
+import JoinClass from './joinClass';
 export default function Classes() {
     const navigate = useNavigate();
     const [selected, setSelected] = useState(0);
@@ -42,17 +44,19 @@ export default function Classes() {
     }, [])
 
     
-
-    
+    const [active, setActive] = useState(false)
+    const [activeJoin, setActiveJoin] = useState(false)
 
     return(
         <section id='class'>
+            {active ? <ModalFindClas setActiveJoin={setActiveJoin} activeJoin={activeJoin} 
+                        setActive={setActive} active={active} /> : ""}
+            {activeJoin ? <JoinClass setActiveJoin={setActiveJoin} activeJoin={activeJoin} /> : ""}
             <div>
                 {dataClass.map((item, index) =>{
                     return(
                         <button className={selected === index ? 'button classActive' : 'button'} 
                             key={index}
-                            // onClick={() => filterClass(index)}
                             onClick={() => setSelected(index)}
                         >
                             {item.nameClass}
@@ -70,7 +74,7 @@ export default function Classes() {
                     <DropDown></DropDown>
                 </div>         
     
-                <button className='findClass'><span>+</span> Tìm lớp học</button>
+                <button onClick={() => setActive(!active)} className='findClass'><span>+</span> Tìm lớp học</button>
             </div>
             
             <div className="MulBoxClass">
@@ -98,6 +102,7 @@ export default function Classes() {
                     )
                 })}
             </div>
+            
         </section>
     )
 }
