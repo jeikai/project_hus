@@ -4,7 +4,7 @@
     switch($method) {
         case "GET":
             $path = explode('/', $_SERVER['REQUEST_URI']);
-            $sql = "SELECT * FROM Schedule JOIN Classes ON Schedule.classId = Classes.classId JOIN Results ON 
+            $sql = "SELECT * FROM timetable JOIN Classes ON timetable.classId = Classes.classId JOIN Results ON 
             Classes.classId = Results.classId WHERE Results.studentId = ?";
             $statement = $connection->prepare($sql);
             $statement->execute([$path[3]]);

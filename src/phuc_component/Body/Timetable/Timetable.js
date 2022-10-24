@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import './Timetable.css';
 import axios from 'axios'; 
+import { Link, useNavigate } from 'react-router-dom';
 function Timetable() {
+    const navigate = useNavigate();
     const [login, setLogin] = useState({
         mail: localStorage.getItem('email'),
         name: localStorage.getItem('name'),
@@ -101,6 +103,7 @@ function Timetable() {
                 date = 6;
                 break;
             default:
+                date = -1;
                 break;
         }
         switch(item.startLesson) {
@@ -138,6 +141,7 @@ function Timetable() {
                 start = 10;
                 break;
             default:
+                start = -1;
                 break;
         }
         switch(item.endLesson) {
@@ -175,6 +179,7 @@ function Timetable() {
                 end = 11;
                 break;
             default:
+                end = -1;
                 break;
         }
         for ( let pos = start; pos < end; pos++) {
@@ -186,7 +191,8 @@ function Timetable() {
 
   return (
     <>
-    <div className='body_teacher ms-5 me-5'>
+    <div className='body_teacher ms-5 m-5'>
+    <h1 className="float-start">Thời khoá biểu của bạn</h1>
     <table>
       <thead>
         <tr>

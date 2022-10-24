@@ -11,7 +11,7 @@ export default function HomeworkEdit() {
                  .then(function(response){
                     console.log(response.data);
                     setInputs(response.data);
-                });    
+                }); 
     }, [])
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -33,8 +33,8 @@ export default function HomeworkEdit() {
         setInputs( values => ({...values, file: event.target.files[0] }));
     }
     const click = (event) => {
+        console.log(inputs);
             alert("Sửa thành công");
-            navigate(`/btvn`);
     }
     return (      
         <>
@@ -53,12 +53,7 @@ export default function HomeworkEdit() {
                     <tr>
                         <td>Thời gian bắt đầu</td>
                         <td>
-                            <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year'  name="startyear"/>-
-                            <input onChange={handleChange} min='1' className='time' type="number" placeholder='month'  name="startmonth"/>-
-                            <input onChange={handleChange} min='1' max='31' className='time' type="number" placeholder='day'  name="startday"/> |
-                            <input onChange={handleChange} min='0' max='24'className='time' type="number" placeholder='hour'  name="starthour"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='minute'  name="startmin"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='second'  name="startsecond"/>
+                            <input onChange={handleChange} className='type_input' type="datetime-local" name="start"/>
                         </td>
                     </tr>
                     <tr>
@@ -68,12 +63,7 @@ export default function HomeworkEdit() {
                     <tr>
                         <td>Thời gian kết thúc</td>
                         <td>
-                            <input onChange={handleChange} min='2022' className='time' type="number" placeholder='year'  name="endyear"/>-
-                            <input onChange={handleChange} min='1' className='time' type="number" placeholder='month'  name="endmonth"/>-
-                            <input onChange={handleChange} min='1' max='31' className='time' type="number" placeholder='day'  name="endday"/> |
-                            <input onChange={handleChange} min='0' max='24'className='time' type="number" placeholder='hour'  name="endhour"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='minute'  name="endmin"/>-
-                            <input onChange={handleChange} min='0' max='59' className='time' type="number" placeholder='second'  name="endsecond"/>
+                            <input onChange={handleChange} className='type_input' type="datetime-local" name="end"/>
                         </td>
                     </tr>
                     <tr>
@@ -88,7 +78,8 @@ export default function HomeworkEdit() {
                         <td>Loại bài tập</td>
                         <td>
                         <select onChange={handleChange} className='type_input' name="type">
-                            <option selected value="practice">Luyện tập</option>
+                            <option selected hidden value="">---</option>
+                            <option value="practice">Luyện tập</option>
                             <option value="mid">Giữa kì</option>
                             <option value="final">Cuối kì</option>
                         </select>

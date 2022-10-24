@@ -11,5 +11,7 @@
             $result = $statement->fetchAll();
             echo json_encode($result);
             break;
+        case "POST":
+            break;
     }
 ?>
