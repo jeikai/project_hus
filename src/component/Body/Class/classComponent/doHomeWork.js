@@ -5,7 +5,7 @@ import ViewFile from "./viewFile";
 import './doHomeWork.css'
 import { toast } from "react-toastify";
 import userEvent from "@testing-library/user-event";
-export default function DoHomeWork(){
+export default function DoHomeWork() {
     const id = useParams().id
     const navigate = useNavigate()
     const classId = localStorage.getItem('classId');
@@ -28,7 +28,7 @@ export default function DoHomeWork(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         // getResultHomeWork()
-        if(doneHomeWork.length === 1 && inputFile !== undefined){
+        if (doneHomeWork.length === 1 && inputFile !== undefined) {
             let element = {
                 "exerciseId": id,
                 "studentId": localStorage.getItem("studentId"),
@@ -36,18 +36,18 @@ export default function DoHomeWork(){
                 "oldFile": doneHomeWork[0].fileUpload
             }
             await axios.post(`http://localhost:8000/database/data_1/handleDoneHomeWork.php`, element, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-              }
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
             })
-              .then(function(response){
+                .then(function (response) {
                     console.log(response.data)
                     // setViewPdf(response.data)
                     toast.success('Updated successfully')
-                    setTimeout(()=> {
+                    setTimeout(() => {
                         // navigate(`/class/${classId}`)
                     }, 1000)
-                    }) 
+                })
             return
         }
         let element = {
@@ -58,19 +58,19 @@ export default function DoHomeWork(){
         await axios.post(`http://localhost:8000/database/doHomeWork.php`, element, {
             headers: {
                 'Content-Type': 'multipart/form-data'
-              }
+            }
+        })
+            .then(function (response) {
+                console.log(response.data)
+                // setViewPdf(response.data)
+                toast.success('Upload successfully')
+                setTimeout(() => {
+                    navigate(`/class/${classId}`)
+                }, 1000)
             })
-              .then(function(response){
-                    console.log(response.data)
-                    // setViewPdf(response.data)
-                    toast.success('Upload successfully')
-                    setTimeout(()=> {
-                        navigate(`/class/${classId}`)
-                    }, 1000)
-                    }) 
     }
 
-    
+
     useEffect(() => {
         getResultHomeWork()
     }, [])
@@ -84,7 +84,7 @@ export default function DoHomeWork(){
             <div className="upFilePdf">
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <input type="file" name="file" className="form-control" onChange={(e)=> setInputFile(e.target.files[0])} />
+                        <input type="file" name="file" className="form-control" onChange={(e) => setInputFile(e.target.files[0])} />
                     </div>
                     <div>
                         <button type="submit">Upload</button>

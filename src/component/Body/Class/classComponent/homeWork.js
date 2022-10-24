@@ -54,7 +54,7 @@ export default function HomeWork() {
                                     <div style={{ marginLeft: '30rem' }}>{(
                                         new Date(item.startingDay).getTime() - new Date().getTime()) > 0 ? <span style={{ color: 'yellow' }}>Chưa đến ngày làm</span> :
                                         new Date(item.deadline).getTime() - new Date().getTime() > 0 && item.fileUpload === null ? <span style={{ color: 'red' }}>Chưa làm</span> :
-                                            new Date(item.deadline).getTime() - new Date().getTime() < 0 && item.fileUpload === null ? <span style={{ color: 'red' }}>Qúa thời hạn làm bài</span> : <span style={{ color: 'green' }}>Đã hoàn thành</span>                                    }
+                                            new Date(item.deadline).getTime() - new Date().getTime() < 0 && item.fileUpload === null ? <span style={{ color: 'red' }}>Qúa thời hạn làm bài</span> : <span style={{ color: 'green' }}>Đã hoàn thành</span>}
                                     </div>
                                 </div>
                                 {isActive && selected === index && (
@@ -80,11 +80,11 @@ export default function HomeWork() {
                                                     new Date(item.deadline).getTime() - new Date().getTime() > 0 &&
                                                     <tr>
                                                         <td colSpan="2"><button onClick={() => doHomeWork(item.ExerciseId, item.ExerciseFile)}>Vào làm bài</button></td>
-                                                    {/* <td>{item.statusExercise}</td> */}
+                                                        {/* <td>{item.statusExercise}</td> */}
                                                     </tr>
                                                     // : ''
                                                 }
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>

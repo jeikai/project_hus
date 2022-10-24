@@ -14,9 +14,10 @@
             $exerciseId = $_POST['exerciseId'];
             $studentId = $_POST['studentId'];
             $oldFile = $_POST['oldFile'];
+            // echo json_encode($oldFile);
             // $file = $_POST['file'];
             $permitted_extensions = ['pdf', 'docx'];        
-                $file_name = $_FILES['file']['name'];
+            $file_name = $_FILES['file']['name'];
 
                 if (file_exists("../../src/data/application/pdf/" . $oldFile)) {
                     unlink("../../src/data/application/pdf/" . $oldFile);
@@ -33,8 +34,7 @@
                         move_uploaded_file($file_tmp_name, $destination_path);
                         try {
                             if($connection != null){
-                                $sql = "UPDATE ExerciseDetails SET fileUpload = ? WHERE exerciseId = ? AND studentId = ? 
-                                VALUES (?, ?, ?)";
+                                $sql = "UPDATE ExerciseDetails SET fileUpload = ? WHERE exerciseId = ? AND studentId = ? ";
                                 $connection->prepare($sql)->execute([$generated_file_name, $exerciseId, $studentId]);
                                 echo 0;
                             }
@@ -44,5 +44,4 @@
                     }
                 }
                 break; 
-            }   
-?>
+            }
