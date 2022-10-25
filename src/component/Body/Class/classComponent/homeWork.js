@@ -20,6 +20,7 @@ export default function HomeWork() {
 
     const doHomeWork = (homeWorkId, file) => {
         localStorage.setItem('classId', id);
+        localStorage.setItem('file', file);
         // console.log(homeWorkId);
         navigate(`/doHomeWork/${homeWorkId}`);
     }
