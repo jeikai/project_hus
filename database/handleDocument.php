@@ -8,7 +8,7 @@
             $classId = htmlspecialchars($_POST['ID'] ?? '');
             $file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../src/data/document/".$file_name;
+            $destination = "../src/data/application/pdf/".$file_name;
             if ( $documentName != NULL && $classId != NULL && $file_name != NULL) {
                 try {
                     $sql = "INSERT INTO Documents(documentName, documentFile, classId) VALUES ( ?, ?, ?)";

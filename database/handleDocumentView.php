@@ -23,12 +23,12 @@
         if ( !empty($file_name) || $file_name != '') {
             $file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../src/data/document/".$file_name;
+            $destination = "../src/data/application/pdf/".$file_name;
             $statement = $connection->prepare($sql);
             $statement->execute( [$documentName, $classId, $file_name, $path[3] ]);
             move_uploaded_file($file_tmp_name, $destination);
-            if (file_exists("../src/data/document/".$old_file) ) {
-                unlink("../src/data/document/".$old_file);
+            if (file_exists("../src/data/application/pdf/".$old_file) ) {
+                unlink("../src/data/application/pdf/".$old_file);
             }
         } else {
             $statement = $connection->prepare($sql);
@@ -47,8 +47,8 @@
             foreach( $result as $result ) {
                 $file = $result['documentFile'];
             }
-            if (file_exists("../src/data/document/".$file) ) {
-                unlink("../src/data/document/".$file);
+            if (file_exists("../src/data/application/pdf/".$file) ) {
+                unlink("../src/data/application/pdf/".$file);
             }
             $sql = "DELETE FROM Documents WHERE documentId = ?";
             $statement = $connection->prepare($sql);

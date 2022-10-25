@@ -14,7 +14,7 @@
             $type = htmlspecialchars($_POST['type'] ?? '');
             $file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../src/data/homework/".$file_name;
+            $destination = "../src/data/application/pdf/".$file_name;
             if ( $ExerciseName != NULL && $classId != NULL && $file_name != NULL) {
                 try {
                     $sql = "INSERT INTO Exercise(ExerciseName, classId, startingDay, deadline, ExerciseFile, typeExercise) VALUES ( ?, ?, ?, ?, ?, ?)";
