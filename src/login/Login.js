@@ -26,7 +26,7 @@ import { logDOM } from "@testing-library/react";
         // console.log(user);
         // http://demoprohus.epizy.com/database/login.php
         // await axios.post(`http://localhost:8000/database/login.php`, user,{
-            await axios.post(`http://demoprohus.epizy.com/database/login.php`, user,{
+            await axios.post(`https://demoprohus.epizy.com/database/login.php`, user,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -75,7 +75,7 @@ import { logDOM } from "@testing-library/react";
         let flag = validate()
         if(flag){
             // http://demoprohus.epizy.com/database/AllClass.php
-        axios.post(`http://demoprohus.epizy.com/database/register.php`, register,{
+        axios.post(`https://demoprohus.epizy.com/database/register.php`, register,{
             headers: {
               'Content-Type':'multipart/form-data'
             }
