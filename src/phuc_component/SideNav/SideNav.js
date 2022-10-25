@@ -51,6 +51,12 @@ class TeacherSideNav extends React.Component {
                                 <span className="links_name">Kế hoạch học tập</span>
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink to={'/classMark'} end>
+                                <i class='bx bxs-edit-alt'></i>
+                                <span className="links_name">Chấm điểm</span>
+                            </NavLink>
+                        </li>
                     </ul>
                     <div className="logo-out">
                             <NavLink onClick={()=>this.logout()}>

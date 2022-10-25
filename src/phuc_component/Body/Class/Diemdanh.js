@@ -20,7 +20,7 @@ export default function Diemdanh() {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setDiemdanh(values => ([...values, {[`diemdanh`]: value } ]))
+        setDiemdanh(values => ({...values, [`name`]: value + " " + name  }))
         console.log(diemdanh);
     }
     // const handleSubmit = async(event) => {

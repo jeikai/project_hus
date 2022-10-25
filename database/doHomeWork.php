@@ -9,7 +9,7 @@
             $studentId = $_POST['studentId'];
             // echo json_encode($id);
             // echo 0;
-                $permitted_extensions = ['pdf', 'docx'];        
+                $permitted_extensions = ['pdf', 'docx'];       
                 $file_name = $_FILES['file']['name'];
                 $file_size = $_FILES['file']['size'];
                 $file_tmp_name = $_FILES['file']['tmp_name'];  

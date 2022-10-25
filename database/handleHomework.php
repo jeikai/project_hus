@@ -29,11 +29,13 @@
             break;
         case "GET":
             $path = explode('/', $_SERVER['REQUEST_URI']);
-            $sql = "SELECT * FROM Exercise a JOIN Schedule b ON a.classId = b.classId WHERE b.teacherId = ? ORDER BY a.classId";
-            $statement = $connection->prepare($sql);
-            $statement->execute([$path[3]]);
-            $result = $statement->fetchAll();
-            echo json_encode($result);
+
+                $sql = "SELECT * FROM Exercise a JOIN Schedule b ON a.classId = b.classId WHERE b.teacherId = ? ORDER BY a.classId";
+                $statement = $connection->prepare($sql);
+                $statement->execute([$path[3]]);
+                $result = $statement->fetchAll();
+                echo json_encode($result);
+            
             break;
     }
 ?>

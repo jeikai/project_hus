@@ -10,7 +10,7 @@ function Header(props) {
     const headerData = [
         {
             link:'/',
-            headerName: 'Over View',
+            headerName: 'OverView',
         },
         {
             link: '/class',
@@ -18,7 +18,7 @@ function Header(props) {
         },
         {
             link: '/TimeTable',
-            headerName: 'Time Table',
+            headerName: 'TimeTable',
         },
         {
             link: '/News',

@@ -21,8 +21,8 @@ export default function Member(props) {
                     <thead>
                         <tr>
                             <th>Họ và tên</th>
-                            <th>Trường</th>
-                            <th>Lớp</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày sinh</th>
                         </tr>
                     </thead>
                     <tbody>

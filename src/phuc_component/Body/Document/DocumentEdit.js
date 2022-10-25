@@ -40,7 +40,7 @@ function DocumentEdit() {
     }
     return (
         <>
-            <div className='body_teacher ms-5 me-5'>
+            <div className='body_teacher ms-5 m-5'>
             <form onSubmit={handleSubmit}>
                 <table>
                     <h1>SỬA TÀI LIỆU HỌC TẬP</h1>
