@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2022 at 12:13 PM
+-- Generation Time: Oct 25, 2022 at 10:30 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -47,7 +47,8 @@ INSERT INTO `assignment` (`AssignmentId`, `content`, `title`, `classId`, `date`)
 (6, '1\n', 'test5', 1, '2022-10-18 11:25:22'),
 (7, '1', 'test6', 1, '2022-10-18 11:26:33'),
 (8, 'hehaha', 'lastest', 1, '2022-10-18 20:59:02'),
-(9, 'content', 'fish', 1, '2022-10-18 21:25:07');
+(9, 'content', 'fish', 1, '2022-10-18 21:25:07'),
+(10, 'rgs', 'Giao bài tập về nhà', 1, '2022-10-24 18:15:02');
 
 -- --------------------------------------------------------
 
@@ -125,7 +126,8 @@ INSERT INTO `comments` (`commentId`, `postId`, `commentContent`, `commentImage`,
 (30, 9, 'helllo phuc ngu', NULL, 'Phúc', '2022-10-16 15:47:56'),
 (31, 10, 'helllo 1', NULL, 'Phúc', '2022-10-17 11:41:46'),
 (32, 49, 'lkjdlfkgj', NULL, 'Phúc', '2022-10-18 00:54:24'),
-(33, 53, 'demo 1', NULL, 'Phúc', '2022-10-18 07:08:11');
+(33, 53, 'demo 1', NULL, 'Phúc', '2022-10-18 07:08:11'),
+(34, 56, 'mlem quá', NULL, 'Phúc', '2022-10-25 15:12:33');
 
 -- --------------------------------------------------------
 
@@ -200,8 +202,11 @@ INSERT INTO `exercise` (`ExerciseId`, `ExerciseName`, `ExerciseFile`, `classId`,
 (1, 'Home_work_1', 'doc_1.pdf', 4, '2022-10-16 00:00:00', '2022-10-17 00:00:00', b'1', 'practice'),
 (2, 'Home_work_2', 'doc_2.pdf', 4, '2022-10-15 00:00:00', '2022-10-18 00:00:00', b'1', 'practice'),
 (3, 'Home_work_1', 'doc_3.pdf', 4, '2022-10-16 00:00:00', '2022-10-19 00:00:00', b'1', 'practice'),
-(11, 'Fish', '1666586748-giáo-trình-xstk.pdf', 1, '2022-10-24 15:42:00', '2022-10-17 14:40:00', b'0', 'practice'),
-(37, 'Bài tập về nhà hahah', '1666598538-ADF1.pdf', 1, '2022-10-24 15:02:00', '2022-10-24 15:02:00', b'0', 'practice');
+(38, 'Bài tập về nhà', '1666607743-ADF1.pdf', 1, '2022-10-24 17:35:00', '2022-10-24 18:35:00', b'0', 'practice'),
+(39, 'Giáo trình java', '1666607843-ADF1.pdf', 1, '2022-10-24 17:37:00', '2022-10-24 18:37:00', b'0', 'mid'),
+(40, 'Bài tập về nhà', '1666672044-giáo-trình-xstk.pdf', 8, '2022-10-25 11:27:00', '2022-10-25 00:27:00', b'0', 'practice'),
+(41, 'Bài tập về nhà', '1666679750-ADF1.pdf', 1, '2022-10-25 13:35:00', '2022-10-25 14:35:00', b'0', 'practice'),
+(42, 'Bài tập về nhà', '1666679815-giáo-trình-xstk.pdf', 1, '2022-10-25 13:36:00', '2022-10-25 14:36:00', b'0', 'practice');
 
 -- --------------------------------------------------------
 
@@ -221,7 +226,7 @@ CREATE TABLE `exercisedetails` (
 
 INSERT INTO `exercisedetails` (`exerciseId`, `studentId`, `fileUpload`) VALUES
 (1, 1, '1665940715-Uniqlo.docx'),
-(11, 1, '1666103151-doc_1.pdf');
+(38, 1, 'doc_1.pdf');
 
 -- --------------------------------------------------------
 
@@ -329,7 +334,9 @@ INSERT INTO `posts` (`postId`, `classId`, `postContent`, `postImage`, `postName`
 (51, 1, 'demo ', '1666051104-Screenshot 2022-10-18 064433.png', '', '2022-10-18 06:58:24'),
 (52, 1, '', '1666051143-Screenshot 2022-10-18 064722.png', '', '2022-10-18 06:59:03'),
 (53, 1, 'demo ', '1666051674-Screenshot 2022-10-18 064433.png', 'Phúc', '2022-10-18 07:07:54'),
-(54, 1, 'demo1 ', '', 'Phúc', '2022-10-18 21:27:45');
+(54, 1, 'demo1 ', '', 'Phúc', '2022-10-18 21:27:45'),
+(55, 1, '', '1666680400-309754824_1180204682580165_7373366179788607668_n.png', 'Phúc', '2022-10-25 13:46:40'),
+(56, 1, '', '1666680666-Trà.jpg', 'Phúc', '2022-10-25 13:51:06');
 
 -- --------------------------------------------------------
 
@@ -379,7 +386,6 @@ INSERT INTO `schedule` (`scheduleId`, `classId`, `teacherId`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 1, 3),
-(4, 1, 1),
 (7, 8, 1);
 
 -- --------------------------------------------------------
@@ -414,7 +420,8 @@ INSERT INTO `students` (`studentId`, `studentPassword`, `studentName`, `birthDat
 (9, 'Cuong111', 'Fish', NULL, 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', NULL, '111@gmail.com'),
 (10, 'Cuong111', 'Fisg', NULL, 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', NULL, 'aaa@gmail.com'),
 (11, 'Aaaaa1', 'Fish', NULL, 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', NULL, '1111111@gmail.com'),
-(12, '123456', 'Fish', NULL, 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', '0111111111', 'test@gmail.com');
+(12, '123456', 'Fish', NULL, 'https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg', '0111111111', 'test@gmail.com'),
+(13, '123456', 'phúc', NULL, '1666610057-hà.jpg', NULL, 'bomchip02@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -457,7 +464,11 @@ CREATE TABLE `timetable` (
   `DAY` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `timetable`(`timetableId`, `classId`, `startLesson`, `endLesson`, `DAY`) VALUES
+--
+-- Dumping data for table `timetable`
+--
+
+INSERT INTO `timetable` (`timetableId`, `classId`, `startLesson`, `endLesson`, `DAY`) VALUES
 (1, 1, '07:00:00', '09:00:00', 'Thứ 2'),
 (2, 2, '08:00:00', '09:00:00', 'Thứ 3'),
 (3, 3, '09:00:00', '13:00:00', 'Thứ 4'),
@@ -486,6 +497,12 @@ ALTER TABLE `classes`
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`commentId`),
   ADD KEY `postId` (`postId`);
+
+--
+-- Indexes for table `diemdanh`
+--
+ALTER TABLE `diemdanh`
+  ADD KEY `fk_diemdanh` (`studentId`);
 
 --
 -- Indexes for table `documents`
@@ -564,7 +581,7 @@ ALTER TABLE `timetable`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `AssignmentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `AssignmentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -576,7 +593,7 @@ ALTER TABLE `classes`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `documents`
@@ -588,7 +605,7 @@ ALTER TABLE `documents`
 -- AUTO_INCREMENT for table `exercise`
 --
 ALTER TABLE `exercise`
-  MODIFY `ExerciseId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `ExerciseId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -600,7 +617,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `postId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `results`
@@ -618,7 +635,7 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `studentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `studentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `teachers`
@@ -630,7 +647,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `timetable`
 --
 ALTER TABLE `timetable`
-  MODIFY `timetableId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `timetableId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -647,6 +664,12 @@ ALTER TABLE `assignment`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`);
+
+--
+-- Constraints for table `diemdanh`
+--
+ALTER TABLE `diemdanh`
+  ADD CONSTRAINT `fk_diemdanh` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentId`);
 
 --
 -- Constraints for table `documents`
