@@ -9,7 +9,6 @@
                 $statement->execute([$path[3]]);
                 $result = $statement->fetchAll();
                 echo json_encode($result);
-            
             break;
     }
 ?>

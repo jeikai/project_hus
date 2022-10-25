@@ -33,12 +33,12 @@
         if ( (!empty($file_name) || $file_name != '') && (!empty($startingDay) || $startingDay != '') && (!empty($deadline) || $deadline != '')) {
             $new_file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../src/data/homework/".$file_name;
+            $destination = "../src/data/application/pdf/".$file_name;
             $statement = $connection->prepare($sql);
             $statement->execute( [$ExerciseName, $startingDay, $deadline, $new_file_name, $type, $path[3]]);
             move_uploaded_file($file_tmp_name, $destination);
-            if (file_exists("../src/data/homework/".$old_file) ) {
-                unlink("../src/data/homework/".$old_file);
+            if (file_exists("../src/data/application/pdf/".$old_file) ) {
+                unlink("../src/data/application/pdf/".$old_file);
             }
             echo "haha0";
         } 
@@ -51,12 +51,12 @@
         else if ( (!empty($file_name) || $file_name != '') && (empty($startingDay) || $startingDay == '') && (!empty($deadline) || $deadline != '')) {
             $new_file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../src/data/homework/".$file_name;
+            $destination = "../src/data/application/pdf/".$file_name;
             $statement = $connection->prepare($sql);
             $statement->execute( [$ExerciseName, $_POST['startingDay'], $deadline, $new_file_name, $type, $path[3]]);
             move_uploaded_file($file_tmp_name, $destination);
-            if (file_exists("../src/data/homework/".$old_file) ) {
-                unlink("../src/data/homework/".$old_file);
+            if (file_exists("../src/data/application/pdf/".$old_file) ) {
+                unlink("../src/data/application/pdf/".$old_file);
             }
             echo "haha2";
 
@@ -64,24 +64,24 @@
         else if ( (!empty($file_name) || $file_name != '') && (!empty($startingDay) || $startingDay != '') && (empty($deadline) || $deadline == '')) {
             $new_file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../src/data/homework/".$file_name;
+            $destination = "../src/data/application/pdf/".$file_name;
             $statement = $connection->prepare($sql);
             $statement->execute( [$ExerciseName, $startingDay, $old_deadline, $new_file_name, $type, $path[3]]);
             move_uploaded_file($file_tmp_name, $destination);
-            if (file_exists("../src/data/homework/".$old_file) ) {
-                unlink("../src/data/homework/".$old_file);
+            if (file_exists("../src/data/application/pdf/".$old_file) ) {
+                unlink("../src/data/application/pdf/".$old_file);
             }
             echo "haha3";
         }
         else if ( (!empty($file_name) || $file_name != '') && (empty($startingDay) || $startingDay == '') && (empty($deadline) || $deadline == '')) {
             $new_file_name = $time."-".$_FILES['file']['name'];
             $file_tmp_name = $_FILES['file']['tmp_name'];
-            $destination = "../src/data/homework/".$file_name;
+            $destination = "../src/data/application/pdf/".$file_name;
             $statement = $connection->prepare($sql);
             $statement->execute( [$ExerciseName, $_POST['startingDay'], $old_deadline, $new_file_name, $type, $path[3]]);
             move_uploaded_file($file_tmp_name, $destination);
-            if (file_exists("../src/data/homework/".$old_file) ) {
-                unlink("../src/data/homework/".$old_file);
+            if (file_exists("../src/data/application/pdf/".$old_file) ) {
+                unlink("../src/data/application/pdf/".$old_file);
             }
             echo "haha4";
         }
@@ -115,8 +115,8 @@
             foreach( $result as $result ) {
                 $file = $result['ExerciseFile'];
             }
-            if (file_exists("../src/data/homework/".$file) ) {
-                unlink("../src/data/homework/".$file);
+            if (file_exists("../src/data/application/pdf/".$file) ) {
+                unlink("../src/data/application/pdf/".$file);
             }
             $sql = "DELETE FROM exercisedetails WHERE ExerciseId = ?;
             DELETE FROM Exercise WHERE ExerciseId = ? ;";
