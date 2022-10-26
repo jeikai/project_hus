@@ -29,6 +29,7 @@ function Homework() {
     const click = (event) => {
         if ( inputs.id  && inputs.name  && inputs.file && inputs.type) {
             alert("Thêm thành công");
+            window.location.reload();
         }
     }
     return (      

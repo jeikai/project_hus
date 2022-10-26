@@ -19,7 +19,6 @@ export default function ExerciseView() {
             <table>
             <thead>
                 <tr>
-                    <th>ID lớp</th>
                     <th>Tên bài tập</th>
                     <th>Thời gian bắt đầu</th>
                     <th>Thời gian kết thúc</th>
@@ -32,13 +31,12 @@ export default function ExerciseView() {
             {AllHomework.map( (item, index) => {
                 return (
                     <tr key={index}>
-                        <td>{item.classId}</td>
                         <td>{item.ExerciseName}</td>
                         <td>{item.startingDay}</td>
                         <td>{item.deadline}</td>
                         <td>{item.ExerciseFile}</td>
                         <td>{item.typeExercise}</td>
-                        <td><Link className='edit' to={`/AllStudentView/${item.ExerciseId}`}>View</Link></td>
+                        <td><Link className='edit' to={`/AllStudentView/${item.ExerciseId}/${id}`}>View</Link></td>
                     </tr>
                 )
             })

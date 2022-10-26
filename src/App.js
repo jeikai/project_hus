@@ -33,6 +33,7 @@ import Diemdanh from './phuc_component/Body/Class/Diemdanh';
 import ClassResult from './phuc_component/Body/Mark/ClassResult';
 import ExerciseView from './phuc_component/Body/Mark/ExerciseView';
 import AllStudentView from './phuc_component/Body/Mark/AllStudentView';
+import MarkView from './phuc_component/Body/Mark/MarkView';
 import TeacherSideNav from './phuc_component/SideNav/SideNav';
 import TeacherMain from './phuc_component/Body/Main';
 import TeacherClass from './phuc_component/Body/Class/Class';
@@ -43,7 +44,8 @@ import TeacherDocument from './phuc_component/Body/Document/Document';
 import TeacherDocumentEdit from './phuc_component/Body/Document/DocumentEdit';
 import TeacherAssignmentEdit from './phuc_component/Body/Assignment/AssignmentEdit';
 import TeacherHomeworkEdit from './phuc_component/Body/Homework/HomeworkEdit';
-import Class from './phuc_component/Body/Class/Class';
+import ClassRank from './phuc_component/Body/Rank/ClassRank';
+import Rank from './phuc_component/Body/Rank/Rank';
 // import Schedule from './component/Body/Class/classComponent/schedule'
 function App() {
 
@@ -106,8 +108,11 @@ function App() {
                     <Route path='/document' element={<TeacherDocument />} />
                     <Route path='/document/document/:id' element={<TeacherDocumentEdit />} />
                     <Route path='/classMark' element={<ClassResult />} />
-                    <Route path='/ExerciseView/:id' element={<ExerciseView />} />
-                    <Route path='/AllStudentView/:id' element={<AllStudentView />} />
+                    <Route path='/ExerciseView/:id/' element={<ExerciseView />} />
+                    <Route path='/AllStudentView/:id/:classId' element={<AllStudentView />} />
+                    <Route path='/markView/:id/:exerciseId/:classId' element={<MarkView />} />
+                    <Route path='/rank' element={<ClassRank />} />
+                    <Route path='/RankView/:id' element={<Rank />} />
                 </Routes>
                 </div>
             </>

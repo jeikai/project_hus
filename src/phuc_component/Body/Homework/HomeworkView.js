@@ -27,9 +27,8 @@ export default function HomeworkView() {
     }
     return (
         <div>
-            <h3>TÀI LIỆU BẠN ĐÃ UP</h3>
-            <table>
-            
+            <h3>BÀI TẬP BẠN ĐÃ UP</h3>
+            <table>  
             <thead>
                 <tr>
                     <th>ID lớp</th>

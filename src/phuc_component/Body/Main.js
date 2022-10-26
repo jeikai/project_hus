@@ -10,7 +10,7 @@ function Main() {
     return (
         <>
         <div className='body_main'>
-            <h2 className='welcome neonText'>WELCOME ¯⁠\⁠_⁠ʘ⁠‿⁠ʘ⁠_⁠/⁠¯</h2>
+            <h2 className='welcome neonText'>WELCOME</h2>
         </div>
         </>
     )

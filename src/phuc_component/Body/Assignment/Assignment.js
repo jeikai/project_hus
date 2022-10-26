@@ -43,6 +43,7 @@ function Assignment() {
     const click = (event) => {
         if ( inputs.title  && inputs.id  && inputs.content) {
             alert("Thêm thành công");
+            window.location.reload();
         }
     }
 

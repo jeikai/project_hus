@@ -27,6 +27,7 @@ function Document() {
     const click = (event) => {
         if ( inputs.ID  && inputs.name  && inputs.file ) {
             alert("Thêm thành công");
+            window.location.reload();
         }
     }
     return (

@@ -25,8 +25,8 @@ import { logDOM } from "@testing-library/react";
         e.preventDefault()
         // console.log(user);
         // http://demoprohus.epizy.com/database/login.php
-        // await axios.post(`http://localhost:8000/database/login.php`, user,{
-            await axios.post(`https://demoprohus.epizy.com/database/login.php`, user,{
+        await axios.post(`http://localhost:8000/database/login.php`, user,{
+            // await axios.post(`https://demoprohus.epizy.com/database/login.php`, user,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -39,7 +39,8 @@ import { logDOM } from "@testing-library/react";
                 localStorage.setItem('studentId', response.data[0].studentId)
                 localStorage.setItem('img', response.data[0].studentImage)
                 localStorage.setItem('role', 0)
-                window.location.replace("https://phucdepzai.vercel.app/");
+                // window.location.replace("https://phucdepzai.vercel.app/");
+                 window.location.replace("http://localhost:3000");
             }
         })
     }
