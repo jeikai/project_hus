@@ -1,13 +1,13 @@
 <?php
-    define('SERVER', 'localhost');
-    define('DB_NAME', 'project_hus');
-    define('DB_USER_NAME', 'root');
-    define('DB_PASSWORD', '');
+    // define('SERVER', 'localhost');
+    // define('DB_NAME', 'project_hus');
+    // define('DB_USER_NAME', 'root');
+    // define('DB_PASSWORD', '');
 
-    // define('SERVER', 'sql306.epizy.com');
-    // define('DB_NAME', 'epiz_32863910_project_hus');
-    // define('DB_USER_NAME', 'epiz_32863910');
-    // define('DB_PASSWORD', 'XHJiKKXJT6Xe');
+    define('SERVER', 'sql306.epizy.com');
+    define('DB_NAME', 'epiz_32863910_project_hus');
+    define('DB_USER_NAME', 'epiz_32863910');
+    define('DB_PASSWORD', 'XHJiKKXJT6Xe');
 
 
     header('Access-Control-Allow-Origin: *');
