@@ -73,7 +73,12 @@ function Header(props) {
                                     <img onClick={() => navigte('/user')} src={img === undefined || img === "" 
 												? "/assets/studentImgs/defaultStudentImg.jpg": "/assets/studentImgs/"  + img}/>
                                 </button>
-                                <div><i onClick={Logout} className='bx bx-log-out'></i></div>
+                                <div style={{ marginRight: '-1rem' }}>
+                                    <i onClick={Logout} className='bx bx-log-out'></i>
+                                </div>
+                                <div style={{ marginRight: '1rem' }}>
+                                    <i onClick={() => navigte('/rollup')} className='bx bxs-calendar-check'></i>
+                                </div>
                             </div>
                         </div>
 

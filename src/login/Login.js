@@ -25,8 +25,8 @@ import { logDOM } from "@testing-library/react";
         e.preventDefault()
         // console.log(user);
         // http://demoprohus.epizy.com/database/login.php
-        // await axios.post(`http://localhost:8000/database/login.php`, user,{
-            await axios.post(`https://demoprohus.epizy.com/database/login.php`, user,{
+        await axios.post(`http://localhost:8000/database/login.php`, user,{
+            // await axios.post(`https://demoprohus.epizy.com/database/login.php`, user,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -39,7 +39,9 @@ import { logDOM } from "@testing-library/react";
                 localStorage.setItem('studentId', response.data[0].studentId)
                 localStorage.setItem('img', response.data[0].studentImage)
                 localStorage.setItem('role', 0)
-                window.location.replace("https://phucdepzai.vercel.app/");
+                // window.location.replace("https://phucdepzai.vercel.app/");
+                // http://localhost:3000/
+                window.location.replace("http://localhost:3000");
             }
         })
     }
@@ -75,7 +77,8 @@ import { logDOM } from "@testing-library/react";
         let flag = validate()
         if(flag){
             // http://demoprohus.epizy.com/database/AllClass.php
-        axios.post(`https://demoprohus.epizy.com/database/register.php`, register,{
+            // http://localhost:3000/
+        axios.post(`http://localhost:8000/database/register.php`, register,{
             headers: {
               'Content-Type':'multipart/form-data'
             }
@@ -91,9 +94,9 @@ import { logDOM } from "@testing-library/react";
                 // swal("Good job!", "You clicked the button!", "success");
                 toast.success("resgister success");
                 setTimeout(() => {
-                    // window.location.replace("http://localhost:3000/");
+                    window.location.replace("http://localhost:3000/");
                     // phucdepzai.vercel.app
-                    window.location.replace("https://phucdepzai.vercel.app/");
+                    // window.location.replace("https://phucdepzai.vercel.app/");
                 },1000)
                 // <Navigate to="/dashboard" replace={true} />
             }else{
