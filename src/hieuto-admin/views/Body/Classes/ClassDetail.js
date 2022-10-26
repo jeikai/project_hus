@@ -196,7 +196,7 @@ class ClassDetail extends React.Component {
                                     <button type="button" onClick={()=>this.goBack()} className="btn btn-primary mx-2 float-end" name="add_class_btn" >Back</button>
                                     <button type="button" onClick={()=>this.handleStudent()} className="btn btn-primary mx-2 float-end" name="add_class_btn" >Add Student</button>
                                     <button type="button" onClick={()=>this.handleTeacher()} className="btn btn-primary mx-2 float-end" name="add_class_btn" >Add Teacher</button>
-                                    <button type="button" onClick={()=>this.handleAddTimeTable()} className="btn btn-primary mx-2 float-end" name="add_class_btn" >Add Schedual</button>
+                                    <button type="button" onClick={()=>this.handleAddTimeTable()} className="btn btn-primary mx-2 float-end" name="add_class_btn" >Add Schedule</button>
                                 </div>
                                 <div className="card-body">
                                 <h5 className="float-start mt-2">Class's Schedual</h5>
