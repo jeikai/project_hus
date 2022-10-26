@@ -64,7 +64,7 @@ switch ($method) {
             FROM `teachers` JOIN `schedule` ON `teachers`.`teacherId` = `schedule`.`teacherId` JOIN  `classes` ON  `schedule`.`classId` = `classes`.`classId` WHERE `classes`.`classId` = :id
             UNION
             SELECT `students`.`studentId`  AS trueId, (row_number()over(order by  `students`.`studentId`) + :number1) AS Id , `students`.`studentName`  AS Name, `students`.`phoneNumber`  AS Phone, `students`.`email` AS Email, `classes`.`className`  AS ClassName,  "Student" AS Role 
-            FROM `students` JOIN `results` ON  `students`.`studentId` =  `results`.`studentId` JOIN `classes` ON `results`.`classId` = `classes`.`classId` WHERE `classes`.`classId` = :id';
+            FROM `students` JOIN `results` ON  `students`.`studentId` =  `results`.`studentId` JOIN `classes` ON `results`.`classId` = `classes`.`classId` WHERE `classes`.`classId` = :id AND `results` . `status` = 1';
             try {
                 if ($connection != null) {
                     $number = "SELECT * FROM `schedule` WHERE `schedule`.`classId` = :id";
@@ -142,7 +142,7 @@ switch ($method) {
                             $statement->execute([$id, $student_id["studentId"]]);
                             $number = $statement->rowCount();
                             if ($number == 0) {
-                                $add_to_class = "INSERT INTO results(classId, studentId) VALUES (?, ?)";
+                                $add_to_class = "INSERT INTO results(classId, studentId, `status`) VALUES (?, ?, 1)";
                                 $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                 $statement = $connection->prepare($add_to_class);
                                 $statement->execute([$id, $student_id["studentId"]]);

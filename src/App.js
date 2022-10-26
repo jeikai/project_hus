@@ -46,6 +46,7 @@ import TeacherAssignmentEdit from './phuc_component/Body/Assignment/AssignmentEd
 import TeacherHomeworkEdit from './phuc_component/Body/Homework/HomeworkEdit';
 import ClassRank from './phuc_component/Body/Rank/ClassRank';
 import Rank from './phuc_component/Body/Rank/Rank';
+import RollUp from './component/Body/Class/rollUp';
 // import Schedule from './component/Body/Class/classComponent/schedule'
 function App() {
 
@@ -90,6 +91,7 @@ function App() {
                         <Route path='/news/detailNew/:id' element={<DetailNew />}/>
                         <Route path='/doHomeWork/:id' element={<DoHomeWork />}/>
                         <Route path='/user' element={<User setImg={setClassImg} />}  />
+                        <Route path='/rollup' element={<RollUp />}/>
                     </Routes>
                 </>
                 : login.mail !== null && login.name !== null && login.role === '1' ?

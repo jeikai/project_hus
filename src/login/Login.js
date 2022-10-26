@@ -40,7 +40,8 @@ import { logDOM } from "@testing-library/react";
                 localStorage.setItem('img', response.data[0].studentImage)
                 localStorage.setItem('role', 0)
                 // window.location.replace("https://phucdepzai.vercel.app/");
-                 window.location.replace("http://localhost:3000");
+                // http://localhost:3000/
+                window.location.replace("http://localhost:3000");
             }
         })
     }
@@ -76,7 +77,8 @@ import { logDOM } from "@testing-library/react";
         let flag = validate()
         if(flag){
             // http://demoprohus.epizy.com/database/AllClass.php
-        axios.post(`https://demoprohus.epizy.com/database/register.php`, register,{
+            // http://localhost:3000/
+        axios.post(`http://demoprohus.epizy.com/database/register.php`, register,{
             headers: {
               'Content-Type':'multipart/form-data'
             }
