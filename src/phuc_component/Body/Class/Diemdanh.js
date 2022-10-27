@@ -12,7 +12,7 @@ export default function Diemdanh() {
     const [AllStudent, setAllStudent] = useState([]);    
     const [diemdanh, setDiemdanh] = useState({["classId"]: id});
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleDiemdanh.php/${id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleDiemdanh.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     console.log(id);
@@ -28,7 +28,7 @@ export default function Diemdanh() {
     const handleSubmit = async(event) => {
         event.preventDefault();
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post('http://localhost:8000/database/data/handleDiemDanh.php', 
+        let response =  await axios.post('https://test.modnro.xyz/database/data/handleDiemDanh.php', 
         diemdanh, {
             
                 headers: {

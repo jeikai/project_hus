@@ -42,7 +42,7 @@ class EditClass extends React.Component {
         }
         let input = ({ "name": name.trim(), file, trueId, old_image});
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/database/data/handleClasses.php/update`,
+        let response =  await axios.post(`https://test.modnro.xyz/database/data/handleClasses.php/update`,
             input, {
             headers: {
                 'Content-Type': 'multipart/form-data'

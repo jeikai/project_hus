@@ -11,15 +11,15 @@ export default function DocumentView() {
     })
     const [AllDocument, setAllDocument] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleDocument.php/${login.id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleDocument.php/${login.id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllDocument(response.data);
                 });    
     }, [])
     const deleteDoc = (documentId) => {
-        axios.delete(`http://localhost:8000/database/handleDocumentView.php/${documentId}`).then(function(response){
-            axios.get(`http://localhost:8000/database/handleDocument.php/${login.id}`,)
+        axios.delete(`https://test.modnro.xyz/database/handleDocumentView.php/${documentId}`).then(function(response){
+            axios.get(`https://test.modnro.xyz/database/handleDocument.php/${login.id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllDocument(response.data);

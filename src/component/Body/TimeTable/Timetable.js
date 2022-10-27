@@ -75,7 +75,7 @@ function Timetable() {
     // const id = localStorage.getItem('studentId')
     const [AllTime, setAllTime] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8000/database/Timetable.php/${login.id}`,)
+        axios.get(`https://test.modnro.xyz/database/Timetable.php/${login.id}`,)
                 .then(function(response){
                 console.log(response.data);
                 setAllTime(response.data); 

@@ -12,8 +12,8 @@ export default function AssignmentView(props) {
     })
     
     const deleteAssignment = (documentId) => {
-        axios.delete(`http://localhost:8000/database/handleAssignmentView.php/${documentId}`).then(function(response){
-            axios.get(`http://localhost:8000/database/handleAssignment.php/${login.id}`,)
+        axios.delete(`https://test.modnro.xyz/database/handleAssignmentView.php/${documentId}`).then(function(response){
+            axios.get(`https://test.modnro.xyz/database/handleAssignment.php/${login.id}`,)
                  .then(function(response){
                     console.log(response.data);
                     // setAllDocument(response.data);

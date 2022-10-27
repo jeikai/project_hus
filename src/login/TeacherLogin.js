@@ -24,7 +24,7 @@ class TeacherLogin extends React.Component {
             toast.error("Please enter all fields");
             return;
         }
-        let response = await axios.post(`http://localhost:8000/database/data/handleTeacherLogin.php`, input,{
+        let response = await axios.post(`https://test.modnro.xyz/database/data/handleTeacherLogin.php`, input,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -44,7 +44,7 @@ class TeacherLogin extends React.Component {
              }else{
                 localStorage.setItem('role', 1)
              }
-             window.location.replace("http://localhost:3000/");
+             window.location.replace("https://phucdepzai.vercel.app/");
 
 
         }else if(response.data === 0){

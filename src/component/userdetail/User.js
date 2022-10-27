@@ -25,7 +25,7 @@ class User extends React.Component {
     }
 
 	getStudent = async ()  =>{
-        let result = await axios.get(`http://localhost:8000/database/data/handleUpdateStudent.php/${this.state.id}`);
+        let result = await axios.get(`https://test.modnro.xyz/database/data/handleUpdateStudent.php/${this.state.id}`);
         this.setState({
             studentName: result.data.studentName,
             email: result.data.email,
@@ -69,7 +69,7 @@ class User extends React.Component {
 		let inputs = ({id, old_image, file, phoneNumber, birthDate, studentNewPassword, studentName, email});
 
 		let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/database/data/handleUpdateStudent.php/update`,
+        let response =  await axios.post(`https://test.modnro.xyz/database/data/handleUpdateStudent.php/update`,
 			inputs, {
                 headers: {
                   'Content-Type': 'multipart/form-data'

@@ -10,15 +10,15 @@ export default function HomeworkView() {
     })
     const [AllHomework, setAllHomework] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleHomework.php/${login.id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleHomework.php/${login.id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllHomework(response.data);
                 });    
     }, [])
     const deleteDoc = (documentId) => {
-        axios.delete(`http://localhost:8000/database/handleHomeworkView.php/${documentId}`).then(function(response){
-            axios.get(`http://localhost:8000/database/handleHomework.php/${login.id}`,)
+        axios.delete(`https://test.modnro.xyz/database/handleHomeworkView.php/${documentId}`).then(function(response){
+            axios.get(`https://test.modnro.xyz/database/handleHomework.php/${login.id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllHomework(response.data);

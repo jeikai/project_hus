@@ -7,7 +7,7 @@ export default function HomeworkEdit() {
     const navigate = useNavigate();
     const {id} = useParams();
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleHomeworkView.php/${id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleHomeworkView.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setInputs(response.data);
@@ -15,7 +15,7 @@ export default function HomeworkEdit() {
     }, [])
     const handleSubmit = async(event) => {
         event.preventDefault();
-        await axios.post(`http://localhost:8000/database/handleHomeworkView.php/${id}`, 
+        await axios.post(`https://test.modnro.xyz/database/handleHomeworkView.php/${id}`, 
             inputs, {
                 headers: {
                 'Content-Type': 'multipart/form-data'

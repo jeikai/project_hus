@@ -16,7 +16,7 @@ class DetailNew extends React.Component {
     }
 
     getNew = async (id)  =>{
-        let result = await axios.get(`http://localhost:8000/database/data/handleNews.php/${id}`);
+        let result = await axios.get(`https://test.modnro.xyz/database/data/handleNews.php/${id}`);
         this.setState({
             title: result.data.title,
             content: result.data.description,

@@ -25,23 +25,25 @@ import { logDOM } from "@testing-library/react";
         e.preventDefault()
         // console.log(user);
         // http://demoprohus.epizy.com/database/login.php
-        await axios.post(`http://localhost:8000/database/login.php`, user,{
-            // await axios.post(`https://test.modnro.xyz/database/login.php`, user,{
+        // await axios.post(`https://test.modnro.xyz/database/login.php`, user,{
+            await axios.post(`https://test.modnro.xyz/database/login.php`, user,{
             headers: {
               'Content-Type': 'multipart/form-data'
+                // 'Content-Type': 'application/json; charset=utf-8'
             }
           })
           .then(function(response){
-            console.log(response.data);
+            console.log(response.data)
+            // debugger
             if(response.data !== 0){
                 localStorage.setItem('name', response.data[0].studentName)
                 localStorage.setItem('email', user.email)
                 localStorage.setItem('studentId', response.data[0].studentId)
                 localStorage.setItem('img', response.data[0].studentImage)
                 localStorage.setItem('role', 0)
-                // window.location.replace("https://phucdepzai.vercel.app/");
-                // http://localhost:3000/
-                window.location.replace("http://localhost:3000");
+                window.location.replace("https://phucdepzai.vercel.app/");
+                // https://phucdepzai.vercel.app/
+                // window.location.replace("https://phucdepzai.vercel.app");
             }
         })
     }
@@ -77,8 +79,8 @@ import { logDOM } from "@testing-library/react";
         let flag = validate()
         if(flag){
             // http://demoprohus.epizy.com/database/AllClass.php
-            // http://localhost:3000/
-        axios.post(`http://localhost:8000/database/register.php`, register,{
+            // https://phucdepzai.vercel.app/
+        axios.post(`https://test.modnro.xyz/database/register.php`, register,{
             headers: {
               'Content-Type':'multipart/form-data'
             }
@@ -94,7 +96,7 @@ import { logDOM } from "@testing-library/react";
                 // swal("Good job!", "You clicked the button!", "success");
                 toast.success("resgister success");
                 setTimeout(() => {
-                    window.location.replace("http://localhost:3000/");
+                    window.location.replace("https://phucdepzai.vercel.app/");
                     // phucdepzai.vercel.app
                     // window.location.replace("https://phucdepzai.vercel.app/");
                 },1000)

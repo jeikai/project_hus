@@ -15,21 +15,21 @@ export default function ChiTietDiemDanh() {
             getAllDay();
     }, [])
     const getAllStudent = async () =>{
-        await axios.get(`http://localhost:8000/database/handleDiemdanh.php/${id}`,)
+        await axios.get(`https://test.modnro.xyz/database/handleDiemdanh.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllStudent(response.data);
                 });
     }
     const getAllStatusDiemDanh = async () =>{
-        await axios.get(`http://localhost:8000/database/data/handleDetailDiemDanh.php?classId=${id}`, )
+        await axios.get(`https://test.modnro.xyz/database/data/handleDetailDiemDanh.php?classId=${id}`, )
                     .then(function(response){
                     console.log(response.data);
                     setDiemDanhChiTiet(response.data);
                 });
     }
     const getAllDay = async () =>{
-        await axios.get(`http://localhost:8000/database/data/handleDetailDay.php?classId=${id}`, )
+        await axios.get(`https://test.modnro.xyz/database/data/handleDetailDay.php?classId=${id}`, )
                     .then(function(response){
                     console.log(response.data);
                     setNgay(response.data);
@@ -43,7 +43,7 @@ export default function ChiTietDiemDanh() {
     // const handleSubmit = async(event) => {
     //     event.preventDefault();
     //     let idToast = toast.loading("Please wait!");
-    //     let response =  await axios.post('http://localhost:8000/database/data/handleDiemDanh.php', 
+    //     let response =  await axios.post('https://test.modnro.xyz/database/data/handleDiemDanh.php', 
     //     diemdanh, {
     //             headers: {
     //             'Content-Type': 'multipart/form-data'

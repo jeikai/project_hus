@@ -28,7 +28,7 @@ class AddTimeTable extends React.Component {
         input = ({...input, classId})
 
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/database/data/handleTimeTable.php`, input, {
+        let response =  await axios.post(`https://test.modnro.xyz/database/data/handleTimeTable.php`, input, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }

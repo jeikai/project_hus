@@ -7,7 +7,7 @@ export default function AssignmentEdit() {
     const [inputs, setInputs] = useState([]);
     const {id} = useParams();
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleAssignmentView.php/${id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleAssignmentView.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     
@@ -16,7 +16,7 @@ export default function AssignmentEdit() {
     }, [])
     const handleSubmit = async(event) => {
         event.preventDefault();
-        await axios.post(`http://localhost:8000/database/handleAssignmentView.php/${id}`, 
+        await axios.post(`https://test.modnro.xyz/database/handleAssignmentView.php/${id}`, 
             inputs, {
                 headers: {
                 'Content-Type': 'multipart/form-data'

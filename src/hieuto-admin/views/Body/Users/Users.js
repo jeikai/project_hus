@@ -16,7 +16,7 @@ class Users extends React.Component {
     }
 
     getAllUser = async ()  =>{
-        let users = await axios.get('http://localhost:8000/database/data/handleStudent.php');
+        let users = await axios.get('https://test.modnro.xyz/database/data/handleStudent.php');
         this.setState({
             users: users && users.data ? users.data : [],
         });
@@ -28,7 +28,7 @@ class Users extends React.Component {
 
     handleDelete = async (user)=>{
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.delete(`http://localhost:8000/database/data/handleStudent.php/${user.Role}/${user.trueId}`);
+        let response =  await axios.delete(`https://test.modnro.xyz/database/data/handleStudent.php/${user.Role}/${user.trueId}`);
         this.getAllUser();
 
         if(response.data.status === 0) {

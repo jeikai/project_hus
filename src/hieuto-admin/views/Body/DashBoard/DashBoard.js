@@ -16,7 +16,7 @@ class DashBoard extends React.Component {
     }
 
     getAllDataFromDashBoard = async (id)  =>{
-        let data = await axios.get(`http://localhost:8000/database/data/handleDashBoard.php`,{
+        let data = await axios.get(`https://test.modnro.xyz/database/data/handleDashBoard.php`,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }

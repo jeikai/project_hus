@@ -71,7 +71,7 @@ function Timetable() {
     ];
     const [AllTime, setAllTime] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8000/database/handleTimetable.php/${login.id}`,)
+        axios.get(`https://test.modnro.xyz/database/handleTimetable.php/${login.id}`,)
                 .then(function(response){
                 console.log(response.data);
                 setAllTime(response.data);

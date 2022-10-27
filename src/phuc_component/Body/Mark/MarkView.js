@@ -14,7 +14,7 @@ export default function MarkView() {
         () => localStorage.getItem('file')
     )
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleMarkView.php/${studentId}/${exerciseId}/${classId}`,)
+            axios.get(`https://test.modnro.xyz/database/handleMarkView.php/${studentId}/${exerciseId}/${classId}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllMarkView(response.data);
@@ -41,7 +41,7 @@ export default function MarkView() {
     const handleSubmit = async(event) => {
         event.preventDefault();
         
-        await axios.post(`http://localhost:8000/database/handleMarkView.php/${studentId}/${AllMarkView[0].typeExercise}/${type}/${AllMarkView[0].classId}/${AllMarkView[0].averageMark}`, 
+        await axios.post(`https://test.modnro.xyz/database/handleMarkView.php/${studentId}/${AllMarkView[0].typeExercise}/${type}/${AllMarkView[0].classId}/${AllMarkView[0].averageMark}`, 
             inputs, {
                 headers: {
                 'Content-Type': 'multipart/form-data'

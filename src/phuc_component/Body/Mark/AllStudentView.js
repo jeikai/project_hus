@@ -7,7 +7,7 @@ export default function AllStudentView() {
     const classId = useParams().classId;
     const [AllSTudent, setAllSTudent] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleMarkStudentView.php/${id}/${classId}`,)
+            axios.get(`https://test.modnro.xyz/database/handleMarkStudentView.php/${id}/${classId}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllSTudent(response.data);

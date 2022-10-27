@@ -9,7 +9,7 @@ export default function ModalFindClas(props) {
     }
     const [className, setClassName] = useState('') 
     const getFindClass = async () => {
-        await axios.post(`http://localhost:8000/database/data_1/handleFindClass.php`, element, {
+        await axios.post(`https://test.modnro.xyz/database/data_1/handleFindClass.php`, element, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -25,7 +25,7 @@ export default function ModalFindClas(props) {
             studentId: localStorage.getItem('studentId'),
             classId: inputClass
         }
-        await axios.post(`http://localhost:8000/database/data_1/handleJoinClass.php`, element, {
+        await axios.post(`https://test.modnro.xyz/database/data_1/handleJoinClass.php`, element, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

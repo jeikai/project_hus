@@ -47,7 +47,7 @@ export default function InClass() {
 
     const [students, setStudents] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/member.php/${id}`)
+            axios.get(`https://test.modnro.xyz/database/member.php/${id}`)
                 .then(function(response){
                     console.log(response.data);
                     setStudents(response.data);
@@ -56,7 +56,7 @@ export default function InClass() {
     
     const [teachers, setTeachers] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/teacher.php/${id}`)
+            axios.get(`https://test.modnro.xyz/database/teacher.php/${id}`)
                 .then(function(response){
                     console.log(response.data);
                     setTeachers(response.data);
@@ -65,7 +65,7 @@ export default function InClass() {
 
     const [documents, setDocuments] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/document.php/${id}`)
+            axios.get(`https://test.modnro.xyz/database/document.php/${id}`)
                 .then(function(response){
                     console.log(response.data);
                     setDocuments(response.data);
@@ -74,7 +74,7 @@ export default function InClass() {
 
     const [newsfeed, setNewsFeed] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8000/database/post.php/${id}`)
+        axios.get(`https://test.modnro.xyz/database/post.php/${id}`)
             .then(function(response){
                 console.log(response.data);
                 setNewsFeed(response.data);
@@ -82,7 +82,7 @@ export default function InClass() {
 }, [])
 
     const reloadPosts = () => {
-        axios.get(`http://localhost:8000/database/post.php/${id}`)
+        axios.get(`https://test.modnro.xyz/database/post.php/${id}`)
             .then(function(response){
                 console.log(response.data);
                 setNewsFeed(response.data);

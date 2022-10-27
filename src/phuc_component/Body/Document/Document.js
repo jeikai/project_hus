@@ -7,7 +7,7 @@ function Document() {
     const [inputs, setInputs] = useState();
     const handleSubmit = async(event) => {
         event.preventDefault();
-        await axios.post('http://localhost:8000/database/handleDocument.php', 
+        await axios.post('https://test.modnro.xyz/database/handleDocument.php', 
             inputs, {
                 headers: {
                 'Content-Type': 'multipart/form-data'

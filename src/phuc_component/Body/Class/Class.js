@@ -13,7 +13,7 @@ export default function Class() {
     })
     const [AllClass, setAllClass] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleclass.php/${login.id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleclass.php/${login.id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllClass(response.data);

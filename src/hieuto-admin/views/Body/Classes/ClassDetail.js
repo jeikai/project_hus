@@ -36,7 +36,7 @@ class ClassDetail extends React.Component {
     }
 
     getAllPendingUserInClass = async (id)  =>{
-        let pendings = await axios.get(`http://localhost:8000/database/data/handlePendingUsers.php?id=${id}`,{
+        let pendings = await axios.get(`https://test.modnro.xyz/database/data/handlePendingUsers.php?id=${id}`,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -47,14 +47,14 @@ class ClassDetail extends React.Component {
     }
 
     getAllUserInClass = async (id)  =>{
-        let users = await axios.get(`http://localhost:8000/database/data/handleDetailClasses.php/${id}`);
+        let users = await axios.get(`https://test.modnro.xyz/database/data/handleDetailClasses.php/${id}`);
         this.setState({
             users: users && users.data ? users.data : [],
         });
     }
 
     getAllTimeTableInClass = async (id)  =>{
-        let timeTable = await axios.get(`http://localhost:8000/database/data/handleTimeTable.php?id=${id}`,{
+        let timeTable = await axios.get(`https://test.modnro.xyz/database/data/handleTimeTable.php?id=${id}`,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -90,7 +90,7 @@ class ClassDetail extends React.Component {
     handleEditPending = async (user) =>{
         let {classId} = this.state;
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/database/data/handlePendingUsers.php?id=${user.studentId}&classId=${classId}`);
+        let response =  await axios.post(`https://test.modnro.xyz/database/data/handlePendingUsers.php?id=${user.studentId}&classId=${classId}`);
         this.getAllUserInClass(classId);
         this.getAllPendingUserInClass(classId);
 
@@ -131,7 +131,7 @@ class ClassDetail extends React.Component {
     handleDelete = async (user) =>{
         let {classId} = this.state;
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.delete(`http://localhost:8000/database/data/handleDetailClasses.php/${user.Role}/${user.trueId}/${classId}`);
+        let response =  await axios.delete(`https://test.modnro.xyz/database/data/handleDetailClasses.php/${user.Role}/${user.trueId}/${classId}`);
         this.getAllUserInClass(classId);
 
         if(response.data.status === 0) {
@@ -147,7 +147,7 @@ class ClassDetail extends React.Component {
     handleDeletePending = async (user) =>{
         let {classId} = this.state;
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.delete(`http://localhost:8000/database/data/handlePendingUsers.php?id=${user.studentId}&classId=${classId}`);
+        let response =  await axios.delete(`https://test.modnro.xyz/database/data/handlePendingUsers.php?id=${user.studentId}&classId=${classId}`);
         this.getAllPendingUserInClass(classId);
 
         if(response.data.status === 0) {
@@ -164,7 +164,7 @@ class ClassDetail extends React.Component {
         let {classId} = this.state;
 
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.delete(`http://localhost:8000/database/data/handleTimeTable.php?id=${date.timetableId}&delete=true`);
+        let response =  await axios.delete(`https://test.modnro.xyz/database/data/handleTimeTable.php?id=${date.timetableId}&delete=true`);
         this.getAllTimeTableInClass(classId);
 
         if(response.data.status === 0) {

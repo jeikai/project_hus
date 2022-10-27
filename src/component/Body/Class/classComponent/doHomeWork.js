@@ -18,7 +18,7 @@ export default function DoHomeWork() {
     const [doneHomeWork, setDoneHomeWork] = useState()
 
     const getResultHomeWork = async () => {
-        await axios.get(`http://localhost:8000/database/data_1/handleDoneHomeWork.php/${id}/${localStorage.getItem('studentId')}`)
+        await axios.get(`https://test.modnro.xyz/database/data_1/handleDoneHomeWork.php/${id}/${localStorage.getItem('studentId')}`)
             .then(function (response) {
                 console.log(response.data);
                 setDoneHomeWork(response.data);
@@ -35,7 +35,7 @@ export default function DoHomeWork() {
                 "file": inputFile,
                 "oldFile": doneHomeWork[0].fileUpload
             }
-            await axios.post(`http://localhost:8000/database/data_1/handleDoneHomeWork.php`, element, {
+            await axios.post(`https://test.modnro.xyz/database/data_1/handleDoneHomeWork.php`, element, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -55,7 +55,7 @@ export default function DoHomeWork() {
             "studentId": localStorage.getItem("studentId"),
             "file": inputFile
         }
-        await axios.post(`http://localhost:8000/database/doHomeWork.php`, element, {
+        await axios.post(`https://test.modnro.xyz/database/doHomeWork.php`, element, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

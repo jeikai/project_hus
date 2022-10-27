@@ -17,7 +17,7 @@ class News extends React.Component {
     }
 
     getAllNews = async ()  =>{
-        let news = await axios.get('http://localhost:8000/database/data/handleNews.php');
+        let news = await axios.get('https://test.modnro.xyz/database/data/handleNews.php');
         this.setState({
             news: news && news.data ? news.data : [],
         });
@@ -29,7 +29,7 @@ class News extends React.Component {
 
     handleDelete = async (new1)=>{
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.delete(`http://localhost:8000/database/data/handleNews.php/${new1.trueId}`);
+        let response =  await axios.delete(`https://test.modnro.xyz/database/data/handleNews.php/${new1.trueId}`);
         this.getAllNews();
 
         if(response.data.status === 0) {

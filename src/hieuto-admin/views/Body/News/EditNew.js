@@ -39,7 +39,7 @@ class EditNew extends React.Component {
     }
 
     getAllNew = async (id)  =>{
-        let result = await axios.get(`http://localhost:8000/database/data/handleNews.php/${id}`);
+        let result = await axios.get(`https://test.modnro.xyz/database/data/handleNews.php/${id}`);
         const contentBlock = htmlToDraft(result.data.description);
         const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
         this.setState({
@@ -78,7 +78,7 @@ class EditNew extends React.Component {
         let input = ({ "name": name.trim(), file, description, id, old_image});
 
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.post(`http://localhost:8000/database/data/handleNews.php/update`,
+        let response =  await axios.post(`https://test.modnro.xyz/database/data/handleNews.php/update`,
              input, {
                 headers: {
                   'Content-Type': 'multipart/form-data'

@@ -11,7 +11,7 @@ export default function HomeWork() {
     // console.log(id)
     const [homeWorks, setHomeWorks] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:8000/database/homework.php/${id}/${localStorage.getItem('studentId')}`)
+        axios.get(`https://test.modnro.xyz/database/homework.php/${id}/${localStorage.getItem('studentId')}`)
             .then(function (response) {
                 console.log(response.data);
                 setHomeWorks(response.data);

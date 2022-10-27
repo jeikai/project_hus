@@ -6,7 +6,7 @@ export default function Rank() {
     const id = useParams().id;
     const [AllSTudent, setAllSTudent] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleRank.php/${id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleRank.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllSTudent(response.data);

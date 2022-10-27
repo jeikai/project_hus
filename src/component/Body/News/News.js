@@ -14,7 +14,7 @@ class News extends React.Component {
     }
 
     getAllNew = async ()  =>{
-        let news = await axios.get('http://localhost:8000/database/data/handleNews.php');
+        let news = await axios.get('https://test.modnro.xyz/database/data/handleNews.php');
         this.setState({
             news: news && news.data ? news.data : [],
         });

@@ -15,7 +15,7 @@ function OverView() {
     const studentId = localStorage.getItem('studentId')
 
     const getHomeWork = async () => {
-        await axios.get(`http://localhost:8000/database/data_1/overViewHomeWork.php/${studentId}`)
+        await axios.get(`https://test.modnro.xyz/database/data_1/overViewHomeWork.php/${studentId}`)
             .then(function(response){
                 // console.log(response.data);
                 setHomeWork(response.data);
@@ -23,7 +23,7 @@ function OverView() {
     }
 
     const getTodayClass = async () => {
-        await axios.get(`http://localhost:8000/database/data_1/overViewTodayClass.php/${studentId}`)
+        await axios.get(`https://test.modnro.xyz/database/data_1/overViewTodayClass.php/${studentId}`)
             .then(function(response){
                 // console.log(response.data);
                 setTodayClass(response.data);
@@ -31,7 +31,7 @@ function OverView() {
     }
 
     const getDocument = async () => {
-        await axios.get(`http://localhost:8000/database/data_1/overViewDocument.php/${studentId}`)
+        await axios.get(`https://test.modnro.xyz/database/data_1/overViewDocument.php/${studentId}`)
             .then(function(response){
                 // console.log(response.data);
                 setDocument(response.data);
@@ -39,7 +39,7 @@ function OverView() {
     }
     
     const getPoint = async () => {
-        await axios.get(`http://localhost:8000/database/data_1/overViewPoint.php/${studentId}`)
+        await axios.get(`https://test.modnro.xyz/database/data_1/overViewPoint.php/${studentId}`)
             .then(function(response){
                 console.log(response.data);
                 setPoint(response.data);

@@ -35,7 +35,7 @@ export default function Classes() {
     
     const selectAllClass = () => {
 
-        axios.get(`http://localhost:8000/database/AllClass.php/${studentId}`,)
+        axios.get(`https://test.modnro.xyz/database/AllClass.php/${studentId}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllClass(response.data);
@@ -44,7 +44,7 @@ export default function Classes() {
 
     const studentId = localStorage.getItem('studentId');
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/AllClass.php/${studentId}`,)
+            axios.get(`https://test.modnro.xyz/database/AllClass.php/${studentId}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllClass(response.data);

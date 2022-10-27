@@ -12,7 +12,7 @@ export default function NewsFeed(props) {
     const reloadPosts = props.reloadPosts
     const [comment, setComments] = useState([])
     const AllComments = () => {
-        axios.get(`http://localhost:8000/database/comment.php`)
+        axios.get(`https://test.modnro.xyz/database/comment.php`)
             .then(function(response){
                 setComments(response.data);
             });
@@ -49,7 +49,7 @@ export default function NewsFeed(props) {
             toast.error('Please select a file or content')
             return
         }
-        await axios.post(`http://localhost:8000/database/insert_post.php`, post,{
+        await axios.post(`https://test.modnro.xyz/database/insert_post.php`, post,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -77,7 +77,7 @@ export default function NewsFeed(props) {
         }
 
         // console.log(element)
-        await axios.post(`http://localhost:8000/database/insert_comment.php`, element ,{
+        await axios.post(`https://test.modnro.xyz/database/insert_comment.php`, element ,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
@@ -98,7 +98,7 @@ export default function NewsFeed(props) {
 
     const [assignment, setAssignment] = useState()
     const getNewsForTeacher = async () => {
-        await axios.get(`http://localhost:8000/database/assignmentStudent.php/${id}`)
+        await axios.get(`https://test.modnro.xyz/database/assignmentStudent.php/${id}`)
             .then(function(response){
                 console.log(response.data)
                 setAssignment(response.data)

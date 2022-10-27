@@ -42,7 +42,7 @@ class EditUser extends React.Component {
         }
 
         let idToast = toast.loading("Please wait!");
-        let response =  await axios.put(`http://localhost:8000/database/data/handleStudent.php/${trueId}`, input);
+        let response =  await axios.put(`https://test.modnro.xyz/database/data/handleStudent.php/${trueId}`, input);
         if(response.data.status === 0) {
             toast.update(idToast, {render: response.data.message, type: "error", isLoading: false, autoClose: true, closeButton: true});
             return;

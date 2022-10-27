@@ -6,7 +6,7 @@ export default function ExerciseView() {
     const id = useParams().id;
     const [AllHomework, setAllHomework] = useState([]);
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleMark.php/${id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleMark.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllHomework(response.data);

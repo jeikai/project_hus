@@ -8,7 +8,7 @@ function Homework() {
     const [inputs, setInputs] = useState({['type']: 'practice'});
     const handleSubmit = async(event) => {
         event.preventDefault();
-        await axios.post('http://localhost:8000/database/handleHomework.php', 
+        await axios.post('https://test.modnro.xyz/database/handleHomework.php', 
             inputs, {
                 headers: {
                 'Content-Type': 'multipart/form-data'

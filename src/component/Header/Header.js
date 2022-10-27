@@ -26,7 +26,7 @@ function Header(props) {
         }
     ]
     const getStudent = async ()  =>{
-        let result = await axios.get(`http://localhost:8000/database/data/handleUpdateStudent.php/${id}`);
+        let result = await axios.get(`https://test.modnro.xyz/database/data/handleUpdateStudent.php/${id}`);
         setImg(result.data.studentImage)
     }
     
@@ -45,7 +45,7 @@ function Header(props) {
 
     const Logout = () => {
         localStorage.clear();
-        window.location.replace("http://localhost:3000/");
+        window.location.replace("https://phucdepzai.vercel.app/");
     }
     const pathname = useLocation().pathname.split('/');
     return(

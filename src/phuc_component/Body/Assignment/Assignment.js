@@ -7,14 +7,14 @@ function Assignment() {
         const id = localStorage.getItem('teacherId')
     
     const reloadAssignment = () => {
-        axios.get(`http://localhost:8000/database/handleAssignment.php/${id}`,)
+        axios.get(`https://test.modnro.xyz/database/handleAssignment.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllDocument(response.data);
                 }); 
     }
     useEffect(() => {
-            axios.get(`http://localhost:8000/database/handleAssignment.php/${id}`,)
+            axios.get(`https://test.modnro.xyz/database/handleAssignment.php/${id}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllDocument(response.data);
@@ -26,7 +26,7 @@ function Assignment() {
     const [inputs, setInputs] = useState();
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`http://localhost:8000/database/handleAssignment.php`, inputs)
+        axios.post(`https://test.modnro.xyz/database/handleAssignment.php`, inputs)
         .then(function(response){
             console.log(response.data);
             // setInputs({...inputs})

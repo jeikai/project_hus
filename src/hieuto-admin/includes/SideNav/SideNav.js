@@ -5,7 +5,7 @@ import "./sideNav.css"
 class SideNav extends React.Component {
     logout = () =>{
         localStorage.clear();
-        window.location.replace("http://localhost:3000/");
+        window.location.replace("https://phucdepzai.vercel.app/");
     }
     render(){
 
