@@ -24,7 +24,8 @@
         $connection = new PDO($connection_string, 
                 DB_USER_NAME, DB_PASSWORD);   
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // echo "Connected successfully<br>";        
+        // echo "Connected successfully<br>";    
+        $connection->exec("set names utf8mb4");    
         $connection->query("USE ".DB_NAME);
     } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
