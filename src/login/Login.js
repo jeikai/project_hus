@@ -26,13 +26,13 @@ import { logDOM } from "@testing-library/react";
         // console.log(user);
         // http://demoprohus.epizy.com/database/login.php
         await axios.post(`http://localhost:8000/database/login.php`, user,{
-            // await axios.post(`https://demoprohus.epizy.com/database/login.php`, user,{
+            // await axios.post(`https://test.modnro.xyz/database/login.php`, user,{
             headers: {
               'Content-Type': 'multipart/form-data'
             }
           })
           .then(function(response){
-            console.log(response.data[0]);
+            console.log(response.data);
             if(response.data !== 0){
                 localStorage.setItem('name', response.data[0].studentName)
                 localStorage.setItem('email', user.email)
@@ -78,7 +78,7 @@ import { logDOM } from "@testing-library/react";
         if(flag){
             // http://demoprohus.epizy.com/database/AllClass.php
             // http://localhost:3000/
-        axios.post(`http://demoprohus.epizy.com/database/register.php`, register,{
+        axios.post(`http://localhost:8000/database/register.php`, register,{
             headers: {
               'Content-Type':'multipart/form-data'
             }
@@ -94,9 +94,9 @@ import { logDOM } from "@testing-library/react";
                 // swal("Good job!", "You clicked the button!", "success");
                 toast.success("resgister success");
                 setTimeout(() => {
-                    // window.location.replace("http://localhost:3000/");
+                    window.location.replace("http://localhost:3000/");
                     // phucdepzai.vercel.app
-                    window.location.replace("https://phucdepzai.vercel.app/");
+                    // window.location.replace("https://phucdepzai.vercel.app/");
                 },1000)
                 // <Navigate to="/dashboard" replace={true} />
             }else{

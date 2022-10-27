@@ -9,6 +9,11 @@
     // define('DB_USER_NAME', 'epiz_32863910');
     // define('DB_PASSWORD', 'XHJiKKXJT6Xe');
 
+    // define('SERVER', 'localhost');
+    // define('DB_NAME', 'omkdryhk_test');
+    // define('DB_USER_NAME', 'omkdryhk_test');
+    // define('DB_PASSWORD', 'test');
+
 
     header('Access-Control-Allow-Origin: *');
     header("Access-Control-Allow-Headers: *");

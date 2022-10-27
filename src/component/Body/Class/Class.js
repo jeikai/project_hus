@@ -24,21 +24,31 @@ export default function Classes() {
     const [AllClass, setAllClass] = useState([]);
     const [items, setItem] = useState([]);
 
-    // const filterClass = (index) => {
-    //     const updatedItem = AllClass.filter(curItem => {
-    //         return curItem.type === index
-    //     })
-    //     console.log(index);
-    //     setItem(updatedItem)
-    //     setSelected(index)
-    // }
+    const filterClass = (index) => {
+        const updatedItem = AllClass.filter(curItem => {
+            return curItem.type === index
+        })
+        console.log(index);
+        setItem(updatedItem)
+        setSelected(index)
+    }
     
+    const selectAllClass = () => {
+
+        axios.get(`http://localhost:8000/database/AllClass.php/${studentId}`,)
+                 .then(function(response){
+                    console.log(response.data);
+                    setAllClass(response.data);
+                });
+    }
+
     const studentId = localStorage.getItem('studentId');
     useEffect(() => {
             axios.get(`http://localhost:8000/database/AllClass.php/${studentId}`,)
                  .then(function(response){
                     console.log(response.data);
                     setAllClass(response.data);
+                    
                 });    
             // filterClass(0)
     }, [])
@@ -46,12 +56,13 @@ export default function Classes() {
     
     const [active, setActive] = useState(false)
     const [activeJoin, setActiveJoin] = useState(false)
+    const [classValue, setClassValue] = useState()
 
     return(
         <section id='class'>
-            {active ? <ModalFindClas setActiveJoin={setActiveJoin} activeJoin={activeJoin} 
+            {active ? <ModalFindClas selectAllClass={selectAllClass} setActiveJoin={setActiveJoin} activeJoin={activeJoin} 
                         setActive={setActive} active={active} /> : ""}
-            {activeJoin ? <JoinClass setActiveJoin={setActiveJoin} activeJoin={activeJoin} /> : ""}
+            {activeJoin ? <JoinClass classValue={classValue} setActiveJoin={setActiveJoin} activeJoin={activeJoin} /> : ""}
             <div>
                 {dataClass.map((item, index) =>{
                     return(
@@ -81,11 +92,6 @@ export default function Classes() {
                     {AllClass.map((item, index) =>{
                     return(
                         <div className="BoxClass" key={index}
-                            // onClick={()=> {
-                            //     if(selected !== 1){
-                            //         navigate(`/class/${item.classId}`)
-                            //     }
-                            // }}
                             onClick={() =>navigate(`/class/${item.classId}`)}
                         >
                             <img src={'/assets/classImgs/' + item.classImage} alt='' />
