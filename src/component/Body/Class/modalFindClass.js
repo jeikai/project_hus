@@ -1,13 +1,56 @@
+import axios from "axios"
 import { useState } from "react"
+import { toast } from "react-toastify"
 
 export default function ModalFindClas(props) {
+    const [inputClass, setInputClass] = useState()
+    let element = {
+        id: inputClass
+    }
+    const [className, setClassName] = useState('') 
+    const getFindClass = async () => {
+        await axios.post(`http://localhost:8000/database/data_1/handleFindClass.php`, element, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .then(function (response) {
+                console.log(response.data[0])
+                setClassName(response.data[0].className)
+            })
+    }
 
-    const [inputClass, setInputClass] = useState('')
+    const getJoinClass = async () => {
+        let element = {
+            studentId: localStorage.getItem('studentId'),
+            classId: inputClass
+        }
+        await axios.post(`http://localhost:8000/database/data_1/handleJoinClass.php`, element, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .then(function (response) {
+                console.log(response.data)
+                if(response.data === 'exists'){
+                    toast.error('You already have class')
+                }else if(response.data === 'error'){
+                    toast.error('Can not join class')
+                }else{
+                    toast.success('Join success')
+                    props.selectAllClass()
+                    props.setActive(!props.active)
+                }
+            })
+    }
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.setActive(!props.active)
-        props.setActiveJoin(!props.activeJoin)
+        // console.log(inputClass);
+        getJoinClass()
     }
+
     return (
         <>
             <div className={props.active ? "myModal active9 modal show" : "myModal modal show"} id="addModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -21,12 +64,16 @@ export default function ModalFindClas(props) {
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
                                     <label className="form-label">Find Class By Id</label>
-                                    <input type="text" name="Name" className="form-control" required/>
+                                    <input onChange={(e) => setInputClass(e.target.value) } type="text" name="Name" className="form-control" required/>
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Find Class By Id</label>
+                                    <input value={className} readOnly disabled type="text" name="Name" className="form-control"/>
                                 </div>
                                 <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary"
-                                onClick={() => props.setActive(!props.active)} data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="add-admin-btn" className="btn btn-primary">Submit</button>
+                                onClick={getFindClass} data-bs-dismiss="modal">Tìm</button>
+                                <button type="submit" name="add-admin-btn" className="btn btn-primary">JOIN</button>
                             </div>
                             </form>
                         </div>
