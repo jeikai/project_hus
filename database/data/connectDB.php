@@ -3,15 +3,17 @@
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods:  *");
-<<<<<<< HEAD
-// //PDO - PHP Data Object
-=======
 //PDO - PHP Data Object
->>>>>>> d014ea259652c3f8e27ca272845b7e7435d6b190
+// define('DATABASE_SERVER', 'localhost');
+// define('DATABASE_USER', 'root');
+// define('DATABASE_PASSWORD', '');
+// define('DATABASE_NAME', 'project_hus');
+
 define('DATABASE_SERVER', 'localhost');
-define('DATABASE_USER', 'root');
-define('DATABASE_PASSWORD', '');
-define('DATABASE_NAME', 'project_hus');
+define('DATABASE_NAME', 'omkdryhk_test');
+define('DATABASE_USER', 'omkdryhk_test');
+define('DATABASE_PASSWORD', 'test');
+
 
 // define('DATABASE_SERVER', 'sql306.epizy.com');
 //     define('DATABASE_NAME', 'epiz_32863910_project_hus');
