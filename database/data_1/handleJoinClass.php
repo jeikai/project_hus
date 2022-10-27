@@ -13,7 +13,8 @@ switch ($method) {
         $result = $statement->fetchAll();
         if(count($result) === 0){
             echo json_encode($result);
-            $sql = "UPDATE results SET studentId = $studentId AND classId = $classId";
+            $sql = "INSERT INTO results(studentId, classId) VALUES
+            ($studentId, $classId);";
             $statement = $connection->prepare($sql);
             $statement->execute();
         }else if(count($result) === 1){

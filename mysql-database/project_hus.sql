@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 27, 2022 at 06:13 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
+>>>>>>> f554828b3dc6f751b8866953cf6a733d5e4622f1
 
 
 CREATE TABLE `assignment` (
@@ -21,7 +32,8 @@ INSERT INTO `assignment` (`AssignmentId`, `content`, `title`, `classId`, `date`)
 (7, '1', 'test6', 1, '2022-10-18 11:26:33'),
 (8, 'hehaha', 'lastest', 1, '2022-10-18 20:59:02'),
 (9, 'content', 'fish', 1, '2022-10-18 21:25:07'),
-(10, 'rgs', 'Giao bài tập về nhà', 1, '2022-10-24 18:15:02');
+(10, 'rgs', 'Giao bài tập về nhà', 1, '2022-10-24 18:15:02'),
+(11, 'sdfgsd', 'Thông báo nghỉ học', 1, '2022-10-26 22:13:28');
 
 -- --------------------------------------------------------
 
@@ -134,21 +146,24 @@ CREATE TABLE `documents` (
   `documentId` int(11) NOT NULL,
   `documentName` varchar(50) CHARACTER SET utf8 NOT NULL,
   `documentFile` varchar(255) NOT NULL,
-  `classId` int(11) NOT NULL
+  `classId` int(11) NOT NULL,
+  `statusDocuments` bit(1) NOT NULL DEFAULT b'0',
+  `documentTime` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `documents`
 --
 
-INSERT INTO `documents` (`documentId`, `documentName`, `documentFile`, `classId`) VALUES
-(1, 'bai1', 'doc_1.pdf', 4),
-(2, 'bai2', 'doc_2.pdf', 4),
-(3, 'bai3', 'doc_3', 4),
-(4, 'bai4', 'doc_4', 4),
-(6, 'Fish', 'doc_2.pdf', 1),
-(7, 'Bài tập về nhà haha', '1666603417-ADF1.pdf', 1),
-(8, 'Giáo trình java', '1666603603-ADF1.pdf', 1);
+INSERT INTO `documents` (`documentId`, `documentName`, `documentFile`, `classId`, `statusDocuments`, `documentTime`) VALUES
+(1, 'bai1', 'doc_1.pdf', 4, b'0', '2022-10-27'),
+(2, 'bai2', 'doc_2.pdf', 4, b'0', '2022-10-27'),
+(3, 'bai3', 'doc_3', 4, b'0', '2022-10-27'),
+(4, 'bai4', 'doc_4', 4, b'0', '2022-10-27'),
+(6, 'Fish', 'doc_2.pdf', 1, b'0', '2022-10-27'),
+(7, 'Bài tập về nhà haha', '1666603417-ADF1.pdf', 1, b'0', '2022-10-27'),
+(8, 'Giáo trình java', '1666603603-ADF1.pdf', 1, b'0', '2022-10-27'),
+(9, 'phúc', '1666797191-ADF1.pdf', 1, b'0', '2022-10-27');
 
 -- --------------------------------------------------------
 
@@ -175,11 +190,13 @@ INSERT INTO `exercise` (`ExerciseId`, `ExerciseName`, `ExerciseFile`, `classId`,
 (1, 'Home_work_1', 'doc_1.pdf', 4, '2022-10-16 00:00:00', '2022-10-17 00:00:00', b'1', 'practice'),
 (2, 'Home_work_2', 'doc_2.pdf', 4, '2022-10-15 00:00:00', '2022-10-18 00:00:00', b'1', 'practice'),
 (3, 'Home_work_1', 'doc_3.pdf', 4, '2022-10-16 00:00:00', '2022-10-19 00:00:00', b'1', 'practice'),
-(38, 'Bài tập về nhà', '1666607743-ADF1.pdf', 1, '2022-10-24 17:35:00', '2022-10-24 18:35:00', b'0', 'practice'),
+(38, 'Bài tập', '1666607743-ADF1.pdf', 1, '2022-10-24 17:35:00', '2022-10-24 18:35:00', b'0', 'practice'),
 (39, 'Giáo trình java', '1666607843-ADF1.pdf', 1, '2022-10-24 17:37:00', '2022-10-24 18:37:00', b'0', 'mid'),
 (40, 'Bài tập về nhà', '1666672044-giáo-trình-xstk.pdf', 8, '2022-10-25 11:27:00', '2022-10-25 00:27:00', b'0', 'practice'),
 (41, 'Bài tập về nhà', '1666679750-ADF1.pdf', 1, '2022-10-25 13:35:00', '2022-10-25 14:35:00', b'0', 'practice'),
-(42, 'Bài tập về nhà', '1666679815-giáo-trình-xstk.pdf', 1, '2022-10-25 13:36:00', '2022-10-25 14:36:00', b'0', 'practice');
+(42, 'Bài tập về nhà', '1666679815-giáo-trình-xstk.pdf', 1, '2022-10-25 13:36:00', '2022-10-25 14:36:00', b'0', 'practice'),
+(43, 'Bài tập về nhà moahaha', '1666752314-Signed.Signed.4.-CV-chinh-thuc-TKB-gui-SV.pdf', 1, '2022-10-26 09:44:00', '2022-10-26 10:44:00', b'0', 'mid'),
+(44, 'Bài tập về nhà abc', '1666786159-ADF1.pdf', 1, '2022-10-26 19:09:00', '2022-10-26 20:09:00', b'0', 'final');
 
 -- --------------------------------------------------------
 
@@ -190,6 +207,8 @@ INSERT INTO `exercise` (`ExerciseId`, `ExerciseName`, `ExerciseFile`, `classId`,
 CREATE TABLE `exercisedetails` (
   `exerciseId` int(11) NOT NULL,
   `studentId` int(11) NOT NULL,
+  `day` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` bit(1) NOT NULL DEFAULT b'0',
   `fileUpload` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -197,9 +216,11 @@ CREATE TABLE `exercisedetails` (
 -- Dumping data for table `exercisedetails`
 --
 
-INSERT INTO `exercisedetails` (`exerciseId`, `studentId`, `fileUpload`) VALUES
-(1, 1, '1665940715-Uniqlo.docx'),
-(38, 1, 'doc_1.pdf');
+INSERT INTO `exercisedetails` (`exerciseId`, `studentId`, `day`, `status`, `fileUpload`) VALUES
+(1, 1, '2022-10-26 09:44:18', b'0', '1665940715-Uniqlo.docx'),
+(38, 1, '2022-10-26 09:44:18', b'1', 'doc_1.pdf'),
+(43, 1, '2022-10-26 09:51:15', b'1', '1666755162-ADF1.pdf'),
+(44, 1, '2022-10-26 19:13:02', b'1', '1666786382-GT2-tổng-hợp.pdf');
 
 -- --------------------------------------------------------
 
@@ -324,20 +345,21 @@ CREATE TABLE `results` (
   `averageMark` float DEFAULT 0,
   `componentMark` float DEFAULT 0,
   `midMark` float DEFAULT 0,
-  `finalMark` float DEFAULT 0
+  `finalMark` float DEFAULT 0,
+  `status` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `results`
 --
 
-INSERT INTO `results` (`resultId`, `studentId`, `classId`, `averageMark`, `componentMark`, `midMark`, `finalMark`) VALUES
-(1, 1, 1, 0, 0, 0, 0),
-(2, 4, 1, 0, 0, 0, 0),
-(3, 3, 2, 0, 0, 0, 0),
-(4, 6, 2, 0, 0, 0, 0),
-(5, 2, 3, 0, 0, 0, 0),
-(6, 1, 3, 0, 0, 0, 0);
+INSERT INTO `results` (`resultId`, `studentId`, `classId`, `averageMark`, `componentMark`, `midMark`, `finalMark`, `status`) VALUES
+(1, 1, 1, 6.65, 2.25, 4, 10, b'0'),
+(2, 4, 1, 0, 0, 0, 0, b'0'),
+(3, 3, 2, 0, 0, 0, 0, b'0'),
+(4, 6, 2, 0, 0, 0, 0, b'0'),
+(5, 2, 3, 0, 0, 0, 0, b'0'),
+(6, 1, 3, 0, 0, 0, 0, b'0');
 
 -- --------------------------------------------------------
 
@@ -445,7 +467,8 @@ INSERT INTO `timetable` (`timetableId`, `classId`, `startLesson`, `endLesson`, `
 (1, 1, '07:00:00', '09:00:00', 'Thứ 2'),
 (2, 2, '08:00:00', '09:00:00', 'Thứ 3'),
 (3, 3, '09:00:00', '13:00:00', 'Thứ 4'),
-(4, 1, '15:00:00', '17:00:00', 'Chủ nhật');
+(4, 1, '15:00:00', '17:00:00', 'Chủ nhật'),
+(5, 8, '05:00:00', '19:00:00', 'Thứ 2');
 
 --
 -- Indexes for dumped tables
@@ -554,7 +577,7 @@ ALTER TABLE `timetable`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `AssignmentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `AssignmentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -572,13 +595,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `documentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `documentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `exercise`
 --
 ALTER TABLE `exercise`
-  MODIFY `ExerciseId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `ExerciseId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -620,7 +643,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `timetable`
 --
 ALTER TABLE `timetable`
-  MODIFY `timetableId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `timetableId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

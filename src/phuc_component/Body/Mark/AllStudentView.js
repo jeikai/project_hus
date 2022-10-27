@@ -22,6 +22,7 @@ export default function AllStudentView() {
                 <tr>
                     <th>Họ và tên</th>
                     <th>Thời gian nộp</th>
+                    <th>Trạng thái</th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@ export default function AllStudentView() {
                     <tr key={index}>
                         <td>{item.studentName}</td>
                         <td>{item.day}</td>
+                        <td>{item[3] === 0 ? "Chưa chấm" : "Đã chấm"}</td>
                         <td><Link className='edit' to={`/markView/${item.studentId}/${item.exerciseId}/${classId}`}>View</Link></td>
                     </tr>
                 )

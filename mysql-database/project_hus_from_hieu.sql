@@ -232,6 +232,7 @@ INSERT INTO `exercise` (`ExerciseId`, `ExerciseName`, `ExerciseFile`, `classId`,
 CREATE TABLE `exercisedetails` (
   `exerciseId` int(11) NOT NULL,
   `studentId` int(11) NOT NULL,
+  `status` bit(1) NOT NULL DEFAULT b'0',
   `fileUpload` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

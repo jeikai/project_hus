@@ -27,21 +27,25 @@
             echo $point;
             $averageMark = $path[7];
             echo $averageMark;
+            $exerciseId = $path[8];
             if ( $type == "practice") {
                 $previous += $point/4;
                 $averageMark += ($point/4) * ( 20/100);
-                $sql = "UPDATE results SET componentMark = ?, averageMark = ? WHERE classId = ? AND studentId = ?;";
+                $sql = "UPDATE results SET componentMark = ?, averageMark = ? WHERE classId = ? AND studentId = ?;
+                UPDATE exercisedetails SET status = ? WHERE studentId = ? AND exerciseId = ?";
             } else if ( $type == "mid") {
                 $previous += $point/2;
                 $averageMark += ($point/2) * ( 30/100);
-                $sql = "UPDATE results SET midMark = ?, averageMark = ? WHERE classId = ? AND studentId = ?;";
+                $sql = "UPDATE results SET midMark = ?, averageMark = ? WHERE classId = ? AND studentId = ?;
+                UPDATE exercisedetails SET status = ? WHERE studentId = ? AND exerciseId = ?";
             } else if ( $type == "final") {
                 $previous = $point;
                 $averageMark += $point * ( 50/100);
-                $sql = "UPDATE results SET finalMark = ?, averageMark = ? WHERE classId = ? AND studentId = ?;";
+                $sql = "UPDATE results SET finalMark = ?, averageMark = ? WHERE classId = ? AND studentId = ?;
+                UPDATE exercisedetails SET status = ? WHERE studentId = ? AND exerciseId = ?";
             }
             $statement = $connection->prepare($sql);
-            $statement->execute([$previous, $averageMark, $classId, $studentId]);
+            $statement->execute([$previous, $averageMark, $classId, $studentId, 1, $studentId, $exerciseId]);
             $result = $statement->fetchAll();
             break;
     }

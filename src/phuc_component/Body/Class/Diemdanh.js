@@ -55,7 +55,9 @@ export default function Diemdanh() {
             
             <thead>
                 <tr>
+                    <th>ID học viên</th>
                     <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
                     <th colSpan={2}></th>
                 </tr>
             </thead>
@@ -65,6 +67,7 @@ export default function Diemdanh() {
                     return(
                         <tr key={index}>
                             <td>{sv.studentName}</td>
+                            <td>{sv.birthDate}</td>
                             <td>
                             <div className="form-check">
                                 <input required value='1' className="form-check-input" type="radio" name={sv.studentId} id="flexRadioDefault1" onClick={handleChange} />
