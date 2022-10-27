@@ -41,7 +41,7 @@ export default function MarkView() {
     const handleSubmit = async(event) => {
         event.preventDefault();
         
-        await axios.post(`http://localhost:8000/database/handleMarkView.php/${studentId}/${AllMarkView[0].typeExercise}/${type}/${AllMarkView[0].classId}/${AllMarkView[0].averageMark}`, 
+        await axios.post(`http://localhost:8000/database/handleMarkView.php/${studentId}/${AllMarkView[0].typeExercise}/${type}/${AllMarkView[0].classId}/${AllMarkView[0].averageMark}/${exerciseId}`, 
             inputs, {
                 headers: {
                 'Content-Type': 'multipart/form-data'
