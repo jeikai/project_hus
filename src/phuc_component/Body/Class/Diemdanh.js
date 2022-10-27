@@ -7,7 +7,7 @@ export default function Diemdanh() {
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
-    const [AllStudent, setAllStudent] = useState([]);    
+    const [AllStudent, setAllStudent] = useState([]);       
     const [diemdanh, setDiemdanh] = useState([{}]);
     useEffect(() => {
             axios.get(`http://localhost:8000/database/handleDiemdanh.php/${id}`,)
@@ -42,7 +42,9 @@ export default function Diemdanh() {
             
             <thead>
                 <tr>
+                    <th>ID học viên</th>
                     <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
                     <th colSpan={2}></th>
                 </tr>
             </thead>
@@ -50,7 +52,9 @@ export default function Diemdanh() {
                 {AllStudent.map((sv, index) =>{
                     return(
                         <tr>
+                            <td>{sv.studentId}</td>
                             <td>{sv.studentName}</td>
+                            <td>{sv.birthDate}</td>
                             <td>
                             <div class="form-check">
                                 <input value='co' class="form-check-input" type="radio" name={sv.studentId} id="flexRadioDefault1" onClick={handleChange} />
