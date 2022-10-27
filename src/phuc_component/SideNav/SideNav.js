@@ -55,13 +55,13 @@ class TeacherSideNav extends React.Component {
                         </li>
                         <li>
                             <NavLink to={'/classMark'} end>
-                                <i class='bx bxs-edit-alt'></i>
+                                <i className='bx bxs-edit-alt'></i>
                                 <span className="links_name">Chấm điểm bài tập</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to={'/rank'} end>
-                                <i class='bx bx-table'></i>
+                                <i className='bx bx-table'></i>
                                 <span className="links_name">Điểm thành phần</span>
                             </NavLink>
                         </li>

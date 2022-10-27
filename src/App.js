@@ -30,6 +30,7 @@ import Admin_Users from './hieuto-admin/views/Body/Users/Users';
 import User from './component/userdetail/User';
 //import from teacher
 import Diemdanh from './phuc_component/Body/Class/Diemdanh';
+import ChiTietDiemDanh from './phuc_component/Body/Class/ChiTietDiemDanh';
 import ClassResult from './phuc_component/Body/Mark/ClassResult';
 import ExerciseView from './phuc_component/Body/Mark/ExerciseView';
 import AllStudentView from './phuc_component/Body/Mark/AllStudentView';
@@ -102,6 +103,7 @@ function App() {
                     <Route exact path='/' element={<TeacherMain />}/>
                     <Route path='/class' element={<TeacherClass />} />
                     <Route path='/class/:id' element={<Diemdanh />} />
+                    <Route path='/class/diemDanhChiTiet/:id' element={<ChiTietDiemDanh />} />
                     <Route path='/btvn' element={<TeacherHomework />} />
                     <Route path='/btvn/btvn/:id' element={<TeacherHomeworkEdit />} />
                     <Route path='/timetable' element={<TeacherTimetable />} />
