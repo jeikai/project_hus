@@ -84,7 +84,7 @@ class Users extends React.Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {users && isString === false && users.map((user, index) =>{
+                                        {users && isString === false && users.filter(item => item.Email !== 'rabiloo1@gmail.com').map((user, index) =>{
                                             return(
                                                 <tr key={user.Id}>
                                                     

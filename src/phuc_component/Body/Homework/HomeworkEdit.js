@@ -35,6 +35,7 @@ export default function HomeworkEdit() {
     const click = (event) => {
         console.log(inputs);
             alert("Sửa thành công");
+            window.location.reload();
     }
     return (      
         <>

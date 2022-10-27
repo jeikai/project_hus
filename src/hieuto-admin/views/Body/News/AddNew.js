@@ -116,7 +116,7 @@ class AddNew extends React.Component {
                                             
                                             <Editor
                                                 
-                                                editorStyle={{ border: "0.5px solid  #C0C0C0", height: "280px", overflowY: "auto", resize: "vertical"}}
+                                                editorStyle={{border: "0.5px solid  #C0C0C0", height: "280px", overflowY: "auto", resize: "vertical"}}
                                                 editorState={editorState}
                                                 toolbarClassName="toolbarClassName"
                                                 wrapperClassName="wrapperClassName"

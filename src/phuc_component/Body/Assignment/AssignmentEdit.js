@@ -37,6 +37,7 @@ export default function AssignmentEdit() {
     const click = (event) => {
         if (  inputs.title  && inputs.content ) {
             alert("Sửa thành công");
+            window.location.reload();
         }
     }
     return (

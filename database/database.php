@@ -30,7 +30,4 @@
         $connection->query("USE ".DB_NAME);
     } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
-    }    
-
-    
-?>
+    }

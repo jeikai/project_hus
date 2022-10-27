@@ -36,6 +36,7 @@ function DocumentEdit() {
     const click = (event) => {
         if ( inputs.documentName  ) {
             alert("Sửa thành công");
+            window.location.reload();
         }
     }
     return (

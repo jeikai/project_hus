@@ -14,7 +14,9 @@ class TeacherSideNav extends React.Component {
                 <div className={this.props.myActive ? 'sidebar active1' : 'sidebar'}>
                     <div className="logo_content" >
                         <div className="logo">
+                        <NavLink to={'/'} end>
                             <img src="https://rabiloo.com/images/logo-menu-white.svg" alt="..."/>
+                        </NavLink>
                         </div>
                         <i className='bx bx-menu' 
                          onClick={ () => this.props.updateActive(!this.props.myActive)}></i>
@@ -53,8 +55,14 @@ class TeacherSideNav extends React.Component {
                         </li>
                         <li>
                             <NavLink to={'/classMark'} end>
-                                <i class='bx bxs-edit-alt'></i>
-                                <span className="links_name">Chấm điểm</span>
+                                <i className='bx bxs-edit-alt'></i>
+                                <span className="links_name">Chấm điểm bài tập</span>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/rank'} end>
+                                <i className='bx bx-table'></i>
+                                <span className="links_name">Điểm thành phần</span>
                             </NavLink>
                         </li>
                     </ul>

@@ -71,7 +71,7 @@ class Classes extends React.Component {
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Image</th>
-                                            <th>Add To Class</th>
+                                            <th style={{width: "140px"}}>Add Detail Class</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
