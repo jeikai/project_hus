@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
+import {toast} from 'react-toastify';
 import axios from 'axios';
 export default function Diemdanh() {
     const id = useParams().id;
+    const navigate = useNavigate();
     let date = new Date();
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     const [AllStudent, setAllStudent] = useState([]);    
-    const [diemdanh, setDiemdanh] = useState([{}]);
+    const [diemdanh, setDiemdanh] = useState({["classId"]: id});
     useEffect(() => {
             axios.get(`http://localhost:8000/database/handleDiemdanh.php/${id}`,)
                  .then(function(response){
@@ -20,24 +22,35 @@ export default function Diemdanh() {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setDiemdanh(values => ({...values, [`name`]: value + " " + name  }))
+        setDiemdanh(values => ({...values, [name]: value }))
         console.log(diemdanh);
     }
-    // const handleSubmit = async(event) => {
-    //     event.preventDefault();
-    //     await axios.post('http://localhost:8000/database/handleDocument.php', 
-    //         inputs, {
-    //             headers: {
-    //             'Content-Type': 'multipart/form-data'
-    //             }
-    //         }
-    //     );
-    // }
+    const handleSubmit = async(event) => {
+        event.preventDefault();
+        let idToast = toast.loading("Please wait!");
+        let response =  await axios.post('http://localhost:8000/database/data/handleDiemDanh.php', 
+        diemdanh, {
+            
+                headers: {
+                'Content-Type': 'multipart/form-data'
+                }
+            }
+        );
+        if(response.data.status === 1) {
+            toast.update(idToast, {render: response.data.message, type: "success", isLoading: false,autoClose: true, closeButton: true});
+            navigate(`/class/diemDanhChiTiet/${id}`);
+        }else{
+            toast.update(idToast, {render: "Something went wrong!!!", type: "error", isLoading: false, autoClose: true, closeButton: true});
+
+        }
+    }
     return (
         <>
         <div className="body_teacher m-5 ms-5">
         <h1 className="float-start">Bảng điểm danh ngày {day + " - " + month + " - " + year}</h1>
-        <button type="button" className=" float-end btn btn-primary" >Save</button>
+        <form onSubmit={(e)=>{handleSubmit(e)}}>
+        <button type="submit" className=" float-end btn btn-primary" >Save</button>
+        <button type="button" onClick={()=>{navigate(`/class/diemDanhChiTiet/${id}`)}} className=" float-end btn btn-primary mx-3" >Detail</button>
         <table>
             
             <thead>
@@ -48,21 +61,22 @@ export default function Diemdanh() {
             </thead>
             <tbody>
                 {AllStudent.map((sv, index) =>{
+                    
                     return(
-                        <tr>
+                        <tr key={index}>
                             <td>{sv.studentName}</td>
                             <td>
-                            <div class="form-check">
-                                <input value='co' class="form-check-input" type="radio" name={sv.studentId} id="flexRadioDefault1" onClick={handleChange} />
-                                <label class="form-check-label" for="flexRadioDefault1">
+                            <div className="form-check">
+                                <input required value='1' className="form-check-input" type="radio" name={sv.studentId} id="flexRadioDefault1" onClick={handleChange} />
+                                <label className="form-check-label" htmlFor="flexRadioDefault1">
                                     Có
                                 </label>
                             </div>
                             </td>
                             <td>
-                            <div class="form-check">
-                                <input value='khong' class="form-check-input" type="radio" name={sv.studentId} id="flexRadioDefault1" onClick={handleChange} />
-                                <label class="form-check-label" for="flexRadioDefault1">
+                            <div className="form-check">
+                                <input required value='0' className="form-check-input" type="radio" name={sv.studentId} id="flexRadioDefault1" onClick={handleChange} />
+                                <label className="form-check-label" htmlFor="flexRadioDefault1">
                                     Không
                                 </label>
                             </div>
@@ -72,6 +86,7 @@ export default function Diemdanh() {
                 })}
             </tbody>
         </table>
+        </form>
         </div>
         </>
     )
